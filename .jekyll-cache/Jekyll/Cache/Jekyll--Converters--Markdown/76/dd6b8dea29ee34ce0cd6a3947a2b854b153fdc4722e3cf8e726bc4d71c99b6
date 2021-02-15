@@ -1,0 +1,2 @@
+I"]<p>If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.</p>
+:ET

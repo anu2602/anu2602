@@ -1,0 +1,127 @@
+I"><figure>
+<img src="two.jpg" alt="JupyterLab and JupyterHub" /> 
+<figcaption style="color: grey !important;"> 
+	Photo by <a href="https://unsplash.com/@priscilladupreez" style="color: grey !important;" target="_blank">Priscilla Du Preez
+</a> 
+</figcaption>
+</figure>
+
+<p>So <a href="https://airflow.apache.org/blog/airflow-two-point-oh-is-here/" target="_blank">Airflow 2.0</a> is finally out, this was probably most anticipated release of Airflow mainly due to major refactoring around scheduler.</p>
+
+<blockquote>
+  <p>This is a major release. Since Airflow follows strict Semantic Versioning approach to release process, this implies major release such as 2.0, 3.0 will have backwards-incompatible changes. So this relase won’t be simple upgrade, it  will require  some planning, changes to your DAGs and comprehensive testing.</p>
+</blockquote>
+
+<h3 id="should-i-care-to-update">Should I care to update?</h3>
+<p>As expected and planned Airflow 2.0 has many other big ticket changes many of them are major code refactoring. Moreover Airflow Team is encouraging users to upgrade by suggesting 1.x release will be supported only for a limited period of time and and only “Critical Fixes” will be backported to 1.10.x. But featurs not fear should be your guide to upgarde. Let’s have a quick look at new features in 2.0</p>
+
+<h5 id="scheduler-overhaul">Scheduler Overhaul:</h5>
+<p>Airflow Scheduler was bottleneck for scalability and worryingly the only ‘single point of failure’ in airflow architecture. It was neither horizontally scalable nor highly avilable. Scheduler hacks and bugs in my opinion were most hated and dreaded in airflow community. The refactoring of scheduler was <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=103092651" target="_blank">long due</a>.  With Airflow 2.0 not only many scheduler bugs have been fixed and it has been made highly available, but also the performance of single scheduler has been increased manifold. You can run multiple scheduler in active-active HA model, which is huge from performance and scalability perspective.</p>
+
+<h5 id="stateless-webserver">Stateless Webserver:</h5>
+<p>Airflow 2.0 mandates stateless webserver. In Airflow 1.x both Webservers and Scheduler parse and proces the DAGs. Webserver Gunicorn process each maintain it’s own DAG Bag, which can lead to inconsistant state. Webserver requiring to parse DAG files not only causes performance problems but also a deployment headaches as you are required to keep code in sync on multiple webserver nodes. With implementation of <a href="https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-24+DAG+Persistence+in+DB+using+JSON+for+Airflow+Webserver+and+%28optional%29+Scheduler" target="_blank">AIP-24</a> DAG Serialization has been mandated, which mean Schedulers will parse the DAGs and searialize them in metadata database, webservers will load the DAG medatadata from the metadata DB.</p>
+
+<h5 id="task-groups">Task Groups:</h5>
+<p>Prior to Airflow 2.0 SubDAGs were commonly used for grouping tasks in the UI, using SubDagOperator. However  SubDagOperator launches a completely different DAG and then monitors it as a separate entity. This can lead to all sorts of edge case, bugs and maintenance nightmares. With implementation of <a href="https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-34+TaskGroup%3A+A+UI+task+grouping+concept+as+an+alternative+to+SubDagOperator" target="_blank">AIP-34</a>, Airflow 2.0 introduces Task Groups as a method for organizing tasks which provides the same grouping behaviour as a subdag without any of the execution-time drawbacks. Here is an example of Task group</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python">	<span class="k">with</span> <span class="n">TaskGroup</span><span class="p">(</span><span class="s">"my_task_group"</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_task_group</span><span class="p">:</span>
+	    <span class="n">task1</span> <span class="o">=</span> <span class="n">DummyOperator</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s">"my_task_1"</span><span class="p">)</span>
+	    <span class="n">task2</span> <span class="o">=</span> <span class="n">DummyOperator</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s">"my_task_2"</span><span class="p">)</span>
+
+	<span class="n">other_task</span> <span class="o">=</span> <span class="n">DummyOperator</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s">"other_task"</span><span class="p">)</span>
+	<span class="n">my_task_group</span> <span class="o">&gt;&gt;</span> <span class="n">other_task</span>
+	</code></pre></figure>
+
+<h5 id="smart-sensors">Smart Sensors:</h5>
+<p>Most of the data pipelines make heavy use of sensors; sensors execution takes up a significant proportion of Airflow cluster even with “reschedule” mode. To improve this <a href="https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-17%3A+Consolidate+and+de-duplicate+sensor+tasks+in+airflow+Smart+Sensor" target="_blank">AIP-17</a> is implemented to add a new mode in Airflow called “Smart Sensors”. The smart sensor is a service (run by a builtin DAG) which greatly reduces airflow’s infrastructure cost by consolidating some of the airflow long running light weight tasks. Instead of using one process for each task, the main idea of the smart sensor service is to improve the efficiency of these long running tasks by using centralized processes to execute those tasks in batches. The smart sensor service is supported in a new mode called “smart sensor mode”.</p>
+
+<p><img src="smart_sensor.png" alt="Smart Sensors" title="Smart Sensors" /></p>
+
+<h5 id="task-flow-api">Task Flow API:</h5>
+<p>With implemenation of <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=148638736" target="_blank">AIP-31</a> DAGs are now much much nicer to code especially when using PythonOperator. This functional API will make DAGs writing significantly easier by abstracting the task and dependency management layer from users. Also to be noted <code class="language-plaintext highlighter-rouge">xcom_backend</code> parameter that will allow users to pass even various objects such as S3 and HDFS. Below is a quick sample, refer to <a href="https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#taskflow-api" target="_blank">airflow documentation</a> for more details.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"> 
+	<span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+	<span class="kn">from</span> <span class="nn">airflow.utils.dates</span> <span class="kn">import</span> <span class="n">days_ago</span>
+
+	<span class="o">@</span><span class="n">dag</span><span class="p">(</span><span class="n">default_args</span><span class="o">=</span><span class="p">{</span><span class="s">'owner'</span><span class="p">:</span> <span class="s">'anuradha'</span><span class="p">},</span> <span class="n">schedule_interval</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">days_ago</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+	<span class="k">def</span> <span class="nf">test_etl</span><span class="p">():</span>
+	   <span class="o">@</span><span class="n">task</span>
+	   <span class="k">def</span> <span class="nf">test_extract</span><span class="p">():</span>
+	       <span class="k">return</span> <span class="p">{</span><span class="s">"count"</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span> <span class="s">"frequency"</span><span class="p">:</span> <span class="mi">161</span><span class="p">,</span> <span class="s">"age"</span><span class="p">:</span> <span class="mi">99</span><span class="p">}</span>
+
+	   <span class="o">@</span><span class="n">task</span>
+	   <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+	       <span class="k">return</span> <span class="p">{</span><span class="s">"transformed_value"</span><span class="p">:</span> <span class="mf">1.618</span><span class="p">}</span>
+
+	   <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+	   <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">ratio</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+	       <span class="k">print</span><span class="p">(</span><span class="s">"Golden Ratio is {ratio:.2f}"</span><span class="p">)</span>
+
+	   <span class="n">e</span> <span class="o">=</span> <span class="n">extract</span><span class="p">()</span>
+	   <span class="n">t</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">order_data</span><span class="p">)</span>
+	   <span class="n">load</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">transformed_value</span><span class="p">])</span>
+
+	<span class="n">my_etl_dag</span> <span class="o">=</span> <span class="n">test_etl</span><span class="p">()</span>
+
+	</code></pre></figure>
+
+<h5 id="simplified-kubernetes-executor">Simplified Kubernetes Executor</h5>
+<p>Airflow 2.0  includes re-architecture of the Kubernetes Executor and KubernetesPodOperator. You will now be able to access the full Kubernetes API to create a .yaml <a href="https://airflow.apache.org/docs/apache-airflow/stable/executor/kubernetes.html?highlight=pod_override#pod-template-file" target="_blank">pod_template_file</a> instead of specifying parameters in their airflow.cfg.</p>
+
+<h5 id="fully-specified-rest-api">Fully specified REST API</h5>
+<p>Airflow now has a fully supported (no-longer-experimental, YaY!) API with a comprehensive OpenAPI specification.
+You can find more details about API <a href="http://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html" target="_blank">here</a>.</p>
+
+<h5 id="uiux-improvements">UI/UX Improvements</h5>
+<p>Airflow release notes claimed that UI has been given a visual refresh and updated some of the styling. Only refreshing feature I find in this UI refresh is “Auto Refresh”, pun intended.</p>
+
+<p><img src="refresh.gif" alt="UI Refresh" title="UI Refresh" /></p>
+
+<h3 id="what-is-breaking">What is breaking?</h3>
+
+<p>As mentioned ealier, this release has breaking changes, here is list (not comprehensive) of backwards-incompatible changes.</p>
+
+<ul>
+  <li>No support for Python 2, Airflow 2 works only with Python 3. Airflow 2.0.0 requires Python 3.6+ and has been tested with Python versions 3.6, 3.7 and 3.8, but does not yet support Python 3.9.</li>
+  <li>FAB UI no longer supported, weather you like it or not you will have to use RBAC UI. If you are using custom Airflow Plugins and were passing admin_views &amp; menu_links which were used in the non-RBAC UI (flask-admin based UI), you will have to update it to use flask_appbuilder_views and flask_appbuilder_menu_links.</li>
+  <li>Airflow 2.0 is not a monolithic “one to rule them all” package. Airflow has been split into core and 61 (for now) provider packages. Each provider package is for either a particular external service e.g PostgreSQL, MySQL, HTTP, FTP etc. You will have to not only install the pacakges but also update your DAGs to refer to correct provider package.</li>
+  <li>CLI options have been re-organized so that related commands are grouped together. If you have support team, processes and documentation, it will need updating.</li>
+  <li>Connection type list in the Airflow UI is based on the providers you have installed with Airflow 2.0. So again make sure to install provider package, even if you were only using it to define a connection type.</li>
+  <li>Jinja templete would break with use of ndefined variables instead of silently ignoring. You can override this behavior, but requires changes.</li>
+  <li>Airflow metadata upgrade is not trivial to rollback, if you had to rollback.</li>
+  <li>MariaDB and MySQL5 are not supported due to HA Scheduler requiring support for SKIP LOCKED or NOWAIT SQL clauses.</li>
+</ul>
+
+<h3 id="how-difficult-is-it-to-upgrade">How difficult is it to upgrade?</h3>
+
+<p>I would say fairly complex, it would need planning if you are runnig a serious production data pipelines with Airflow. You get an idea of the complexity by lookig at <a href="https://airflow.apache.org/docs/apache-airflow/stable/upgrading-to-2.html#frequently-asked-questions-on-upgrade" target="_blank">Airflow 2.0 Upgrade Guide</a>.</p>
+
+<p>The upgrade itself is a  mulit-step process, you first need to upgrade to bridge release (1.10.14), Modify all your DAGs to ensure compatibility, update configuration settings, migrate metadata DB and upgrade Airflow to 2.0.</p>
+
+<blockquote>
+  <p>Many users have reported issues on upgrade specially around metadata migration and providers. Many users have reported issues during upgrade and many have reported issues after upgrade. I would recommend doing a through planning and testing in non-production environment before upgrading production.</p>
+</blockquote>
+
+<h3 id="should-i-upgrade">Should I Upgrade?</h3>
+<p>Short answer is <strong>Yes</strong>, but it is more complex than that. If you have pressing priorities on your data delivery, you shold handle them first. Aifrlow 2.0 will not produce any new magical results for you.</p>
+
+<p>If you are starting now or in initial stages of buidling your data pipelines with Airflow, I would highly recommend that you start using Airflow 2.0 now.</p>
+
+<p>Airflow documentation clearly says:  <em>“Airflow 1.10.x release tree will be supported for a limited time after the GA release of Airflow 2.0 to give users time to upgrade from one of the Airflow 1.10.x releases. Specifically, only “critical fixes” defined as fixes to bugs that take down Production systems, will be backported to 1.10.x core for six months after Airflow 2.0.0 is released.”</em></p>
+
+<p>So you should start preparing/planning for upgrade as soon as possible. Plan for upgrade to take advantage of new features not just for sake of it. I would personally wait for release 2.1 for actual upgrade but start to plan for the upgrade today.</p>
+
+<h1 id="reference">Reference</h1>
+<ul>
+  <li><a href="https://airflow.apache.org/blog/airflow-two-point-oh-is-here/" target="_blank">Airflow 2.0 Release Announcement</a></li>
+  <li><a href="https://github.com/apache/airflow/releases/tag/2.0.0" target="_blank">Airflow 2.0 Release tag on Github</a></li>
+  <li><a href="https://github.com/apache/airflow/issues/10152" target="_blank">Airflow 2.0 Release Ticket</a></li>
+  <li><a href="https://cwiki.apache.org/confluence/display/AIRFLOW/Airflow+2.0+-+Planning" target="_blank">Airflow 2.0 Rlease Planning Confluence Page</a></li>
+  <li><a href="https://airflow.apache.org/docs/apache-airflow/stable/tutorial_taskflow_api.html" target="_blank">TaskFlow API documentation</a></li>
+  <li><a href="https://airflow.apache.org/docs/apache-airflow/2.0.0/scheduler.html" target="_blank">Scheduler documentation</a></li>
+  <li><a href="https://airflow.apache.org/docs/apache-airflow/stable/concepts.html" target="_blank">Airflow 2.0 Concepts</a></li>
+  <li><a href="https://www.astronomer.io/blog/airflow-2-scheduler" target="_blank">Airflow 2.0 Rlease Announcement on Astronomer</a></li>
+</ul>
+
+:ET

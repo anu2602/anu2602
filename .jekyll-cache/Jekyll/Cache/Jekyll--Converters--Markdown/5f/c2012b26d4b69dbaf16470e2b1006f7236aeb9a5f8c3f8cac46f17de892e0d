@@ -1,0 +1,20 @@
+I"{<p>Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux.</p>
+
+<p>One common way of having size limit directories is creating a virual mount point. Here are the steps to create Vitual Mount Point. Here are the steps for the same:</p>
+
+<ul>
+  <li>Create a directory for filesystem image <code class="language-plaintext highlighter-rouge">mkdir /vdisk</code></li>
+  <li>Create a filesystem on disk, my preferred way is to use <code class="language-plaintext highlighter-rouge">fallocate</code> <br />
+<code class="language-plaintext highlighter-rouge">fallocate -l 100G /vdisk/my_disk.img</code><br />
+Alternatively you can use <code class="language-plaintext highlighter-rouge">dd</code> <br />
+<code class="language-plaintext highlighter-rouge">dd if=/dev/zero of=/vdisk/my_disk.img</code></li>
+  <li>Create fileystem on the disk image, I use <code class="language-plaintext highlighter-rouge">xfs</code> but you can use ex3 or ext4. <br />
+<code class="language-plaintext highlighter-rouge">mkfs.xfs /vdisk/my_disk.img</code></li>
+  <li>Create the desired directory to mount the disk. <br />
+<code class="language-plaintext highlighter-rouge">mkdir -p /opt/data/my_disk</code></li>
+  <li>Mount the virtual disk. <br /> <code class="language-plaintext highlighter-rouge">mount -t auto -o loop /vdisk/my_disk.img /opt/data/my_disk</code> <br />
+or <br /> <code class="language-plaintext highlighter-rouge">mount -t auto -o loop,rw,usrquota,grpquota /vdisk/my_disk.img /opt/data/my_disk</code> <br />
+If you would like to set user or group quotas.</li>
+  <li>Add the mount to <code class="language-plaintext highlighter-rouge">/etc/fstab</code> to make it permanent.</li>
+</ul>
+:ET

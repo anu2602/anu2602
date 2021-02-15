@@ -1,0 +1,2 @@
+I"4<p>Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters names very unintuitive and confusing.</p>
+:ET

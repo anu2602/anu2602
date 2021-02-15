@@ -1,0 +1,116 @@
+I"D<p>Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</p>
+
+<figure>
+<img src="hub-lab.jpg" alt="JupyterLab and JupyterHub" /> 
+</figure>
+
+<h4 id="pre-requisite">Pre-requisite</h4>
+<p>You have working python setup with <code class="language-plaintext highlighter-rouge">python version &gt;= 3.6</code></p>
+
+<h4 id="install-configurable-http-proxy">Install configurable-http-proxy</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	sudo yum install rh-nodejs10
+	sudo npm install -g configurable-http-proxy
+</code></pre></div></div>
+
+<h4 id="install-jupyter-hub-and-jupyter-lab">Install Jupyter Hub and Jupyter Lab</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	pip install jupyterhub jupyterlab
+</code></pre></div></div>
+<p>or</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	conda install jupyterhub jupyterlab
+</code></pre></div></div>
+
+<h4 id="configuration-and-setup">Configuration and setup</h4>
+<p>Create a directory for you jupyter hub. Let’s assume the dir is <code class="language-plaintext highlighter-rouge">/opt/jupyter</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	mkdir /opt/jupyter
+	cd /opt/jupyter
+	export JUPYTERLAB_DIR = /opt/jupyter
+</code></pre></div></div>
+<p>I would recommed adding above variable to your <code class="language-plaintext highlighter-rouge">.bashrc</code> (if you are using bash).
+	<code class="language-plaintext highlighter-rouge">echo "export JUPYTERLAB_DIR = /opt/jupyter" &gt;&gt; ~/.bashrc</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">jupyterhub --generate-config</code> <br />
+<code class="language-plaintext highlighter-rouge">jupyter lab --generate-config</code> <br /></p>
+
+<p>This will generate <code class="language-plaintext highlighter-rouge">jupyterhub_config.py</code> and <code class="language-plaintext highlighter-rouge">jupyter_notebook_config.py</code>. I highly recommend deleteing all commented lines from the generated config file. Keeping only required lines, makes it much easier to maintain it. To delete all commented lines</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	sed -i '/^#/ d' jupyterhub_config.py
+	sed -i '/^\s*$/d' jupyterhub_config.py
+	sed -i '/^#/ d' jupyter_notebook_config.py
+	sed -i '/^\s*$/d' jupyter_notebook_config.py
+</code></pre></div></div>
+
+<p>Edit <code class="language-plaintext highlighter-rouge">jupyterhub_config.py</code> in your favorite editor and make following changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	c.Spawner.default_url = '/lab'
+	c.JupyterHub.hub_ip = '0.0.0.0'
+	c.JupyterHub.spawner_class = 'jupyterhub.spawner.SimpleLocalProcessSpawner'
+</code></pre></div></div>
+<p>Edit <code class="language-plaintext highlighter-rouge">jupyter_notebook_config.py</code> in your favorite editor and make following changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	c.NotebookApp.allow_remote_access = True
+	c.NotebookApp.ip = '0.0.0.0'
+</code></pre></div></div>
+<h4 id="adding-jupyter-kernels">Adding Jupyter Kernels</h4>
+<p>If you have existing jupyter kernels that you would like to use with your setup you need to copy them to <code class="language-plaintext highlighter-rouge">$PYTHON_HOME/share/jupyter/kernels/</code>. You can also optionally place kernal logos inside your kernal folders to make your jupyter setup look colorful. The logo files should be named  <code class="language-plaintext highlighter-rouge">logo-32x32.png</code> and <code class="language-plaintext highlighter-rouge">logo.64x64.png</code></p>
+
+<figure>
+<img src="lab-logos.png" alt="Kernel Logos in Jupyter Lab" /> 
+</figure>
+
+<h4 id="configuring-sslhttps">Configuring SSL/https</h4>
+<p>Generate a Private key and cert using your preferred method. e.g.<br />
+<code class="language-plaintext highlighter-rouge">openssl req -x509 -out my.crt -keyout my.key -newkey rsa:2048 -nodes -sha256</code></p>
+
+<p>Add following lines to <code class="language-plaintext highlighter-rouge">jupyterhub_config.py</code> <br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	c.JupyterHub.ssl_key = '/path/to/my.key'
+	c.JupyterHub.ssl_cert = '/path/to/my.cert'
+</code></pre></div></div>
+<h4 id="starting-jupyter-hub">Starting Jupyter Hub</h4>
+<p>You need to ensure that the nodejs that you installed in enabled. You can do this by doing 
+<code class="language-plaintext highlighter-rouge">scl enable node rh-nodejs10 bash</code>, but I prefer source <code class="language-plaintext highlighter-rouge">source /opt/rh/rh-nodejs10/enable</code> as it does not open a new shell inside your current one. You can also consider adding this to your <code class="language-plaintext highlighter-rouge">.bashrc</code> (if you are using bash).
+	<code class="language-plaintext highlighter-rouge">echo "source /opt/rh/rh-nodejs10/enable" &gt;&gt; ~/.bashrc</code></p>
+
+<p>to start Jupyter Hub:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	cd $JUPYTERLAB_DIR
+	nohup jpyterhub &amp;
+</code></pre></div></div>
+<h4 id="urls">URLs:</h4>
+<p>Jupyter Notebook Url: <code class="language-plaintext highlighter-rouge">http(s)://&lt;your_server&gt;:8000</code> <br />
+JupyterHub Admin Url: <code class="language-plaintext highlighter-rouge">http(s)://&lt;your_server&gt;:8000/hub/admin</code></p>
+
+<h4 id="stopping-jupyter-hub">Stopping Jupyter Hub</h4>
+<ul>
+  <li>Open Hub admin in browser <code class="language-plaintext highlighter-rouge">http(s)://&lt;your_server&gt;:8000/hub/admin</code></li>
+  <li>Click <strong>Shutdown Hub</strong> button</li>
+  <li>Check both <em>Shutdown Proxy</em> and <em>Shutdown single-user-servers</em></li>
+  <li>Click <strong>Shutdown</strong></li>
+</ul>
+
+<!--
+TODO add disable Terminal
+jupyter labextension list
+jupyter labextension uninstall terminal
+jupyter labextension disable terminal
+jupyter lab build
+vi setttings/page_config.json
+{
+	"terminalAvailable": false,
+	"disableExtensions" : [
+	 ```
+	 yum install rh-nodejs10
+	 ```"@jupyterlab/terminal",
+	 "terminal"
+	]
+}
+
+jupyter/lab/schemas/@jupyterlab/terminal-extension
+plugin.json
+consoloe-extension
+setttings/package_config.json
+-->
+
+<h3 id="references">References</h3>
+<ol>
+  <li><a href="https://jupyterhub.readthedocs.io/en/stable/" target="_blank">Jupyter Hub Documentation</a></li>
+  <li><a href="https://jupyterlab.readthedocs.io/en/stable/" target="_blank">Jupyter Lab Documentation</a></li>
+  <li><a href="https://jupyterhub.readthedocs.io/en/stable/getting-started/security-basics.html" target="_blank">Jupyter Hub Security Configuration</a></li>
+</ol>
+
+:ET
