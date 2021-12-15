@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2021-02-15T15:20:47+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is Technology Leader, programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Personal website/blog with Jekyll + Github.</title><link href="https://www.achowdhary.com/jekyll-github-pages-simplified/" rel="alternate" type="text/html" title="Personal website/blog with Jekyll + Github." /><published>2021-02-14T08:58:14+05:30</published><updated>2021-02-14T08:58:14+05:30</updated><id>https://www.achowdhary.com/jekyll-github-pages-simplified</id><content type="html" xml:base="https://www.achowdhary.com/jekyll-github-pages-simplified/">&lt;p&gt;I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;github.jpg&quot; alt=&quot;Github Website&quot; /&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;There are loads of tutorials available online on this topic, so I am not going to get into detailed steps. However we will going  discuss kye concepts, options and tips that will help you in your decisions. I have also provided references to some useful articles on this topic in the end.&lt;/p&gt;
+
+&lt;h2 id=&quot;concepts&quot;&gt;Concepts&lt;/h2&gt;
+
+&lt;h5 id=&quot;types-of-github-pages&quot;&gt;Types of Github Pages&lt;/h5&gt;
+&lt;p&gt;There are three types of &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; sites: project, user, and organization. Project sites are connected to a specific project hosted on GitHub, User and organization sites are connected to a specific GitHub account. To publish a user site, you must create a repository owned by your user account that’s named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;. To publish an organization site, you must create a repository owned by an organization that’s named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;organization&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;-special--repositories&quot;&gt;✨ Special ✨ Repositories&lt;/h5&gt;
+&lt;p&gt;Repository that maches your username is a special repository in Github. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;README.md&lt;/code&gt; in root of default branch of this repository is shown on your gihub profile. If you configure Github pages for this repository, your website will be published at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;username&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Similarly repository that maches your orgname is a special repository. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;README.md&lt;/code&gt; is shown on Oranization’s gihub profile and github pages website will be published at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;organame&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Project sites are available at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;username&amp;gt;.github.io/&amp;lt;repository&amp;gt;&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;organization&amp;gt;.github.io/&amp;lt;repository&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you are using a custom domain, you can pubish any repository to desired domain, you do not need to worry about the repository name.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;jekyll-website-directory-structure&quot;&gt;Jekyll Website Directory Structure&lt;/h5&gt;
+&lt;p&gt;Before you start, please make sure you are familier with &lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot; target=&quot;_blank&quot;&gt;Jekyll direcotry structure&lt;/a&gt; and &lt;a href=&quot;https://www.markdownguide.org/tools/jekyll/&quot; target=&quot;_blank&quot;&gt;Markdown syntax&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;public-vs-private-repo&quot;&gt;Public vs Private Repo&lt;/h5&gt;
+&lt;p&gt;If you would like to publish pages from a private repo, you can not do it in a free plan. You need a pro account to publish pages from private repository.&lt;/p&gt;
+
+&lt;h2 id=&quot;create-simple-website-using-gihub-themes&quot;&gt;Create Simple website using Gihub themes&lt;/h2&gt;
+&lt;p&gt;You can publish a simple jekyll website in less than an hour just by using Github UI. You won’t even need to install Jekyll or Ruby. Here are steps to create a website and add posts on website with a Github provided theme.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Click on settings of your repository.&lt;/li&gt;
+  &lt;li&gt;Scroll down to Github Pages section of settings.&lt;/li&gt;
+  &lt;li&gt;Click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Select a Theme&lt;/code&gt; button.&lt;/li&gt;
+  &lt;li&gt;Select a Theme&lt;/li&gt;
+  &lt;li&gt;Write content in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.md&lt;/code&gt; file, when prompted.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Your website with gihub provided theme is now ready. The webiste is published from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch of your repository. If you look at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch, you will find two files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yaml&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.md&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To add a new post create a folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; and  create a new file called YYYY-MM-DD-NAME-OF-POST.md, replacing YYYY-MM-DD with the date of your post and NAME-OF-POST with the name of your post. Your post is now availabel on your website, the new post will be located at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://&amp;lt;username&amp;gt;.github.io/YYYY/MM/DD/NAME-OF-POST.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want to add a new page, create a new file for your page called &lt;PAGE-NAME&gt;.md. You need to add special header formatter to specify the url of the page. e.g If you want to create a page `https://&lt;username&gt;.github.io/about/contact-me/` create a page named contact-me.md and add following header config inside the file.&lt;/username&gt;&lt;/PAGE-NAME&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	layout: page
+	title: &quot;Contact me&quot;
+	permalink: /about/contact-me/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-custom-theme&quot;&gt;Using Custom Theme&lt;/h2&gt;
+&lt;p&gt;Building website using custom theme is more involved and takes some time, but is also a lot more rewarding. Github provided themes are very limited and you are not able to customize a selected theme currently.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--1-find-a-theme&quot;&gt;Step # 1: Find a Theme&lt;/h5&gt;
+&lt;p&gt;First and the most important part of building your website is finding a suitable theme and  it is also most time consuming task. You can choose to buy a theme or find a free theme, in anycase you will need to spend time finding right theme for you. If you are looking for free themes search inside Github rather than Google.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--2-install-jekyll-locally&quot;&gt;Step # 2: Install Jekyll Locally&lt;/h5&gt;
+&lt;p&gt;This might sound simple but a lot of people face problems, specially on Mac OS X. You will need to install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rvm&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;,  &lt;a href=&quot;https://jekyllrb.com/docs/installation/&quot; target=&quot;_blank&quot;&gt;Installation instructions&lt;/a&gt; on Jekyll website are accurate and concise. Make sure your versions are compatible with &lt;a href=&quot;https://pages.github.com/versions/&quot; target=&quot;_blank&quot;&gt;Github dependency versions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--3-fork-the-theme-repo&quot;&gt;Step # 3: Fork the theme Repo&lt;/h5&gt;
+&lt;p&gt;This step is only needed if you selected a free theme from Github, which is very likely. If you fall into this category, please create a fork of repo and rename the repository to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;username&lt;/code&gt; (or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;orgname&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;project&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h5 id=&quot;step--4-branches-for-your-repo&quot;&gt;Step # 4: Branches for your repo:&lt;/h5&gt;
+&lt;p&gt;If this is your  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;username&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;orgname&lt;/code&gt; repo, I recommend using following branches:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;main&lt;/strong&gt;: Make it default, and this is where I keep README.md for your Github profile.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;master&lt;/strong&gt;: This is where you keep the forked theme from oroginal repo.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;website&lt;/strong&gt;: This is where you add/updated your contents e.g pages, posts (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt;), images and configuration (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yaml&lt;/code&gt;). Note that this branch has entire jekyll directory structure but I make changes to only above mentioned items.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This structure helps me keep the theme in sync with the orignal repo and also make contributions. If you like to update your website to new version of theme, all you have to do is refresh your master and rebase website branch against master.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--5-add-new-posts--customize&quot;&gt;Step # 5: Add New Posts / Customize&lt;/h5&gt;
+&lt;p&gt;Clone tis new repo to you pc/laptop using your repository url e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone https://github.com/{username}/{username}.git&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Add new posts, pages, modify configuration, add disqus and what not. Test your changes locally and when ready push the changes to github.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--6-configure-github-pagess-in-settings&quot;&gt;Step # 6: Configure Github Pagess in Settings:&lt;/h5&gt;
+&lt;p&gt;Click on settings of your repository, Scroll Down to Github Pages section of settings and select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;website&lt;/code&gt; from the branches dropdown.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--5a-and-6a-my-theme-is-not-compatible-with-github-ci&quot;&gt;Step # 5a and 6a: My Theme is not compatible with Github CI.&lt;/h5&gt;
+&lt;p&gt;Many great themes are not supported by Github CI due to the dependencies theme use. Don’t discard these themes, there is a very simple and easy work around.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;After you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll build&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll build&lt;/code&gt;, your static website is generated in a folder named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt;. Rename this folder to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docs&lt;/code&gt; and check it in (Yes! check in generated files).&lt;/li&gt;
+  &lt;li&gt;In the Github Pages sections of your Github Settings select docs from root folder drop down. You are no longer using using the Github CI, but this shouldn’t matter  as your website is exectly how you wanted it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please remember your final website is only HTML, CSS and Javascript. Every thing else you have in your repo is to help you create that static website. So you can take content in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; and host any anywhere you like, Github tends to be most convenient and familiar place.&lt;/p&gt;
+
+&lt;h2 id=&quot;connect-your-domain-and-enable-ssl&quot;&gt;Connect your domain and enable SSL&lt;/h2&gt;
+&lt;p&gt;In Github Pages section of your repository settings you can choose to publish your pages to your domain. If the domain name is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_domain.com&lt;/code&gt;, I prefer to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www.my_domain.com&lt;/code&gt; in this section. Github pages do not yet support subdomain linking. I think that is unlikely to change anytime soon.&lt;/p&gt;
+
+&lt;p&gt;You will need to update the DNS on your domain provider e.g. goddaddy.&lt;/p&gt;
+
+&lt;p&gt;Github also provides free SSL, I recommend enabling SSL on your website. It takes couple of hours to generate the certficate after you have added a domain name.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll&quot; target=&quot;_blank&quot;&gt;Github docs: Creating Github Site using Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll&quot; target=&quot;_blank&quot;&gt;Github docs: Add Content to Github Site using Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.markdownguide.org/tools/jekyll/&quot; target=&quot;_blank&quot;&gt;Jekyll Markdown Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot; target=&quot;_blank&quot;&gt;Jekyll Directory Structure&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ndench.github.io/jekyll/setup-jekyll-on-github-pages&quot; target=&quot;_blank&quot;&gt;A Neat and Concise blog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.aleksandrhovhannisyan.com/blog/getting-started-with-jekyll-and-github-pages/&quot; target=&quot;_blank&quot;&gt;A detailed Blog, TLDR;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s new in Airlow 2.0?</title><link href="https://www.achowdhary.com/what-is-new-in-airflow-2.0/" rel="alternate" type="text/html" title="What’s new in Airlow 2.0?" /><published>2021-01-20T11:18:44+05:30</published><updated>2021-01-20T11:18:44+05:30</updated><id>https://www.achowdhary.com/what-is-new-in-airflow-2.0</id><content type="html" xml:base="https://www.achowdhary.com/what-is-new-in-airflow-2.0/">&lt;figure&gt;
+&lt;img src=&quot;two.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@priscilladupreez&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Priscilla Du Preez
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So &lt;a href=&quot;https://airflow.apache.org/blog/airflow-two-point-oh-is-here/&quot; target=&quot;_blank&quot;&gt;Airflow 2.0&lt;/a&gt; is finally out, this was probably most anticipated release of Airflow mainly due to major refactoring around scheduler.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is a major release. Since Airflow follows strict Semantic Versioning approach to release process, this implies major release such as 2.0, 3.0 will have backwards-incompatible changes. So this relase won’t be simple upgrade, it  will require  some planning, changes to your DAGs and comprehensive testing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;should-i-care-to-update&quot;&gt;Should I care to update?&lt;/h3&gt;
+&lt;p&gt;As expected and planned Airflow 2.0 has many other big ticket changes many of them are major code refactoring. Moreover Airflow Team is encouraging users to upgrade by suggesting 1.x release will be supported only for a limited period of time and and only “Critical Fixes” will be backported to 1.10.x. But featurs not fear should be your guide to upgarde. Let’s have a quick look at new features in 2.0&lt;/p&gt;
+
+&lt;h5 id=&quot;scheduler-overhaul&quot;&gt;Scheduler Overhaul:&lt;/h5&gt;
+&lt;p&gt;Airflow Scheduler was bottleneck for scalability and worryingly the only ‘single point of failure’ in airflow architecture. It was neither horizontally scalable nor highly avilable. Scheduler hacks and bugs in my opinion were most hated and dreaded in airflow community. The refactoring of scheduler was &lt;a href=&quot;https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=103092651&quot; target=&quot;_blank&quot;&gt;long due&lt;/a&gt;.  With Airflow 2.0 not only many scheduler bugs have been fixed and it has been made highly available, but also the performance of single scheduler has been increased manifold. You can run multiple scheduler in active-active HA model, which is huge from performance and scalability perspective.&lt;/p&gt;
+
+&lt;h5 id=&quot;stateless-webserver&quot;&gt;Stateless Webserver:&lt;/h5&gt;
+&lt;p&gt;Airflow 2.0 mandates stateless webserver. In Airflow 1.x both Webservers and Scheduler parse and proces the DAGs. Webserver Gunicorn process each maintain it’s own DAG Bag, which can lead to inconsistant state. Webserver requiring to parse DAG files not only causes performance problems but also a deployment headaches as you are required to keep code in sync on multiple webserver nodes. With implementation of &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-24+DAG+Persistence+in+DB+using+JSON+for+Airflow+Webserver+and+%28optional%29+Scheduler&quot; target=&quot;_blank&quot;&gt;AIP-24&lt;/a&gt; DAG Serialization has been mandated, which mean Schedulers will parse the DAGs and searialize them in metadata database, webservers will load the DAG medatadata from the metadata DB.&lt;/p&gt;
+
+&lt;h5 id=&quot;task-groups&quot;&gt;Task Groups:&lt;/h5&gt;
+&lt;p&gt;Prior to Airflow 2.0 SubDAGs were commonly used for grouping tasks in the UI, using SubDagOperator. However  SubDagOperator launches a completely different DAG and then monitors it as a separate entity. This can lead to all sorts of edge case, bugs and maintenance nightmares. With implementation of &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-34+TaskGroup%3A+A+UI+task+grouping+concept+as+an+alternative+to+SubDagOperator&quot; target=&quot;_blank&quot;&gt;AIP-34&lt;/a&gt;, Airflow 2.0 introduces Task Groups as a method for organizing tasks which provides the same grouping behaviour as a subdag without any of the execution-time drawbacks. Here is an example of Task group&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;	&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TaskGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_group&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_task_group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;task1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;task2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;other_task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;other_task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;my_task_group&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other_task&lt;/span&gt;
+	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;smart-sensors&quot;&gt;Smart Sensors:&lt;/h5&gt;
+&lt;p&gt;Most of the data pipelines make heavy use of sensors; sensors execution takes up a significant proportion of Airflow cluster even with “reschedule” mode. To improve this &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-17%3A+Consolidate+and+de-duplicate+sensor+tasks+in+airflow+Smart+Sensor&quot; target=&quot;_blank&quot;&gt;AIP-17&lt;/a&gt; is implemented to add a new mode in Airflow called “Smart Sensors”. The smart sensor is a service (run by a builtin DAG) which greatly reduces airflow’s infrastructure cost by consolidating some of the airflow long running light weight tasks. Instead of using one process for each task, the main idea of the smart sensor service is to improve the efficiency of these long running tasks by using centralized processes to execute those tasks in batches. The smart sensor service is supported in a new mode called “smart sensor mode”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;smart_sensor.png&quot; alt=&quot;Smart Sensors&quot; title=&quot;Smart Sensors&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;task-flow-api&quot;&gt;Task Flow API:&lt;/h5&gt;
+&lt;p&gt;With implemenation of &lt;a href=&quot;https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=148638736&quot; target=&quot;_blank&quot;&gt;AIP-31&lt;/a&gt; DAGs are now much much nicer to code especially when using PythonOperator. This functional API will make DAGs writing significantly easier by abstracting the task and dependency management layer from users. Also to be noted &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xcom_backend&lt;/code&gt; parameter that will allow users to pass even various objects such as S3 and HDFS. Below is a quick sample, refer to &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#taskflow-api&quot; target=&quot;_blank&quot;&gt;airflow documentation&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; 
+	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;airflow.decorators&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;airflow.utils.dates&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days_ago&lt;/span&gt;
+
+	&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default_args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'owner'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'anuradha'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days_ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_etl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+	       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;frequency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;161&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;age&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;99&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transformed_value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.618&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ratio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	       &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Golden Ratio is {ratio:.2f}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	   &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	   &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	   &lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transformed_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;my_etl_dag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_etl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;simplified-kubernetes-executor&quot;&gt;Simplified Kubernetes Executor&lt;/h5&gt;
+&lt;p&gt;Airflow 2.0  includes re-architecture of the Kubernetes Executor and KubernetesPodOperator. You will now be able to access the full Kubernetes API to create a .yaml &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/executor/kubernetes.html?highlight=pod_override#pod-template-file&quot; target=&quot;_blank&quot;&gt;pod_template_file&lt;/a&gt; instead of specifying parameters in their airflow.cfg.&lt;/p&gt;
+
+&lt;h5 id=&quot;fully-specified-rest-api&quot;&gt;Fully specified REST API&lt;/h5&gt;
+&lt;p&gt;Airflow now has a fully supported (no-longer-experimental, YaY!) API with a comprehensive OpenAPI specification.
+You can find more details about API &lt;a href=&quot;http://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;uiux-improvements&quot;&gt;UI/UX Improvements&lt;/h5&gt;
+&lt;p&gt;Airflow release notes claimed that UI has been given a visual refresh and updated some of the styling. Only refreshing feature I find in this UI refresh is “Auto Refresh”, pun intended.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;refresh.gif&quot; alt=&quot;UI Refresh&quot; title=&quot;UI Refresh&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-breaking&quot;&gt;What is breaking?&lt;/h3&gt;
+
+&lt;p&gt;As mentioned ealier, this release has breaking changes, here is list (not comprehensive) of backwards-incompatible changes.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No support for Python 2, Airflow 2 works only with Python 3. Airflow 2.0.0 requires Python 3.6+ and has been tested with Python versions 3.6, 3.7 and 3.8, but does not yet support Python 3.9.&lt;/li&gt;
+  &lt;li&gt;FAB UI no longer supported, weather you like it or not you will have to use RBAC UI. If you are using custom Airflow Plugins and were passing admin_views &amp;amp; menu_links which were used in the non-RBAC UI (flask-admin based UI), you will have to update it to use flask_appbuilder_views and flask_appbuilder_menu_links.&lt;/li&gt;
+  &lt;li&gt;Airflow 2.0 is not a monolithic “one to rule them all” package. Airflow has been split into core and 61 (for now) provider packages. Each provider package is for either a particular external service e.g PostgreSQL, MySQL, HTTP, FTP etc. You will have to not only install the pacakges but also update your DAGs to refer to correct provider package.&lt;/li&gt;
+  &lt;li&gt;CLI options have been re-organized so that related commands are grouped together. If you have support team, processes and documentation, it will need updating.&lt;/li&gt;
+  &lt;li&gt;Connection type list in the Airflow UI is based on the providers you have installed with Airflow 2.0. So again make sure to install provider package, even if you were only using it to define a connection type.&lt;/li&gt;
+  &lt;li&gt;Jinja templete would break with use of ndefined variables instead of silently ignoring. You can override this behavior, but requires changes.&lt;/li&gt;
+  &lt;li&gt;Airflow metadata upgrade is not trivial to rollback, if you had to rollback.&lt;/li&gt;
+  &lt;li&gt;MariaDB and MySQL5 are not supported due to HA Scheduler requiring support for SKIP LOCKED or NOWAIT SQL clauses.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;how-difficult-is-it-to-upgrade&quot;&gt;How difficult is it to upgrade?&lt;/h3&gt;
+
+&lt;p&gt;I would say fairly complex, it would need planning if you are runnig a serious production data pipelines with Airflow. You get an idea of the complexity by lookig at &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/upgrading-to-2.html#frequently-asked-questions-on-upgrade&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Upgrade Guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The upgrade itself is a  mulit-step process, you first need to upgrade to bridge release (1.10.14), Modify all your DAGs to ensure compatibility, update configuration settings, migrate metadata DB and upgrade Airflow to 2.0.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Many users have reported issues on upgrade specially around metadata migration and providers. Many users have reported issues during upgrade and many have reported issues after upgrade. I would recommend doing a through planning and testing in non-production environment before upgrading production.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;should-i-upgrade&quot;&gt;Should I Upgrade?&lt;/h3&gt;
+&lt;p&gt;Short answer is &lt;strong&gt;Yes&lt;/strong&gt;, but it is more complex than that. If you have pressing priorities on your data delivery, you shold handle them first. Aifrlow 2.0 will not produce any new magical results for you.&lt;/p&gt;
+
+&lt;p&gt;If you are starting now or in initial stages of buidling your data pipelines with Airflow, I would highly recommend that you start using Airflow 2.0 now.&lt;/p&gt;
+
+&lt;p&gt;Airflow documentation clearly says:  &lt;em&gt;“Airflow 1.10.x release tree will be supported for a limited time after the GA release of Airflow 2.0 to give users time to upgrade from one of the Airflow 1.10.x releases. Specifically, only “critical fixes” defined as fixes to bugs that take down Production systems, will be backported to 1.10.x core for six months after Airflow 2.0.0 is released.”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So you should start preparing/planning for upgrade as soon as possible. Plan for upgrade to take advantage of new features not just for sake of it. I would personally wait for release 2.1 for actual upgrade but start to plan for the upgrade today.&lt;/p&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/blog/airflow-two-point-oh-is-here/&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release Announcement&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/apache/airflow/releases/tag/2.0.0&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release tag on Github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/apache/airflow/issues/10152&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release Ticket&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/Airflow+2.0+-+Planning&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Planning Confluence Page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/tutorial_taskflow_api.html&quot; target=&quot;_blank&quot;&gt;TaskFlow API documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/2.0.0/scheduler.html&quot; target=&quot;_blank&quot;&gt;Scheduler documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Concepts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.astronomer.io/blog/airflow-2-scheduler&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Announcement on Astronomer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow Concurrency Configuration Simplified!</title><link href="https://www.achowdhary.com/airflow-concurrency-simplified/" rel="alternate" type="text/html" title="Airflow Concurrency Configuration Simplified!" /><published>2020-08-05T10:28:47+05:30</published><updated>2020-08-05T10:28:47+05:30</updated><id>https://www.achowdhary.com/airflow-concurrency-simplified</id><content type="html" xml:base="https://www.achowdhary.com/airflow-concurrency-simplified/">&lt;p&gt;Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very &lt;a href=&quot;https://issues.apache.org/jira/browse/AIRFLOW-57&quot; target=&quot;_blank&quot;&gt;unintuitive and confusing way&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;confused.jpg&quot; alt=&quot;confused&quot; /&gt;
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@benwhitephotography&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Ben White &lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Though I can’t change the name of the properties, I have made an attempt to decode the names. Hoefully it helps some of you, so that you can focus on more pressing problems in your data pipeline.&lt;/p&gt;
+
+&lt;h5 id=&quot;core&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[core]&lt;/code&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelism&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#parallelism&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: Maximum number of task instances that can run concurrently on Airflow installation, i.e. the maximum number of task instances that can run in the entire airflow cluster. This is the only setting that applies to entire cluster as opposed to the given node. If you have two host running Airflow worker, combined total of task running on both workers will not exceed this value. You can also think of this is as maximum number of taks that will have state=’running’ in airflow metadata db. This value should be configured same on all the worker nodes of a given Airflow Cluster. The default value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;32&lt;/code&gt;. If you are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CeleryExecutor&lt;/code&gt;, this should be sum of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_concurrency&lt;/code&gt; for all nodes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag_concurrency&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#dag-concurrency&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This parameter determines how many task instances Airflow scheduler is able to schedule concurrently per DAG. This can be thought of as maximum tasks that can be scheduled concurrently, per DAG. Since schedular is global for cluster this property is also applicable to Airflow Cluster/installation as one entity. You should keep this value same on all the worker nodes of your Airflow Cluster. 
+This parameter can be overwritten at DAG level by: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag = DAG('example2', concurrency=10)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_active_runs_per_dag&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#max_active_runs_per_dag&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This paramenter is important but does not really controls the concurrency directly, instead it specifies how many total runs of a DAG are allowed to run for the Airflow cluster. This helps in controling the fair allocation of resources and making sure that one DAG is not taking up all the resource. This parameter can be overwritten at DAG level by: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag = DAG('my_dag_id', max_active_runs=1)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;scheduler&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[scheduler]&lt;/code&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_threads&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#max_threads&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]:The scheduler can run multiple threads in parallel to schedule dags. This parameter specifies how many threads will run scheduler run. Adjust this number based on CPU resources available - the higher the value, the more resources you’ll need. Update: setting &lt;a href=&quot;https://github.com/apache/airflow/pull/12605&quot; target=&quot;_blank&quot;&gt;has been renamed&lt;/a&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parsing_processes&lt;/code&gt; in airflow 2.0.&lt;/p&gt;
+
+&lt;h5 id=&quot;celery&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[celery]&lt;/code&gt;&lt;/h5&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_concurrency&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#worker-concurrency&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This is the number of  celery workers, per Airflow Worker. You would typically run one Airflow worker per Airflow node. So this can be considerd as per Airflow node version of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelism&lt;/code&gt; setting. This is maximum number of task instances that can on a given Airflow worker can execute. You can have different settings for different worker node depending on number of available CPU Cores. This parameter has default value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;16&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#pool&quot; target=&quot;_blank&quot;&gt;Ref &lt;/a&gt; ]:&lt;br /&gt;
+ This is type of celery pool implementation to be used and shold not be confused with &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#pools&quot; target=&quot;_blank&quot;&gt;Airflow Pool&lt;/a&gt;, which I will cover briefly later in this article. For this settings options are: prefork (default), eventlet, gevent or solo. For usual data pipelines, prefork works fine. If you have many I/O blocking tasks in your data pipelines, it is worth exploring gevent or eventlet. Please refer to &lt;a href=&quot;https://www.distributedpython.com/2018/10/26/celery-execution-pool/&quot; target=&quot;_blank&quot;&gt;this post&lt;/a&gt; on distributed python for more details on various options.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sync_parallelism&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#parallelism&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This is number of processes CeleryExecutor uses to sync task state. Value 0 implies to use max(1, number of cores - 1) processes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_autoscale&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#worker-autoscale&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: The maximum and minimum celery workers that will be per Airflow worker. Celery workers always keep minimum processes, but grow to maximum if necessary. Note the value should be max_concurrency,min_concurrency.You can have different settings for different worker node, based on resources on worker node and the nature of the task. If autoscale option is used, worker_concurrency will be ignored.&lt;/p&gt;
+
+&lt;h3 id=&quot;airflow-task-pools--ref-&quot;&gt;Airflow Task Pools [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#pools&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]&lt;/h3&gt;
+&lt;p&gt;Airflow Pools can be defined using Airflow UI (Menu -&amp;gt; Admin -&amp;gt; Pools) or CLI. Tasks can then be associated with one of the existing pools by using the pool parameter when creating tasks in the DAG code:
+     &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_task = PythonOperator(pool='my_custom_pool')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Airflow pools are typically used to limit the concurrency on specific types of task.  Some systems can get overwhelmed when too many processes hit them at the same time, e.g. downloading data from a webservice that limits concurrent connection. You can place limit by putting all such tasks to same pool and assigning a limit to the pool.
+This is great if you have a lot of workers in parallel, but you don’t want to overwhelm a source or destination&lt;/p&gt;
+
+&lt;p&gt;The pool parameter can be used in conjunction with priority_weight to define priorities in the queue, and which tasks get executed first as slots open up in the pool. The default priority_weight is 1, and can be bumped to any number. When sorting the queue to evaluate which task should be executed next, we use the priority_weight, summed up with all of the priority_weight values from tasks downstream from this task. You can use this to bump a specific important task and the whole path to that task gets prioritized accordingly.&lt;/p&gt;
+
+&lt;p&gt;If tasks are not given a pool, they are assigned to a default pool default_pool which is initialized with 128 slots and can changed through the UI or CLI.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very unintuitive and confusing way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub setup with Jupyter Lab.</title><link href="https://www.achowdhary.com/juppyter-hub-setup-simplified/" rel="alternate" type="text/html" title="Jupyter Hub setup with Jupyter Lab." /><published>2020-07-07T10:28:47+05:30</published><updated>2020-07-07T10:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-setup-simplified</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-setup-simplified/">&lt;p&gt;Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;hub-lab.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;pre-requisite&quot;&gt;Pre-requisite&lt;/h4&gt;
+&lt;p&gt;You have working python setup with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version &amp;gt;= 3.6&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;install-configurable-http-proxy&quot;&gt;Install configurable-http-proxy&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	sudo yum install rh-nodejs10
+	sudo npm install -g configurable-http-proxy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;install-jupyter-hub-and-jupyter-lab&quot;&gt;Install Jupyter Hub and Jupyter Lab&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pip install jupyterhub jupyterlab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	conda install jupyterhub jupyterlab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;configuration-and-setup&quot;&gt;Configuration and setup&lt;/h4&gt;
+&lt;p&gt;Create a directory for you jupyter hub. Let’s assume the dir is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/opt/jupyter&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	mkdir /opt/jupyter
+	cd /opt/jupyter
+	export JUPYTERLAB_DIR = /opt/jupyter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I would recommed adding above variable to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; (if you are using bash).
+	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;export JUPYTERLAB_DIR = /opt/jupyter&quot; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub --generate-config&lt;/code&gt; &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter lab --generate-config&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This will generate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter_notebook_config.py&lt;/code&gt;. I highly recommend deleteing all commented lines from the generated config file. Keeping only required lines, makes it much easier to maintain it. To delete all commented lines&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	sed -i '/^#/ d' jupyterhub_config.py
+	sed -i '/^\s*$/d' jupyterhub_config.py
+	sed -i '/^#/ d' jupyter_notebook_config.py
+	sed -i '/^\s*$/d' jupyter_notebook_config.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; in your favorite editor and make following changes.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.Spawner.default_url = '/lab'
+	c.JupyterHub.hub_ip = '0.0.0.0'
+	c.JupyterHub.spawner_class = 'jupyterhub.spawner.SimpleLocalProcessSpawner'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter_notebook_config.py&lt;/code&gt; in your favorite editor and make following changes.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.NotebookApp.allow_remote_access = True
+	c.NotebookApp.ip = '0.0.0.0'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;adding-jupyter-kernels&quot;&gt;Adding Jupyter Kernels&lt;/h4&gt;
+&lt;p&gt;If you have existing jupyter kernels that you would like to use with your setup you need to copy them to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PYTHON_HOME/share/jupyter/kernels/&lt;/code&gt;. You can also optionally place kernal logos inside your kernal folders to make your jupyter setup look colorful. The logo files should be named  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo-32x32.png&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo.64x64.png&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;lab-logos.png&quot; alt=&quot;Kernel Logos in Jupyter Lab&quot; /&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;configuring-sslhttps&quot;&gt;Configuring SSL/https&lt;/h4&gt;
+&lt;p&gt;Generate a Private key and cert using your preferred method. e.g.&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl req -x509 -out my.crt -keyout my.key -newkey rsa:2048 -nodes -sha256&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Add following lines to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.JupyterHub.ssl_key = '/path/to/my.key'
+	c.JupyterHub.ssl_cert = '/path/to/my.cert'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;starting-jupyter-hub&quot;&gt;Starting Jupyter Hub&lt;/h4&gt;
+&lt;p&gt;You need to ensure that the nodejs that you installed in enabled. You can do this by doing 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scl enable node rh-nodejs10 bash&lt;/code&gt;, but I prefer source &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source /opt/rh/rh-nodejs10/enable&lt;/code&gt; as it does not open a new shell inside your current one. You can also consider adding this to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; (if you are using bash).
+	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;source /opt/rh/rh-nodejs10/enable&quot; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;to start Jupyter Hub:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	cd $JUPYTERLAB_DIR
+	nohup jpyterhub &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;urls&quot;&gt;URLs:&lt;/h4&gt;
+&lt;p&gt;Jupyter Notebook Url: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000&lt;/code&gt; &lt;br /&gt;
+JupyterHub Admin Url: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000/hub/admin&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;stopping-jupyter-hub&quot;&gt;Stopping Jupyter Hub&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open Hub admin in browser &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000/hub/admin&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Click &lt;strong&gt;Shutdown Hub&lt;/strong&gt; button&lt;/li&gt;
+  &lt;li&gt;Check both &lt;em&gt;Shutdown Proxy&lt;/em&gt; and &lt;em&gt;Shutdown single-user-servers&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Click &lt;strong&gt;Shutdown&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--
+TODO add disable Terminal
+jupyter labextension list
+jupyter labextension uninstall terminal
+jupyter labextension disable terminal
+jupyter lab build
+vi setttings/page_config.json
+{
+	&quot;terminalAvailable&quot;: false,
+	&quot;disableExtensions&quot; : [
+	 ```
+	 yum install rh-nodejs10
+	 ```&quot;@jupyterlab/terminal&quot;,
+	 &quot;terminal&quot;
+	]
+}
+
+jupyter/lab/schemas/@jupyterlab/terminal-extension
+plugin.json
+consoloe-extension
+setttings/package_config.json
+--&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Lab Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/getting-started/security-basics.html&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Security Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/hub-lab.jpg" /><media:content medium="image" url="https://www.achowdhary.com/hub-lab.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub AD/LDAP Integration.</title><link href="https://www.achowdhary.com/juppyter-hub-AD-authentication/" rel="alternate" type="text/html" title="Jupyter Hub AD/LDAP Integration." /><published>2020-04-14T10:28:47+05:30</published><updated>2020-04-14T10:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-AD-authentication</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-AD-authentication/">&lt;p&gt;If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
+
+&lt;p&gt;Also it is worth mentioning upfront that it is very easy and &lt;a href=&quot;https://github.com/jupyterhub/ldapauthenticator&quot; target=&quot;_blank&quot;&gt;documentation&lt;/a&gt; is pretty good.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;easy.jpg&quot; alt=&quot;That's Easy&quot; /&gt;
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@oskarmalm&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Oskar Malm
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;pre-requisite&quot;&gt;Pre-requisite&lt;/h3&gt;
+&lt;p&gt;It is assumed that you have a working jupyter-hub setup with
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub version &amp;gt;= 1.1.0&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version &amp;gt;= 3.6&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;set-up&quot;&gt;Set-up&lt;/h3&gt;
+&lt;p&gt;First of all install jupyterhub-ldapauthenticator using: &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install jupyterhub-ldapauthenticator&lt;/code&gt;
+&lt;br /&gt;or &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conda install -c conda-forge jupyterhub-ldapauthenticator&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You will also need &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ldap3&lt;/code&gt; module, which can be installed using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install ldap3&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conda install ldap3&lt;/code&gt;. It is nice to see jupyterhub folks choosing to use ldap3, which is pure python ldap library.&lt;/p&gt;
+
+&lt;p&gt;Add following to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JUPYTERHUB_HOME&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.LDAPAuthenticator.lookup_dn = True
+	c.LDAPAuthenticator.lookup_dn_search_filter = '({login_attr}={login})'
+	c.LDAPAuthenticator.lookup_dn_search_user = 'ldap_search_user_technical_account'
+	c.LDAPAuthenticator.lookup_dn_search_password = 'secret'
+	c.LDAPAuthenticator.user_search_base = 'ou=people,dc=achowdhary,dc=com'
+	c.LDAPAuthenticator.user_attribute = 'sAMAccountName'
+	c.LDAPAuthenticator.lookup_dn_user_dn_attribute = 'cn'
+	c.LDAPAuthenticator.escape_userdn = False
+	c.LDAPAuthenticator.bind_dn_template = '{username}'
+
+	c.Authenticator.admin_users = {'anuradha', 'admin'}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Prod" /><summary type="html">If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/easy.jpg" /><media:content medium="image" url="https://www.achowdhary.com/easy.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow AD/LDAP Integration.</title><link href="https://www.achowdhary.com/airflow-AD-authentication/" rel="alternate" type="text/html" title="Airflow AD/LDAP Integration." /><published>2020-04-05T10:28:47+05:30</published><updated>2020-04-05T10:28:47+05:30</updated><id>https://www.achowdhary.com/airflow-AD-authentication</id><content type="html" xml:base="https://www.achowdhary.com/airflow-AD-authentication/">&lt;p&gt;If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;door.jpg&quot; alt=&quot;confused&quot; /&gt;
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@pechka&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Dima Pechurin
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;pre-requisite&quot;&gt;Pre-requisite&lt;/h3&gt;
+&lt;p&gt;It is assumed that you have a working airflow setup with
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow version &amp;gt;= 1.10.2&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version &amp;gt;= 3.6&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You will also need &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python-ldap&lt;/code&gt;, which can be installed using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install python-ldap&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conda install python-ldap&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python-ldap&lt;/code&gt; package is based on OpenLDAP, so you need to have the development files (headers) in order to compile the Python module.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Debian/Ubuntu:&lt;/em&gt;&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;RedHat/CentOS:&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum install python-devel openldap-devel&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Airflow 1.10+ uses Flask-AppBuilder (FAB) for user interface. It is expected and obvious that the configuration follows FAB configuration. So if you run into issues, it would be worth  &lt;a href=&quot;https://www.google.com/search?q=Flask-AppBuilder%20LDAP&quot; target=&quot;_blank&quot;&gt; Searching Flask AppBuilder LDAP&lt;/a&gt; instead of Airflow LDAP.&lt;/p&gt;
+
+&lt;p&gt;Make sure you have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbac = true&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow.cfg&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sdd &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webserver_config.py&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AIRFLOW_HOME&lt;/code&gt;, with following contents.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import os
+from airflow import configuration as conf
+from flask_appbuilder.security.manager import AUTH_LDAP
+
+# Do not delete this line, reqired by FAB for creating users in DB.
+SQLALCHEMY_DATABASE_URI = conf.get('core', 'SQL_ALCHEMY_CONN')
+
+CSRF_ENABLED = True
+
+AUTH_TYPE = AUTH_LDAP
+
+AUTH_ROLE_ADMIN = 'Admin'
+
+#Allows user to register on first login
+AUTH_USER_REGISTRATION = True
+
+# User will have, viewer role on first login
+# Options are Admin, Viewer, User, Op
+# If you have custom role, you can use that too.
+AUTH_USER_REGISTRATION_ROLE = &quot;Viewer&quot;
+
+# Replace with your LDAP Server
+AUTH_LDAP_SERVER = 'ldaps://myldapserver:636/' 
+
+# Replace with your LDAP Base DN
+AUTH_LDAP_SEARCH = 'DC=domain,DC=org,DC=com'
+
+# Replace with your LDAP entry for service user / LDAP Bind User
+AUTH_LDAP_BIND_USER = 'CN=ServiceUser,OU=serviceAccount,DC=domain,DC=org,DC=com'
+# Bind user Password
+AUTH_LDAP_BIND_PASSWORD = '**************'
+
+# LDAP field used for UID
+AUTH_LDAP_UID_FIELD = 'CN'
+
+#TLS Settings, configure as per your LDAP/AD setup
+AUTH_LDAP_USE_TLS = False
+AUTH_LDAP_ALLOW_SELF_SIGNED = False
+AUTH_LDAP_TLS_CACERTFILE = '/path/to/root_CA.crt' #You may not need this
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/dpgaspar/Flask-AppBuilder/pull/1374&quot; target=&quot;_blank&quot;&gt;Airflow pull-request for AUTH_LDAP implementation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://flask-appbuilder.readthedocs.io/en/latest/security.html&quot; target=&quot;_blank&quot;&gt;Flask-AppBuilder supported authentication types&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.python-ldap.org/en/latest/reference/index.html&quot; target=&quot;_blank&quot;&gt;python-ldap reference documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://flask-appbuilder.readthedocs.io/en/latest/config.html&quot; target=&quot;_blank&quot;&gt;Flask-AppBuilder configuration reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Create a Virtual Mount on Linux.</title><link href="https://www.achowdhary.com/virtual-mount-centos/" rel="alternate" type="text/html" title="Create a Virtual Mount on Linux." /><published>2020-01-05T10:28:47+05:30</published><updated>2020-01-05T10:28:47+05:30</updated><id>https://www.achowdhary.com/virtual-mount-centos</id><content type="html" xml:base="https://www.achowdhary.com/virtual-mount-centos/">&lt;p&gt;Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux.&lt;/p&gt;
+
+&lt;p&gt;One common way of having size limit directories is creating a virual mount point. Here are the steps to create Vitual Mount Point. Here are the steps for the same:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create a directory for filesystem image &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir /vdisk&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create a filesystem on disk, my preferred way is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fallocate&lt;/code&gt; &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fallocate -l 100G /vdisk/my_disk.img&lt;/code&gt;&lt;br /&gt;
+Alternatively you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dd&lt;/code&gt; &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dd if=/dev/zero of=/vdisk/my_disk.img&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create fileystem on the disk image, I use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xfs&lt;/code&gt; but you can use ex3 or ext4. &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkfs.xfs /vdisk/my_disk.img&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create the desired directory to mount the disk. &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir -p /opt/data/my_disk&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Mount the virtual disk. &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mount -t auto -o loop /vdisk/my_disk.img /opt/data/my_disk&lt;/code&gt; &lt;br /&gt;
+or &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mount -t auto -o loop,rw,usrquota,grpquota /vdisk/my_disk.img /opt/data/my_disk&lt;/code&gt; &lt;br /&gt;
+If you would like to set user or group quotas.&lt;/li&gt;
+  &lt;li&gt;Add the mount to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt; to make it permanent.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Linux" /><category term="HowTo" /><summary type="html">Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux.</summary></entry></feed>
