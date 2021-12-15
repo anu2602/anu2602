@@ -1,7 +1,7 @@
 ---
 title: Airflow AD/LDAP Integration.
 tags: [Airflow, Prod]
-date: 2020-04-05 11:58:47 +07:00
+date: 2020-04-05 11:58:47 +05:30
 description: Configuring Airflow Webserver UI to authenticate with Active Directory/LDAP. 
 image: "/airflow-concurrency-simplified/airflow.jpeg"
 comments: true

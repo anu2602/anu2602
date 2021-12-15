@@ -1,6 +1,6 @@
 ---
 title: Create a Virtual Mount on Linux. 
-date: 2020-01-05 11:58:47 +07:00
+date: 2020-01-05 11:58:47 +05:30
 tags: [Linux, HowTo]
 description: A short step by step process for creating a virtual mount or direcotry with size limit.
 comments: true

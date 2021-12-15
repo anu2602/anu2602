@@ -1,6 +1,6 @@
 ---
 title: Airflow Concurrency Configuration Simplified!
-date: 2020-08-05 11:58:47 +07:00
+date: 2020-08-05 11:58:47 +05:30
 tags: [Airflow, Prod]
 description: 
 image: "/airflow-concurrency-simplified/airflow.jpeg"

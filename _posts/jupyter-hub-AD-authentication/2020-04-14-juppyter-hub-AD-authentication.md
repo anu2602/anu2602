@@ -1,7 +1,7 @@
 ---
 title: Jupyter Hub AD/LDAP Integration.
 tags: [Jupyter Hub, Prod]
-date: 2020-04-14 11:58:47 +07:00
+date: 2020-04-14 11:58:47 +05:30
 description: Configuring Jupyter Hub to authenticate with Active Directory/LDAP. 
 image: "easy.jpg"
 comments: true
