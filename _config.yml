@@ -1,7 +1,7 @@
 # Site settings
 title: Anuradha Chowdhary # site title
 description: >- # site description
-  Anuradha Chowdhary is Technology Leader, programmer, entreprenuer and promoter of Women in Tech and Open Source Software. 
+  Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software. 
   for her work see  <a href="https://github.com/anu2602" target="_blank" rel="noopener">@github</a>.
 lang: en-US # default lang
 timezone: Asia/Kolkata # set your timezone
@@ -13,7 +13,7 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Anuradha Chowdhary
   bio: >- # tell to the world
-    I am Director of Technology at Shoonye and hands on programmer. I am also an entreprenuer, promoter of Women in Tech and proponent of Open Source. 
+    I am Data Engineer, Computer Programmer. I am also a teacher, promoter of Women in Tech and proponent of Open Source. 
     <br/><br/> This blog is a journal of mostly my own problems/solutions. You can see some of my work on <a href="https://github.com/anu2602" target="_blank" rel="noopener">@github</a>.
   username: anu2602 # general username
   github: anu2602 # github username

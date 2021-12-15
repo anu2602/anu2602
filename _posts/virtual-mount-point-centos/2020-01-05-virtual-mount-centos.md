@@ -4,6 +4,7 @@ date: 2020-01-05 11:58:47 +05:30
 tags: [Linux, HowTo]
 description: A short step by step process for creating a virtual mount or direcotry with size limit.
 comments: true
+
 ---
 
 Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux. 

@@ -5,6 +5,7 @@ tags: [Jupyter Hub, Jupyter Lab]
 description:  Setting up a working Jupyter Hub with Jupyter Lab on RedHat Enterprise Linux 7 (RHEL 7).  
 image: "hub-lab.jpg"
 comments: true
+
 ---
 Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code. 
 

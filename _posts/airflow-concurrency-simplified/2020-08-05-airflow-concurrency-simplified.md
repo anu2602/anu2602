@@ -5,6 +5,7 @@ tags: [Airflow, Prod]
 description: 
 image: "/airflow-concurrency-simplified/airflow.jpeg"
 comments: true
+
 ---
 
 Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very <a href="https://issues.apache.org/jira/browse/AIRFLOW-57" target="_blank" >unintuitive and confusing way</a>. 
