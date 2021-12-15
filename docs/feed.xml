@@ -1,4 +1,277 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2021-02-15T15:20:47+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is Technology Leader, programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Personal website/blog with Jekyll + Github.</title><link href="https://www.achowdhary.com/jekyll-github-pages-simplified/" rel="alternate" type="text/html" title="Personal website/blog with Jekyll + Github." /><published>2021-02-14T08:58:14+05:30</published><updated>2021-02-14T08:58:14+05:30</updated><id>https://www.achowdhary.com/jekyll-github-pages-simplified</id><content type="html" xml:base="https://www.achowdhary.com/jekyll-github-pages-simplified/">&lt;p&gt;I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2021-12-15T20:43:20+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is Technology Leader, programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Yum Cheat Sheet</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/" rel="alternate" type="text/html" title="Yum Cheat Sheet" /><published>2021-03-15T21:22:42+05:30</published><updated>2021-03-15T21:22:42+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/">&lt;figure&gt;
+&lt;img src=&quot;yum-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
+&lt;/figure&gt;
+&lt;h1 id=&quot;yum-cheat-sheet&quot;&gt;Yum Cheat Sheet&lt;/h1&gt;
+
+&lt;p&gt;Yum (Yellow Dog Updater, Modified), is the package manager used on RPM (RedHat Package Manager) based Linux systems such as CentOS, RHEL. It is an interactive, rpm based, package manager. It can automatically perform system updates, including dependency analysis and obsolete processing based on “repository” metadata.&lt;/p&gt;
+
+&lt;h4 id=&quot;getting-help&quot;&gt;Getting Help&lt;/h4&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum help [command]' to get help on yum commands and options, you can also use &lt;/code&gt;man yum’.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum help
+yum help install
+yum help erase
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;updating-packages&quot;&gt;Updating Packages&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Check the whole system for available updates:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum check-update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update the whole packages to the latest version:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Apply only security related updates:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update --security
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update an individual package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update all packages in a group:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum groupupdate [group_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update an individual package to an specific version:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum --showduplicates list [package_name]
+sudo yum update-to [package-version]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update a package from a specific repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum repo-pkgs [repo] upgrade [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;managing-repositories&quot;&gt;Managing Repositories&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[repository]&lt;/code&gt; section to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.conf&lt;/code&gt; file, or to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.repo&lt;/code&gt; file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/&lt;/code&gt; directory.&lt;/li&gt;
+  &lt;li&gt;Remove a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[repository]&lt;/code&gt; section to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.conf&lt;/code&gt; file, or to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.repo&lt;/code&gt; file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/&lt;/code&gt; directory.&lt;/li&gt;
+  &lt;li&gt;Display enabled repositories: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum repolist&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Display all enabled/disabled repositories: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum repolist all&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Download yum repository data to cache: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum makecache&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Get information about repositories:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum repoinfo
+$ yum repoinfo &amp;lt;repo-id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List all packages in the specified repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; yum repo-pkgs &amp;lt;repo id&amp;gt; list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;viewing-package-info&quot;&gt;Viewing Package Info&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;List all installed packages:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list installed [package_name]
+yum list installed 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List all available packages:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list available
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List installed and available kernel packages
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list kernel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List dependencies of a package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum deplist [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Search packages by name:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum search [string]
+yum search [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Find packages that provide the queried file:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum provides &amp;lt;string&amp;gt;
+yum provides &amp;lt;foldername/filename&amp;gt;
+yum provides &amp;lt;filename&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Display information about a package: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum info [package_name]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;install--remove-packages&quot;&gt;Install &amp;amp; Remove Packages&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install a package from repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install [package_name]
+sudo yum install [p1] [p2]
+sudo yum --enablerepo=[repo] install [package_name]
+sudo yum repo-pkgs [repo] install [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install a local rpm package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum localinstall [package_name].rpm
+sudo yum localinstall [http://myrepo.org/packagename.rpm]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove an installed package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum remove [package_name]
+sudo yum remove [p1] [p2]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove one package and install another:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum swap [package_to_rmove] [package_to_install]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove unwanted packages and dependencies: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum autoremove&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Remove all packages installed from a specific repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum repo-pkgs [repo] remove
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;history&quot;&gt;History&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;View all the past transactions of yum command:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history
+sudo yum history list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Show details of yum transaction ID:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history info &amp;lt;ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Undo the yum action from transaction ID:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history undo &amp;lt;ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Redo the undone yum action from transaction ID:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history redo &amp;lt;ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;clean&quot;&gt;Clean&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Clear out cached package data:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum clean all&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete packages saved in cache:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum clean packages&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;general-options&quot;&gt;General Options&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-y&lt;/code&gt; Assume that the answer to any question  which  would be asked is yes.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--assumeno&lt;/code&gt; Assume that the answer to any question which would be asked is no.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-q&lt;/code&gt; Run without output.  Note that you likely also want to use -y.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt; Run with a lot of debugging output.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--showduplicates&lt;/code&gt; Doesn’t limit packages to their latest versions in the info, list and search commands&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--enablerepo&lt;/code&gt; Enable currently disabled repo for a single command&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--disablerepo&lt;/code&gt; Disable currently enabled repo for a single command&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--downloadonly&lt;/code&gt; Don’t update, just download to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/cache/yum/arch/prod/repo/packages/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--changelog&lt;/code&gt; Display changelog information of package&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;related-files&quot;&gt;Related Files&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/yum.conf
+/etc/yum/version-groups.conf
+/etc/yum.repos.d/
+/etc/yum/pluginconf.d/
+/var/cache/yum/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html">Yum Cheat Sheet</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/yum-cheat-sheet.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/yum-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Git Cheat Sheet</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/" rel="alternate" type="text/html" title="Git Cheat Sheet" /><published>2021-02-25T21:22:42+05:30</published><updated>2021-02-25T21:22:42+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/">&lt;figure&gt;
+&lt;img src=&quot;git-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h5 id=&quot;git-branching-basics&quot;&gt;Git Branching Basics&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Show remote branches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -r&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Show all branches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -a&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create a new branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout -b [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete a local branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -d [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete a local branch forcefully &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -D [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete branch from remote (named origin)  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push origin :[branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Find common ancestor of two branches `git merge-base [branch_1] [branch_2]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;git-merge&quot;&gt;Git Merge&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Merge [branch_name] to current branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Merge [source_branch] to [target_branch] &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge [source_branch] [target_branch]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sometimes, this doesn’t go smoothly merge conflicts will show up.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Resolve conflicts and after resolving merge conflicts:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &amp;lt;conflicting_file_names&amp;gt;
+git commit -m &quot;Your merge comment&quot;
+git push
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;git-rebase&quot;&gt;Git Rebase&lt;/h5&gt;
+&lt;p&gt;Merge and Rebase solve same problems, but with a slightly different outcome in git hisotry; For more details recommed reading &lt;a href=&quot;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt; and &lt;a href=&quot;https://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase/16666418#16666418&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Rebase current branch against [source_branch] &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase [source_branch]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Sometimes it is useful to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i&lt;/code&gt; to run rebase interactively and modify the commit history with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fixup&lt;/code&gt; command. I almost always prefer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; as it results in more readable history. But it is important to remember to never ever rebase your public branch such as main, master or develop against a private feature branch.&lt;/p&gt;
+
+&lt;p&gt;also after rebase &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt; fails, so use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push --force&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;git-reset&quot;&gt;Git Reset&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reset everything to specific commit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git reset --hard&lt;/code&gt; ; Use with care&lt;/li&gt;
+  &lt;li&gt;Reset a single file
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout @ -- [filename]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git revert&lt;/code&gt;, when you need to keep history of reverts&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Revert a commit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git revert [commit_ref]&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove tracked file from index &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rm [file_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Remove tracked directory from index &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rm -r  [dir_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Remove files no longer on filesystem:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove untracked files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git cleani -f&lt;/code&gt;. Use with care, will delete all untracked files.&lt;/li&gt;
+  &lt;li&gt;Dry run git clean &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clean -n&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;git-config&quot;&gt;Git Config&lt;/h5&gt;
+
+&lt;p&gt;Configure git user name and email&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;you@example.com&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Always rebase on pull (default is merge)&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global pull.rebase true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Colorful Git&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global color.ui true
+git config --global color.diff true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add Alias ci for commit&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global alias.ci commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&quot; target=&quot;_blank&quot;&gt; Merge Vs. Rebase on Bitbucket Tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gitolite.com/git-pull--rebase&quot; target=&quot;_blank&quot;&gt; Understanding git pull –rebase &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge-base&quot; target=&quot;_blank&quot;&gt; Find Common Ancestor for merge &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html&quot; target=&quot;_blank&quot;&gt; FIXUP &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/undoing-changes/git-reset&quot; target=&quot;_blank&quot;&gt; Reset on BitBucket &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/2530060/in-plain-english-what-does-git-reset-do&quot; target=&quot;_blank&quot;&gt; Reset on Stack Overflow &lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="git" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/git-cheat-sheet.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/git-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Personal website/blog with Jekyll + Github.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/jekyll-github-pages-simplified/" rel="alternate" type="text/html" title="Personal website/blog with Jekyll + Github." /><published>2021-02-14T08:58:14+05:30</published><updated>2021-02-14T08:58:14+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/jekyll-github-pages-simplified</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/jekyll-github-pages-simplified/">&lt;p&gt;I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;github.jpg&quot; alt=&quot;Github Website&quot; /&gt; 
@@ -103,7 +376,7 @@
   &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot; target=&quot;_blank&quot;&gt;Jekyll Directory Structure&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ndench.github.io/jekyll/setup-jekyll-on-github-pages&quot; target=&quot;_blank&quot;&gt;A Neat and Concise blog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.aleksandrhovhannisyan.com/blog/getting-started-with-jekyll-and-github-pages/&quot; target=&quot;_blank&quot;&gt;A detailed Blog, TLDR;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s new in Airlow 2.0?</title><link href="https://www.achowdhary.com/what-is-new-in-airflow-2.0/" rel="alternate" type="text/html" title="What’s new in Airlow 2.0?" /><published>2021-01-20T11:18:44+05:30</published><updated>2021-01-20T11:18:44+05:30</updated><id>https://www.achowdhary.com/what-is-new-in-airflow-2.0</id><content type="html" xml:base="https://www.achowdhary.com/what-is-new-in-airflow-2.0/">&lt;figure&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s new in Airlow 2.0?</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/what-is-new-in-airflow-2.0/" rel="alternate" type="text/html" title="What’s new in Airlow 2.0?" /><published>2021-01-20T11:18:44+05:30</published><updated>2021-01-20T11:18:44+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/what-is-new-in-airflow-2.0</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/what-is-new-in-airflow-2.0/">&lt;figure&gt;
 &lt;img src=&quot;two.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
 &lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
 	Photo by &lt;a href=&quot;https://unsplash.com/@priscilladupreez&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Priscilla Du Preez
@@ -227,7 +500,7 @@ You can find more details about API &lt;a href=&quot;http://airflow.apache.org/d
   &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/2.0.0/scheduler.html&quot; target=&quot;_blank&quot;&gt;Scheduler documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Concepts&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.astronomer.io/blog/airflow-2-scheduler&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Announcement on Astronomer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow Concurrency Configuration Simplified!</title><link href="https://www.achowdhary.com/airflow-concurrency-simplified/" rel="alternate" type="text/html" title="Airflow Concurrency Configuration Simplified!" /><published>2020-08-05T10:28:47+05:30</published><updated>2020-08-05T10:28:47+05:30</updated><id>https://www.achowdhary.com/airflow-concurrency-simplified</id><content type="html" xml:base="https://www.achowdhary.com/airflow-concurrency-simplified/">&lt;p&gt;Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very &lt;a href=&quot;https://issues.apache.org/jira/browse/AIRFLOW-57&quot; target=&quot;_blank&quot;&gt;unintuitive and confusing way&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow Concurrency Configuration Simplified!</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/" rel="alternate" type="text/html" title="Airflow Concurrency Configuration Simplified!" /><published>2020-08-05T11:58:47+05:30</published><updated>2020-08-05T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/">&lt;p&gt;Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very &lt;a href=&quot;https://issues.apache.org/jira/browse/AIRFLOW-57&quot; target=&quot;_blank&quot;&gt;unintuitive and confusing way&lt;/a&gt;.&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;confused.jpg&quot; alt=&quot;confused&quot; /&gt;
@@ -269,7 +542,7 @@ This is great if you have a lot of workers in parallel, but you don’t want to 
 
 &lt;p&gt;The pool parameter can be used in conjunction with priority_weight to define priorities in the queue, and which tasks get executed first as slots open up in the pool. The default priority_weight is 1, and can be bumped to any number. When sorting the queue to evaluate which task should be executed next, we use the priority_weight, summed up with all of the priority_weight values from tasks downstream from this task. You can use this to bump a specific important task and the whole path to that task gets prioritized accordingly.&lt;/p&gt;
 
-&lt;p&gt;If tasks are not given a pool, they are assigned to a default pool default_pool which is initialized with 128 slots and can changed through the UI or CLI.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very unintuitive and confusing way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub setup with Jupyter Lab.</title><link href="https://www.achowdhary.com/juppyter-hub-setup-simplified/" rel="alternate" type="text/html" title="Jupyter Hub setup with Jupyter Lab." /><published>2020-07-07T10:28:47+05:30</published><updated>2020-07-07T10:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-setup-simplified</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-setup-simplified/">&lt;p&gt;Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.&lt;/p&gt;
+&lt;p&gt;If tasks are not given a pool, they are assigned to a default pool default_pool which is initialized with 128 slots and can changed through the UI or CLI.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very unintuitive and confusing way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub setup with Jupyter Lab.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-setup-simplified/" rel="alternate" type="text/html" title="Jupyter Hub setup with Jupyter Lab." /><published>2020-07-07T10:28:47+05:30</published><updated>2020-07-07T10:28:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-setup-simplified</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-setup-simplified/">&lt;p&gt;Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;hub-lab.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
@@ -382,7 +655,7 @@ setttings/package_config.json
   &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Lab Documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/getting-started/security-basics.html&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Security Configuration&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/hub-lab.jpg" /><media:content medium="image" url="https://www.achowdhary.com/hub-lab.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub AD/LDAP Integration.</title><link href="https://www.achowdhary.com/juppyter-hub-AD-authentication/" rel="alternate" type="text/html" title="Jupyter Hub AD/LDAP Integration." /><published>2020-04-14T10:28:47+05:30</published><updated>2020-04-14T10:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-AD-authentication</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-AD-authentication/">&lt;p&gt;If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/hub-lab.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/hub-lab.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub AD/LDAP Integration.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-AD-authentication/" rel="alternate" type="text/html" title="Jupyter Hub AD/LDAP Integration." /><published>2020-04-14T11:58:47+05:30</published><updated>2020-04-14T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-AD-authentication</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-AD-authentication/">&lt;p&gt;If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
 
 &lt;p&gt;Also it is worth mentioning upfront that it is very easy and &lt;a href=&quot;https://github.com/jupyterhub/ldapauthenticator&quot; target=&quot;_blank&quot;&gt;documentation&lt;/a&gt; is pretty good.&lt;/p&gt;
 
@@ -418,7 +691,7 @@ setttings/package_config.json
 	c.LDAPAuthenticator.bind_dn_template = '{username}'
 
 	c.Authenticator.admin_users = {'anuradha', 'admin'}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Prod" /><summary type="html">If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/easy.jpg" /><media:content medium="image" url="https://www.achowdhary.com/easy.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow AD/LDAP Integration.</title><link href="https://www.achowdhary.com/airflow-AD-authentication/" rel="alternate" type="text/html" title="Airflow AD/LDAP Integration." /><published>2020-04-05T10:28:47+05:30</published><updated>2020-04-05T10:28:47+05:30</updated><id>https://www.achowdhary.com/airflow-AD-authentication</id><content type="html" xml:base="https://www.achowdhary.com/airflow-AD-authentication/">&lt;p&gt;If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Prod" /><summary type="html">If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/easy.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/easy.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow AD/LDAP Integration.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-AD-authentication/" rel="alternate" type="text/html" title="Airflow AD/LDAP Integration." /><published>2020-04-05T11:58:47+05:30</published><updated>2020-04-05T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-AD-authentication</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-AD-authentication/">&lt;p&gt;If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;door.jpg&quot; alt=&quot;confused&quot; /&gt;
@@ -494,7 +767,7 @@ AUTH_LDAP_TLS_CACERTFILE = '/path/to/root_CA.crt' #You may not need this
   &lt;li&gt;&lt;a href=&quot;https://flask-appbuilder.readthedocs.io/en/latest/security.html&quot; target=&quot;_blank&quot;&gt;Flask-AppBuilder supported authentication types&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.python-ldap.org/en/latest/reference/index.html&quot; target=&quot;_blank&quot;&gt;python-ldap reference documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://flask-appbuilder.readthedocs.io/en/latest/config.html&quot; target=&quot;_blank&quot;&gt;Flask-AppBuilder configuration reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Create a Virtual Mount on Linux.</title><link href="https://www.achowdhary.com/virtual-mount-centos/" rel="alternate" type="text/html" title="Create a Virtual Mount on Linux." /><published>2020-01-05T10:28:47+05:30</published><updated>2020-01-05T10:28:47+05:30</updated><id>https://www.achowdhary.com/virtual-mount-centos</id><content type="html" xml:base="https://www.achowdhary.com/virtual-mount-centos/">&lt;p&gt;Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux.&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Create a Virtual Mount on Linux.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/virtual-mount-centos/" rel="alternate" type="text/html" title="Create a Virtual Mount on Linux." /><published>2020-01-05T11:58:47+05:30</published><updated>2020-01-05T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/virtual-mount-centos</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/virtual-mount-centos/">&lt;p&gt;Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux.&lt;/p&gt;
 
 &lt;p&gt;One common way of having size limit directories is creating a virual mount point. Here are the steps to create Vitual Mount Point. Here are the steps for the same:&lt;/p&gt;
 

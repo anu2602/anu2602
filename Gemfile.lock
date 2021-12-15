@@ -67,6 +67,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   jekyll (~> 4.1.0)
@@ -76,4 +77,4 @@ DEPENDENCIES
   jekyll-sitemap (~> 1.4)
 
 BUNDLED WITH
-   2.2.6
+   2.2.33

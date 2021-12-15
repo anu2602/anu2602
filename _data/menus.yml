@@ -2,7 +2,7 @@
   url: /
   external: false
 
-- title: archive
+- title: posts
   url: /archive/
   external: false
 
@@ -10,9 +10,9 @@
   url: /about/
   external: false 
 
-- title: Shoonye
-  url: http://www.shoonye.com
-  external: true 
+#- title: Shoonye
+#  url: http://www.shoonye.com
+#  external: true 
 
 # Example:
 # - title: github
