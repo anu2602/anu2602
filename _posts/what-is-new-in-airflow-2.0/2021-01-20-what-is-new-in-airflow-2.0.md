@@ -4,6 +4,7 @@ date: 2021-01-20 11:18:44 +05:30
 tags: [Airflow, Simplified, Prod]
 description: Airflow 2.0 is out, let's understand what is new? Should you upgrade?
 image: "/airflow-concurrency-simplified/airflow.jpeg"
+comments: true
 ---
 <figure>
 <img src="two.jpg" alt="JupyterLab and JupyterHub"> 

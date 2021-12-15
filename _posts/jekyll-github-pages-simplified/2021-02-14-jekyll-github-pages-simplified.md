@@ -4,6 +4,7 @@ date: 2021-02-14 08:58:14 +05:30
 tags: [jekyll, github, website]
 description: Tips and tricks for setting up a free dynamic website/blog with Github Pages using Jekyll.
 image: "/airflow-concurrency-simplified/airflow.jpeg"
+comment: true
 ---
 I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn't be any cheaper and easier.
 
