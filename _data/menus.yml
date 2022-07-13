@@ -3,7 +3,7 @@
   external: false
 
 - title: posts
-  url: /archive/
+  url: /posts/
   external: false
 
 - title: about

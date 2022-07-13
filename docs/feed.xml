@@ -1,4 +1,479 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2021-12-15T23:02:14+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Personal website/blog with Jekyll + Github.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/jekyll-github-pages-simplified/" rel="alternate" type="text/html" title="Personal website/blog with Jekyll + Github." /><published>2021-02-14T08:58:14+05:30</published><updated>2021-02-14T08:58:14+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/jekyll-github-pages-simplified</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/jekyll-github-pages-simplified/">&lt;p&gt;I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2022-07-13T05:47:56+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Python 3 Site Configuration</title><link href="https://www.achowdhary.com/python-site-configuration/" rel="alternate" type="text/html" title="Python 3 Site Configuration" /><published>2022-05-09T10:59:07+05:30</published><updated>2022-05-09T10:59:07+05:30</updated><id>https://www.achowdhary.com/python-site-configuration</id><content type="html" xml:base="https://www.achowdhary.com/python-site-configuration/">&lt;figure&gt;
+&lt;img src=&quot;site-config.jpg&quot; alt=&quot;Site Configuration&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This blog exists because the &lt;a href=&quot;https://docs.python.org/3/library/site.html&quot; target=&quot;_blank&quot;&gt;official python site configuration documentation&lt;/a&gt; is not very clear.&lt;/p&gt;
+
+&lt;h1 id=&quot;site-packages&quot;&gt;site-packages&lt;/h1&gt;
+&lt;p&gt;Python installation has a site-packages directory inside the module directory. This directory is where user installed packages are dropped. In other words when a new package is installed, the content of package are dropped into site-packages directory. It is the target directory of manually built Python packages. When you build and install Python packages from source (using distutils, probably by executing python setup.py install), you will find the installed modules in site-packages by default.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site&lt;/code&gt; module handles site-specific configuration, especially the import path or module search path. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site&lt;/code&gt; is automatically imported each time the interpreter starts up. On import, it extends &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.path&lt;/code&gt; with site-specific names constructed by combining the prefix values &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.prefix&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.exec_prefix&lt;/code&gt; with several suffixes. The prefix values used are saved in the module-level variable PREFIXES for reference later. Under Windows, the suffixes are an empty string and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/site-packages&lt;/code&gt;. For Unix-like platforms, the values are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/python$version/site-packages&lt;/code&gt; (where $version is replaced by the major and minor version number of the interpreter, such as 3.5) and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/site-python&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;import-path&quot;&gt;Import Path&lt;/h1&gt;
+&lt;p&gt;The search path for modules is managed as a Python list saved in sys.path. The default contents of the path include the directory of the script used to start the application and the current working directory.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import sys
+for pdir in sys.path:
+    print pdir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;pythonpath&quot;&gt;PYTHONPATH&lt;/h1&gt;
+&lt;p&gt;This is the most non-intrusive way of modifying the default search path. The format for setting the environment variable is same as the shell’s PATH: one or more directory pathnames separated by os.pathsep (e.g. colons on Unix or semicolons on Windows). Non-existent directories are silently ignored. In addition to normal directories, individual PYTHONPATH entries may refer to zipfiles containing pure Python modules (in either source or compiled form). Extension modules cannot be imported from zipfiles.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;on Unix like system : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo $PYTHONPATH&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;on Windows : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo %PYTHONPATH%&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;from within Python
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import os
+os.environ['PYTHONPATH']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;user_site-and-pythonnousersite&quot;&gt;USER_SITE and PYTHONNOUSERSITE&lt;/h1&gt;
+
+&lt;h2 id=&quot;siteuser_site&quot;&gt;site.USER_SITE&lt;/h2&gt;
+&lt;p&gt;Path to the user site-packages for the running Python, defaults are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.local/lib/pythonX.Y/site-packages&lt;/code&gt; for UNIX and non-framework macOS builds&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Library/Python/X.Y/lib/python/site-packages&lt;/code&gt; for macOS framework builds&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; %APPDATA%\Python\PythonXY\site-packages&lt;/code&gt; on Windows. 
+This directory is a site directory, which means that .pth files in it will be processed (discussed below).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pythonnousersite&quot;&gt;PYTHONNOUSERSITE&lt;/h2&gt;
+&lt;p&gt;The user site directory can be set through the PYTHONNOUSERSITE environment variable to override above platform-specific defaults.
+site.USER_BASE and PYTHONUSERBASE are related variable to configure python base directory e.g &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.local&lt;/code&gt; on Unix.&lt;/p&gt;
+
+&lt;h1 id=&quot;siteaddsitedir-and-syspathappend&quot;&gt;site.addsitedir and sys.path.append&lt;/h1&gt;
+&lt;p&gt;In the code following two mehtod could be used to modify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.path&lt;/code&gt;, or python import search path.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;sys.path.append(‘/path/to/search’)&lt;/li&gt;
+  &lt;li&gt;site.addsitedir(‘/path/to/site’)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The difference between 1 and 2 is just plain appending is that when you use site.addsitedir, it also looks for .pth files within that directory. This directory can possibly be used to add additional directories to sys.path using .pth files (see below for more details).&lt;/p&gt;
+
+&lt;h1 id=&quot;pth-files&quot;&gt;.pth files&lt;/h1&gt;
+&lt;p&gt;A path configuration file is a plain text file with the extension .pth. The paths in this file can be used to extend the import path to look for location that would not have been added automatically. It’s contents are added to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.path&lt;/code&gt;. Important points to note about .pth file.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;File must have extension of .pth e.g my-modules.pth&lt;/li&gt;
+  &lt;li&gt;File must be placed in site dir.&lt;/li&gt;
+  &lt;li&gt;Each line must contain a single path that will be appended to sys.path&lt;/li&gt;
+  &lt;li&gt;Non existant paths are ignored&lt;/li&gt;
+  &lt;li&gt;No check is made that the item refers to a directory rather than a file.&lt;/li&gt;
+  &lt;li&gt;Duplicates are ignored&lt;/li&gt;
+  &lt;li&gt;Blank lines and lines beginning with # are skipped&lt;/li&gt;
+  &lt;li&gt;Modules in the added directories will not override standard modules&lt;/li&gt;
+  &lt;li&gt;Paths can be absolute or relative&lt;/li&gt;
+  &lt;li&gt;Relative Paths are relative to the directory containing the .pth file&lt;/li&gt;
+  &lt;li&gt;Lines starting with import (followed by space or tab) are executed.&lt;/li&gt;
+  &lt;li&gt;An executable line in a .pth file is run at every Python startup.&lt;/li&gt;
+  &lt;li&gt;If a site directory contains multiple .pth files, they are processed in alphabetical order.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;site-packages
+├── mypath.pth
+└── my-site
+    └── mymodule.py
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;mypath.pth file contains:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;my-site
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;sitecustomizepy-and-usercustomizepy&quot;&gt;sitecustomize.py and usercustomize.py&lt;/h1&gt;
+
+&lt;p&gt;PTH files are only processed if they are in the site-packages directory ( to be precise in a “site directory”). Site directory itself is a  global setting for the Python installation and does not depend on the current/working directory. The site module is also responsible for loading site-wide customization defined by the local site owner in a sitecustomize module. Uses for sitecustomize include extending the import path and enabling coverage, profiling, or other development tools.&lt;/p&gt;
+
+&lt;p&gt;After these path manipulations, an attempt is made to import a module named sitecustomize, which can perform arbitrary site-specific customizations. sitecustomize.py is imported before Python starts running your own code. This can be used to add a new site dir:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import site
+site.addsitedir('/path/to/site')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Similar to sitecustomize, the usercustomize module can be used to set up user-specific settings each time the interpreter starts up. usercustomize is loaded after sitecustomize, so site-wide customizations can be overridden.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/site.html&quot; target=&quot;_blank&quot;&gt;https://docs.python.org/3/library/site.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pymotw.com/3/site/index.html&quot; target=&quot;_blank&quot;&gt;site — Site-wide Configuration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/using/cmdline.html&quot; target=&quot;_blank&quot;&gt;Python Command line and environment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Python" /><category term="Simplified" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/python-site-configuration/site-config.jpg" /><media:content medium="image" url="https://www.achowdhary.com/python-site-configuration/site-config.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python Monkey Patching</title><link href="https://www.achowdhary.com/monkey-patching/" rel="alternate" type="text/html" title="Python Monkey Patching" /><published>2022-02-18T21:22:42+05:30</published><updated>2022-02-18T21:22:42+05:30</updated><id>https://www.achowdhary.com/monkey-patching</id><content type="html" xml:base="https://www.achowdhary.com/monkey-patching/">&lt;figure&gt;
+&lt;img src=&quot;monkey.jpg&quot; alt=&quot;You are not allowed!&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@andremouton&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Andre Mouton
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Python is a characteristic dynamic scripting language. Not only it has dynamic type are but it’s object model is also dynamic. Python’s classes are mutable, and methods are just attributes of the class; This allows us to modify its behavior at run time. This is funnily called &lt;em&gt;Monkey Patching&lt;/em&gt;, with possible reference to &lt;em&gt;guerrilla patch&lt;/em&gt; which referred to changing code sneakily.&lt;/p&gt;
+
+&lt;p&gt;Monkey Patching is simply the dynamic replacement of attributes at runtime. In Python, the term monkey patch refers to dynamic (or run-time) modifications of a function, class or module. Let’s understand with an example, we use a python package wich has a class like this:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# monkey.py
+	class Me:
+	     def who_am_i(self):
+	         print (&quot;I am a Monkey&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Now since I am a human, I don’t like this so I Monkey Patch [pun intended].&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	import monkey
+	def i_am_human(self):
+	    print (&quot;I am human&quot;)
+	   
+	# replacing address of &quot;who_am_i&quot; with &quot;i_am_human&quot;
+	monkey.Me.who_am_i = i_am_human
+	obj = monkey.Me()
+	  
+	# calling function &quot;who_am_i&quot; whose address got replaced
+	# with function &quot;i_am_human()&quot;
+	obj.who_am_i()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This will print “I am a human”, which is corret; But it need a bit of &lt;em&gt;Monkey Patching&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;mutable-and-immutable-data-types&quot;&gt;Mutable and Immutable Data Types&lt;/h2&gt;
+&lt;p&gt;To understand monkey patching we need to understand the differences between mutable and immutable data types in Python. We can think about variables in Python as labels instead of boxes. In Python, a variable is a label that we assign to an object; it is the way we, as humans, have to identify it. However, what is important is the data underlying the label, its value, and its type. Custom objects are mutable, and therefore their attributes can be replaced without creating a new copy of the object. so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float, decimal, complex, bool, string, tuple, range, frozenset, bytes&lt;/code&gt; etc. are Mutable while &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;list&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dictionary&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bytearray&lt;/code&gt;, &lt;em&gt;user-defined classes&lt;/em&gt; are Immutable. Here we are interested in immutable object, becausethey can be changed in-place.&lt;/p&gt;
+
+&lt;h2 id=&quot;patching-an-instance&quot;&gt;Patching an Instance&lt;/h2&gt;
+&lt;p&gt;Above instance patched a class method and all instances of the class will have the patched method. We can also patch a specific instance.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import types
+import monkey
+
+monkey1 = monkey.Me()
+monkey2 = monkey.Me()
+
+def i_am_human(self):
+	print (&quot;I am human&quot;)
+
+monkey2.who_am_i = types.MethodType(i_am_human, monkey2)
+
+print(monkey1.who_am_i())
+# I am a Monkey
+print(monkey2.get_value())
+# I am a human
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So with the use of types, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;monkey2&lt;/code&gt; has has been patched to become a human.&lt;/p&gt;
+
+&lt;h2 id=&quot;patching-a-module&quot;&gt;Patching a Module&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# whoami.py
+
+	def who_am_i(monkey_type):
+	    print (f&quot;I am a {monkey_type}&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# human.py
+	import whoami
+
+	def who_am_i():
+	    whoami.who_am_i(&quot;Human&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# monkey.py
+	import whoami
+	import human
+
+	def i_am_monkey(self):
+	    who_am_i(&quot;Monkey&quot;)
+
+	 whoami.who_am_i = i_am_monkey
+	 human.who_am_i()
+	 # I am a Monkey
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The monkey has hacked the human module by monkey patching.&lt;/p&gt;
+
+&lt;h2 id=&quot;word-of-caution&quot;&gt;Word of Caution&lt;/h2&gt;
+&lt;p&gt;Monkey patching is very powerful. It’s useful if we are dealing with legacy code or code from other people in which we do not want to modify it extensively but still want to make it run with different versions of libraries or environments.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As a general rule, the best is not to monkey patch.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The problem with monkey-patching is that the behavior of a program becomes much harder to understand. In above example soon enough it will be confusing “Who is Monkey” and “Who is Human”. Whereever possible extend the public interface of third party library.&lt;/p&gt;
+
+&lt;p&gt;Sometimes there Monkey Patching can be a great benefit. You could replace all instance of a method with another with just one line of code change. Monkey patching is also useful in testing, when you want to use a mock method to test.&lt;/p&gt;
+
+&lt;h2 id=&quot;using-gorrilla-package-&quot;&gt;Using Gorrilla Package &lt;a href=&quot;https://pypi.org/project/gorilla/&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I like gorrilla, while monkey patching, it makes the process both intuitive and convenient even when faced with large numbers of patches to create.  Here is an example:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import gorilla
+&amp;gt;&amp;gt;&amp;gt; import destination
+&amp;gt;&amp;gt;&amp;gt; @gorilla.patches(destination.Class)
+... class MyClass(object):
+...     def method(self):
+...         print(&quot;Hello&quot;)
+...     @classmethod
+...     def class_method(cls):
+...         print(&quot;world!&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The code above creates two patches, one for each member of the class MyClass, but does not apply them yet. In other words, they define the information required to carry on the operation but are not yet inserted into the specified destination class destination.Class.&lt;/p&gt;
+
+&lt;p&gt;Such patches created with the decorators can then be automatically retrieved by recursively scanning a package or a module, then applied:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import gorilla
+&amp;gt;&amp;gt;&amp;gt; import mypackage
+&amp;gt;&amp;gt;&amp;gt; patches = gorilla.find_patches([mypackage])
+&amp;gt;&amp;gt;&amp;gt; for patch in patches:
+...     gorilla.apply(patch)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You can find more in &lt;a href=&quot;https://gorilla.readthedocs.io/en/latest/&quot; target=&quot;_blank&quot;&gt;Gorilla Documentation&lt;/a&gt;
+```&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="HowTo" /><category term="Python" /><summary type="html">Photo by Andre Mouton</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" /><media:content medium="image" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Spark3 Cheat Sheet</title><link href="https://www.achowdhary.com/spark-cheat-sheet/" rel="alternate" type="text/html" title="Spark3 Cheat Sheet" /><published>2021-05-15T11:22:42+05:30</published><updated>2021-05-15T11:22:42+05:30</updated><id>https://www.achowdhary.com/spark-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/spark-cheat-sheet/">&lt;figure&gt;
+&lt;img src=&quot;spark3-cheat-sheet.png&quot; alt=&quot;What's new in Spark3?&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Okie, this is not really a cheatsheet. It is more about “what’s new in Spark 3?”, so more appropriate title would be “What’s new in Spark3 Cheat Sheet”. So Let’s first look at what’s new in Spark3. As with cheet sheet, we will only discuss most useful featurs, improvements that were introduced in Spark3:&lt;/p&gt;
+
+&lt;h1 id=&quot;performance&quot;&gt;Performance&lt;/h1&gt;
+
+&lt;h4 id=&quot;1-adaptive-query-execution-aqe-&quot;&gt;1. Adaptive Query Execution (AQE) &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-31412&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;By far, this has to be the number one reason to upgrade to Spark3. Every spark developer was so looking forward to AQE improvement and they surely do not disappoint. Prior to 3.0, Spark optimized by creating an execution plan before the query execution, AQE applies a second level of optimization based on the metrics it sees with each stage.&lt;/p&gt;
+
+&lt;p&gt;In Spark 3.0, the AQE framework is result of 40+ Improvements, three main ones are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamically coalescing shuffle partitions&lt;/strong&gt; simplifies the number of shuffle partitions.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamically switching join strategies&lt;/strong&gt; partially avoids executing suboptimal plans due to missing statistics and/or size misestimation.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamically optimizing skew joins&lt;/strong&gt; can parallelize skew processing and achieve better overall performance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Adaptive Query Execution is disabled by default. Adaptive Query Execution is used if query meets the following criteria:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;It is not a streaming query&lt;/li&gt;
+  &lt;li&gt;It contains at least one exchange (usually when there’s a join, aggregate or window operator) or one subquery&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In order to enable AQE, set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.adaptive.enabled&lt;/code&gt; configuration property to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After enabling Adaptive Query Execution, Spark performs 2x improvement on TPC-DS over Spark 2. There’s no need to “know” your data in advance any more. AQE will figure out the data and improve the query plan as the query runs, increasing query performance for faster analytics and system performance.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-dynamic-partition-pruning&quot;&gt;2. Dynamic Partition Pruning&lt;/h4&gt;
+&lt;p&gt;Basically, dynamic partition pruning is to avoid partition scanning based on the queried results of the other query fragments. It is important for star schema queries. Spark3 implements dynamic partition pruning by adding a dynamic-partition-pruning filter if there is a partitioned table and a filter on the dimension table. The filter is then planned using a heuristic approach:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;As a broadcast relation if it is a broadcast hash join. The broadcast relation will then be transformed into a reused broadcast exchange by the ReuseExchange rule; or&lt;/li&gt;
+  &lt;li&gt;As a subquery duplicate if the estimated benefit of partition table scan being saved is greater than the estimated cost of the extra scan of the duplicated subquery; otherwise&lt;/li&gt;
+  &lt;li&gt;As a bypassed condition (true).
+ Below shows a .&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;img src=&quot;dpp.png&quot; alt=&quot;DPP&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    A basic example of DPP
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;new-features&quot;&gt;New Features&lt;/h1&gt;
+
+&lt;h4 id=&quot;3-new-structured-streaming&quot;&gt;3. New Structured Streaming&lt;/h4&gt;
+&lt;p&gt;A new Structured Streaming tab to has been added to Spark UI to monitor Structured streaming applications. This tab provides the run ID, Status, Start Time, Duration for each micro-batch along with runtime statistics. This helps the developer to debug and understand what’s happening with the streaming queries. It has two sections.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Active Streaming Queries&lt;/li&gt;
+  &lt;li&gt;Completed Streaming Queries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;img src=&quot;streaming-ui.png&quot; alt=&quot;DPP&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    Structured Streaming UI
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;4-accelerator-aware-scheduler-project-hydrogen&quot;&gt;4. Accelerator-aware Scheduler (Project Hydrogen)&lt;/h4&gt;
+&lt;p&gt;GPUs and other accelerators have been widely used for accelerating special workloads, e.g., deep learning and signal processing. While users from the AI community use GPUs heavily, they often need Apache Spark to load and process large datasets and to handle complex data scenarios like streaming. Spark is not aware of GPUs and hence cannot properly request and schedule them for users. This leaves a critical gap to unify big data and AI workloads and make life simpler for end users.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;hydrogen.png&quot; alt=&quot;Project Hydrogen&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    Accelerating Apache Spark 3.0 with GPUs and RAPIDS
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;spark2gpu.png&quot; alt=&quot;Project Hydrogen&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    n Spark 2.x, separate clusters were needed for ETL on CPUs, and model training on GPUs.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;spark3gpu.png&quot; alt=&quot;Project Hydrogen&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    In Apache Spark 3.0, you can now have a single pipeline, from data ingest to data preparation to model training on a GPU powered cluster.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;4-other-notable-features&quot;&gt;4. Other notable Features&lt;/h4&gt;
+
+&lt;h5 id=&quot;41-datasource-to-read-binary-files&quot;&gt;4.1 Datasource to Read Binary Files&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val df = spark.read.format(&quot;binaryFile&quot;).load(&quot;/tmp/binary/spark.png&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;42-feature-to-read-recursive-folders&quot;&gt;4.2 Feature to Read Recursive folders&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    spark.read.option(&quot;recursiveFileLookup&quot;, &quot;true&quot;).csv(&quot;/path/to/folder&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;43-multiple-character-delimiter-support&quot;&gt;4.3 Multiple Character Delimiter Support&lt;/h5&gt;
+&lt;p&gt;For example, to read a CSV file with the following content.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    col1||col2||col3||col4
+    val1||val2||val3||val4
+    val1||val2||val3||val4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;below code can be used.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val df  = spark.read
+      .option(&quot;delimiter&quot;,&quot;||&quot;)
+      .option(&quot;header&quot;,&quot;true&quot;)
+      .csv(&quot;/tmp/data/douplepipedata.csv&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;44-dataframetail-feature&quot;&gt;4.4 DataFrame.tail() feature&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val data=spark.range(1,100).toDF(&quot;num&quot;).tail(5)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;44-dataframetail-feature-1&quot;&gt;4.4 DataFrame.tail() feature&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val data=spark.range(1,100).toDF(&quot;num&quot;).tail(5)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;45-new-built-in-functions&quot;&gt;4.5 New built-in functions&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;sinh, cosh, tanh, asinh, acosh, atanh &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28133&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;any, every, some &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-19851&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bit_and, bit_or &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27879&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bit_count &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29491&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bit_xor &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29545&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bool_and, bool_or &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-30184&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;count_if &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27425&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;date_part &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28690&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;extract &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23903&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;forall &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27905&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;from_csv &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-25393&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;make_date &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28432&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;make_interval &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29393&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;make_timestamp &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28495&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;map_entries &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23935&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;map_filter &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23937&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;map_zip_with &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23938&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;max_by, min_by &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27653&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;schema_of_csv &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-25672&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;to_csv &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-25683&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;transform_keys &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23939&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;transform_values &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23940&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;typeof &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29961&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;version &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29554&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;xxhash64 &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27099&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;5-catalog-plugin-api&quot;&gt;5. Catalog plugin API&lt;/h4&gt;
+&lt;p&gt;This will bring multi-catalog support to Spark and allow external catalog implementations. In Spark 3 multiple catalogs can be added:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    spark.sql.catalog.catalog1=...
+    spark.sql.catalog.catalog1.type=...
+    spark.sql.catalog.catalog1.warehouse=...
+    spark.sql.catalog.catalog2=...
+    spark.sql.catalog.catalog2.type=...
+    spark.sql.catalog.catalog2.warehouse=...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and can be used in query:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    spark.sql(&quot;SELECT * FROM catalog1.db1.table1&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;upgrades-and-enhancements&quot;&gt;Upgrades and Enhancements&lt;/h1&gt;
+
+&lt;h4 id=&quot;6-improvements-on-pandas-udf-api&quot;&gt;6. Improvements on pandas UDF API&lt;/h4&gt;
+&lt;p&gt;Pandas UDFs (User-Defined Functions) are probably one of the most significant Pandsa improvement added to Spark since version 2.3 as they allow users to leverage pandas API. The newest release of Apache Spark introduced a new interface of Pandas UDFs with Python type hints. Example:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    import pandas as pd
+    from pyspark.sql.functions import pandas_udf
+
+    @pandas_udf('long')
+    def pandas_subtract_unit(s: pd.Series) -&amp;gt; pd.Series:
+        return s - 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;7-switch-to-proleptic-gregorian-calendar&quot;&gt;7. Switch to Proleptic Gregorian calendar&lt;/h4&gt;
+&lt;p&gt;Earlier version of Spark supports Dates in Julian and Gregorian calendar: For dates before 1582, the Julian calendar was used, for dates, after 1582 the Gregorian calendar was used. This is similar to Dates in JDK 7 and before which uses java.sql.Date API. From JDK 8, a new Proleptic Gregorian calendar has been introduced with java.time.LocalDate API.&lt;/p&gt;
+
+&lt;h4 id=&quot;8-better-ansi-sql-compatible-&quot;&gt;8. Better ANSI SQL compatible &lt;a href=&quot;https://spark.apache.org/docs/3.0.0/sql-ref-ansi-compliance.html&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Since Spark 3.0, Spark SQL introduces two experimental options to comply with the SQL standard: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.ansi.enabled&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.storeAssignmentPolicy&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.ansi.enabled&lt;/code&gt; is set to true, Spark SQL follows the standard in basic behaviours (e.g., arithmetic operations, type conversion, SQL functions and SQL parsing). Moreover, Spark SQL has an independent option to control implicit casting behaviours when inserting rows in a table. The casting behaviours are defined as store assignment rules in the standard.&lt;/p&gt;
+
+&lt;p&gt;When &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.storeAssignmentPolicy&lt;/code&gt; is set to ANSI, Spark SQL complies with the ANSI store assignment rules. This is a separate configuration because its default value is ANSI, while the configuration spark.sql.ansi.enabled is disabled by default.&lt;/p&gt;
+
+&lt;h4 id=&quot;9--upgrades&quot;&gt;9.  Upgrades&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hadoop 3 Upgrade&lt;/li&gt;
+  &lt;li&gt;JDK 11 Support&lt;/li&gt;
+  &lt;li&gt;Python3&lt;/li&gt;
+  &lt;li&gt;Scala 2.12&lt;/li&gt;
+  &lt;li&gt;Kfka 2.4.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you still think this is not a cheat sheet, here is one of &lt;a href=&quot;http://datacamp-community-prod.s3.amazonaws.com/acfa4325-1d43-4542-8ce4-bea2d287db10&quot; target=&quot;_blank&quot;&gt;my favorite Spark 3 Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/releases/spark-release-3-0-0.html&quot; target=&quot;_blank&quot;&gt; Spark 3.0.3 Release Changelog &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-31412&quot; target=&quot;_blank&quot;&gt; Adaptive Query Execution &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://databricks.com/blog/2020/06/18/introducing-apache-spark-3-0-now-available-in-databricks-runtime-7-0.html&quot; target=&quot;_blank&quot;&gt; Databricks Spark 3.0 blog &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-11150&quot; target=&quot;_blank&quot;&gt; Dynamic Partition Pruning &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/3.0.0/web-ui.html#structured-streaming-tab&quot; target=&quot;_blank&quot;&gt; Structured Streaming Tab &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-24615&quot; target=&quot;_blank&quot;&gt; SPIP: Accelerator-aware task scheduling for Spark &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://databricks.com/session_na20/deep-dive-into-gpu-support-in-apache-spark-3-x&quot; target=&quot;_blank&quot;&gt; Deep Dive into GPU Support &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-apache-spark-3-0-with-gpus-and-rapids/&quot; target=&quot;_blank&quot;&gt; Accelerating Apache Spark 3.0 with GPUs and RAPIDS &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/d/1zLFiA1VuaWeVxeTDXNg8bL6GP3BVoOZBkewFtEnjEoo/edit#&quot; target=&quot;_blank&quot;&gt;Spark API for Table Metadata&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://books.japila.pl/spark-sql-internals/new-and-noteworthy/catalog-plugin-api-and-multi-catalog-support/&quot; target=&quot;_blank&quot;&gt; Catalog Plugin APi by example&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/latest/sql-migration-guide.html&quot; target=&quot;_blank&quot;&gt; Spark3 SQL Migration Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/d/1-kV0FS_LF2zvaRh_GhkV32Uqksm_Sq8SvnBBmRyxm30/edit&quot; target=&quot;_blank&quot;&gt; Revisiting Pandas UDF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/3.0.0/sql-ref-ansi-compliance.html&quot; target=&quot;_blank&quot;&gt;Better ANSI SQL compatibality in Spark 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" /><media:content medium="image" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Disable Console Access for Jupyter Hub.</title><link href="https://www.achowdhary.com/juppyter-hub-disable-console-access/" rel="alternate" type="text/html" title="Disable Console Access for Jupyter Hub." /><published>2021-03-07T08:28:47+05:30</published><updated>2021-03-07T08:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-disable-console-access</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-disable-console-access/">&lt;figure&gt;
+&lt;img src=&quot;no-access.jpg&quot; alt=&quot;You are not allowed!&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@fionakiwi&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Fiona Jackson
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;can-you-disable-terminal--access-in-jupyterhub&quot;&gt;Can you disable terminal  access in Jupyterhub?&lt;/h4&gt;
+&lt;p&gt;The answer is not a simple Yes or No. It’s is a bit compliated and hence this post.&lt;/p&gt;
+
+&lt;h4 id=&quot;can-you-stop-showing-terminal-from-jupyter-ui&quot;&gt;Can you stop showing Terminal from Jupyter UI?&lt;/h4&gt;
+
+&lt;p&gt;This has a simple answer ☺️ :relaxed:. However ther is no configuration, the configuration &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NotebookApp.terminals_enabled=False&lt;/code&gt; works in single user notebook but does not work in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub&lt;/code&gt; \ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterlab&lt;/code&gt; setup. Fortunately there is a simple way to achieve this. If you uninstall a package called ‘terminado’, terminals will disappear.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pip uninstall -y terminado
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;does-this-secure-my-jupyter-hub-setup&quot;&gt;Does this secure my Jupyter Hub Setup?&lt;/h4&gt;
+
+&lt;p&gt;No, because anything you can do from the terminal, you can do from a notebook anyway, so don’t rely on this as any kind of security measure. A user can:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;open a Python notebook and use the %%bash or ! shell magics.&lt;/li&gt;
+  &lt;li&gt;open a Python notebook, import subprocess, and execute arbitrary commands.&lt;/li&gt;
+  &lt;li&gt;open a notebook for pretty much any other language and execute a shell child process (e.g., s”ls -l” ! in Scala).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Even if you could turn off magic shell commands Python itself has the permissions to do the exact same things,so there’s very little point in even trying. There is no practical way to block the user from running system commands. Even JupyterHub, is designed with the use-case of semi-trusted users, and requires very careful set up to allow for untrusted users. From Jupyter Hub security Documentation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;JupyterHub is designed to be a simple multi-user server for modestly sized groups of semi-trusted users. While the design reflects serving semi-trusted users, JupyterHub is not necessarily unsuitable for serving untrusted users.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;what-is-my-best-options-for-securing-my-jupyterhub&quot;&gt;What is my best options for securing my JupyterHub?&lt;/h4&gt;
+&lt;p&gt;If you are letting untrusted users execute code on your system, the safest approach is to run inside container without access to the system outside the container. JupyterHub has support for containerisation of notebook servers, so each user will have their own (e.g. Docker) container and you can limit access to files. If they mess up their own container it would not mess up other users or the main server. It would  alsow be relatively easy to setup backup and restore data for users.&lt;/p&gt;
+
+&lt;p&gt;Since much of the point of IPython and Jupyter is arbitrary code execution, the security model for deploying Jupyter ought to be applying restrictions at the process/container level, rather than disabling  UI for running commands.&lt;/p&gt;
+
+&lt;p&gt;But setting up JupyterHub instance with docker is not trivial and if you are dealing with very small team of trusted users, you should try to train and guide users. They would most likely anyway have access to server with sudo access.&lt;/p&gt;
+
+&lt;h4 id=&quot;is-there-any-other-alternative&quot;&gt;Is there any other alternative?&lt;/h4&gt;
+&lt;p&gt;If you want to use Linux Containers for isolation and security benefits, but don’t want the headache and complexity of container image management, then you could use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt;. However please note that the Jupyterhub must be run as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You could also use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SudoSpawner&lt;/code&gt; for isolation but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt; provides more features, options and isolation support including memory, CPU and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/tmp&lt;/code&gt; isolation.&lt;/p&gt;
+
+&lt;h4 id=&quot;is-there-any-simple-hack&quot;&gt;Is there any simple hack?&lt;/h4&gt;
+
+&lt;p&gt;There is a hack to prevent users from launching a shell by setting setting the SHELL of the user or process to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/bin/false&lt;/code&gt;; This will prevent any shell from launching a shell. This can work well with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt; by setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHELL=/usr/false&lt;/code&gt; in the systemd service file. But please remember this is a hack and resourceful developer will be able to find a workaround.&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/reference/websecurity.html&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Security Overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Lab Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub-dockerspawner.readthedocs.io/en/latest/&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Docker Spawner&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jupyterhub/zero-to-jupyterhub-k8s&quot; target=&quot;_blank&quot;&gt;Zero to Jupyter Hub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[]Jupyter Hub Systemd Spawner](https://github.com/jupyterhub/systemdspawner){:target=”_blank”}&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Photo by Fiona Jackson</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/jupyter-hub-disable-console-access/no-access.jpg" /><media:content medium="image" url="https://www.achowdhary.com/jupyter-hub-disable-console-access/no-access.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Personal website/blog with Jekyll + Github.</title><link href="https://www.achowdhary.com/jekyll-github-pages-simplified/" rel="alternate" type="text/html" title="Personal website/blog with Jekyll + Github." /><published>2021-02-14T08:58:14+05:30</published><updated>2021-02-14T08:58:14+05:30</updated><id>https://www.achowdhary.com/jekyll-github-pages-simplified</id><content type="html" xml:base="https://www.achowdhary.com/jekyll-github-pages-simplified/">&lt;p&gt;I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;github.jpg&quot; alt=&quot;Github Website&quot; /&gt; 
@@ -103,7 +578,7 @@
   &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot; target=&quot;_blank&quot;&gt;Jekyll Directory Structure&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ndench.github.io/jekyll/setup-jekyll-on-github-pages&quot; target=&quot;_blank&quot;&gt;A Neat and Concise blog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.aleksandrhovhannisyan.com/blog/getting-started-with-jekyll-and-github-pages/&quot; target=&quot;_blank&quot;&gt;A detailed Blog, TLDR;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s new in Airlow 2.0?</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/what-is-new-in-airflow-2.0/" rel="alternate" type="text/html" title="What’s new in Airlow 2.0?" /><published>2021-01-20T11:18:44+05:30</published><updated>2021-01-20T11:18:44+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/what-is-new-in-airflow-2.0</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/what-is-new-in-airflow-2.0/">&lt;figure&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s new in Airlow 2.0?</title><link href="https://www.achowdhary.com/what-is-new-in-airflow-2.0/" rel="alternate" type="text/html" title="What’s new in Airlow 2.0?" /><published>2021-01-20T11:18:44+05:30</published><updated>2021-01-20T11:18:44+05:30</updated><id>https://www.achowdhary.com/what-is-new-in-airflow-2.0</id><content type="html" xml:base="https://www.achowdhary.com/what-is-new-in-airflow-2.0/">&lt;figure&gt;
 &lt;img src=&quot;two.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
 &lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
 	Photo by &lt;a href=&quot;https://unsplash.com/@priscilladupreez&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Priscilla Du Preez
@@ -227,7 +702,7 @@ You can find more details about API &lt;a href=&quot;http://airflow.apache.org/d
   &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/2.0.0/scheduler.html&quot; target=&quot;_blank&quot;&gt;Scheduler documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Concepts&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.astronomer.io/blog/airflow-2-scheduler&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Announcement on Astronomer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Yum Cheat Sheet</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/" rel="alternate" type="text/html" title="Yum Cheat Sheet" /><published>2020-09-15T21:22:42+05:30</published><updated>2020-09-15T21:22:42+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/">&lt;figure&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Yum Cheat Sheet</title><link href="https://www.achowdhary.com/yum-cheat-sheet/" rel="alternate" type="text/html" title="Yum Cheat Sheet" /><published>2020-09-15T21:22:42+05:30</published><updated>2020-09-15T21:22:42+05:30</updated><id>https://www.achowdhary.com/yum-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/yum-cheat-sheet/">&lt;figure&gt;
 &lt;img src=&quot;yum-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
 &lt;/figure&gt;
 &lt;h1 id=&quot;yum-cheat-sheet&quot;&gt;Yum Cheat Sheet&lt;/h1&gt;
@@ -410,7 +885,7 @@ sudo yum history list
 /etc/yum.repos.d/
 /etc/yum/pluginconf.d/
 /var/cache/yum/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html">Yum Cheat Sheet</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/yum-cheat-sheet.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/yum-cheat-sheet/yum-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Git Cheat Sheet</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/" rel="alternate" type="text/html" title="Git Cheat Sheet" /><published>2020-08-25T21:22:42+05:30</published><updated>2020-08-25T21:22:42+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/">&lt;figure&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html">Yum Cheat Sheet</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/yum-cheat-sheet/yum-cheat-sheet.jpg" /><media:content medium="image" url="https://www.achowdhary.com/yum-cheat-sheet/yum-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Git Cheat Sheet</title><link href="https://www.achowdhary.com/git-cheat-sheet/" rel="alternate" type="text/html" title="Git Cheat Sheet" /><published>2020-08-25T21:22:42+05:30</published><updated>2020-08-25T21:22:42+05:30</updated><id>https://www.achowdhary.com/git-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/git-cheat-sheet/">&lt;figure&gt;
 &lt;img src=&quot;git-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
 &lt;/figure&gt;
 
@@ -500,7 +975,7 @@ git config --global color.diff true
   &lt;li&gt;&lt;a href=&quot;https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html&quot; target=&quot;_blank&quot;&gt; FIXUP &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/undoing-changes/git-reset&quot; target=&quot;_blank&quot;&gt; Reset on BitBucket &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/2530060/in-plain-english-what-does-git-reset-do&quot; target=&quot;_blank&quot;&gt; Reset on Stack Overflow &lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="git" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/git-cheat-sheet.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/git-cheat-sheet/git-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow Concurrency Configuration Simplified!</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/" rel="alternate" type="text/html" title="Airflow Concurrency Configuration Simplified!" /><published>2020-08-05T11:58:47+05:30</published><updated>2020-08-05T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/">&lt;p&gt;Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very &lt;a href=&quot;https://issues.apache.org/jira/browse/AIRFLOW-57&quot; target=&quot;_blank&quot;&gt;unintuitive and confusing way&lt;/a&gt;.&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="git" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/git-cheat-sheet/git-cheat-sheet.jpg" /><media:content medium="image" url="https://www.achowdhary.com/git-cheat-sheet/git-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow Concurrency Configuration Simplified!</title><link href="https://www.achowdhary.com/airflow-concurrency-simplified/" rel="alternate" type="text/html" title="Airflow Concurrency Configuration Simplified!" /><published>2020-08-05T11:58:47+05:30</published><updated>2020-08-05T11:58:47+05:30</updated><id>https://www.achowdhary.com/airflow-concurrency-simplified</id><content type="html" xml:base="https://www.achowdhary.com/airflow-concurrency-simplified/">&lt;p&gt;Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very &lt;a href=&quot;https://issues.apache.org/jira/browse/AIRFLOW-57&quot; target=&quot;_blank&quot;&gt;unintuitive and confusing way&lt;/a&gt;.&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;confused.jpg&quot; alt=&quot;confused&quot; /&gt;
@@ -542,7 +1017,7 @@ This is great if you have a lot of workers in parallel, but you don’t want to 
 
 &lt;p&gt;The pool parameter can be used in conjunction with priority_weight to define priorities in the queue, and which tasks get executed first as slots open up in the pool. The default priority_weight is 1, and can be bumped to any number. When sorting the queue to evaluate which task should be executed next, we use the priority_weight, summed up with all of the priority_weight values from tasks downstream from this task. You can use this to bump a specific important task and the whole path to that task gets prioritized accordingly.&lt;/p&gt;
 
-&lt;p&gt;If tasks are not given a pool, they are assigned to a default pool default_pool which is initialized with 128 slots and can changed through the UI or CLI.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very unintuitive and confusing way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub setup with Jupyter Lab.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-setup-simplified/" rel="alternate" type="text/html" title="Jupyter Hub setup with Jupyter Lab." /><published>2020-07-07T10:28:47+05:30</published><updated>2020-07-07T10:28:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-setup-simplified</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-setup-simplified/">&lt;p&gt;Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.&lt;/p&gt;
+&lt;p&gt;If tasks are not given a pool, they are assigned to a default pool default_pool which is initialized with 128 slots and can changed through the UI or CLI.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very unintuitive and confusing way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub setup with Jupyter Lab.</title><link href="https://www.achowdhary.com/juppyter-hub-setup-simplified/" rel="alternate" type="text/html" title="Jupyter Hub setup with Jupyter Lab." /><published>2020-07-07T10:28:47+05:30</published><updated>2020-07-07T10:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-setup-simplified</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-setup-simplified/">&lt;p&gt;Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;hub-lab.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
@@ -655,134 +1130,4 @@ setttings/package_config.json
   &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Lab Documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/getting-started/security-basics.html&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Security Configuration&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/hub-lab.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/hub-lab.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub AD/LDAP Integration.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-AD-authentication/" rel="alternate" type="text/html" title="Jupyter Hub AD/LDAP Integration." /><published>2020-04-14T11:58:47+05:30</published><updated>2020-04-14T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-AD-authentication</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/juppyter-hub-AD-authentication/">&lt;p&gt;If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
-
-&lt;p&gt;Also it is worth mentioning upfront that it is very easy and &lt;a href=&quot;https://github.com/jupyterhub/ldapauthenticator&quot; target=&quot;_blank&quot;&gt;documentation&lt;/a&gt; is pretty good.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;easy.jpg&quot; alt=&quot;That's Easy&quot; /&gt;
-&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
-	Photo by &lt;a href=&quot;https://unsplash.com/@oskarmalm&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Oskar Malm
-&lt;/a&gt; 
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id=&quot;pre-requisite&quot;&gt;Pre-requisite&lt;/h3&gt;
-&lt;p&gt;It is assumed that you have a working jupyter-hub setup with
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub version &amp;gt;= 1.1.0&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version &amp;gt;= 3.6&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;set-up&quot;&gt;Set-up&lt;/h3&gt;
-&lt;p&gt;First of all install jupyterhub-ldapauthenticator using: &lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install jupyterhub-ldapauthenticator&lt;/code&gt;
-&lt;br /&gt;or &lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conda install -c conda-forge jupyterhub-ldapauthenticator&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You will also need &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ldap3&lt;/code&gt; module, which can be installed using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install ldap3&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conda install ldap3&lt;/code&gt;. It is nice to see jupyterhub folks choosing to use ldap3, which is pure python ldap library.&lt;/p&gt;
-
-&lt;p&gt;Add following to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JUPYTERHUB_HOME&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.LDAPAuthenticator.lookup_dn = True
-	c.LDAPAuthenticator.lookup_dn_search_filter = '({login_attr}={login})'
-	c.LDAPAuthenticator.lookup_dn_search_user = 'ldap_search_user_technical_account'
-	c.LDAPAuthenticator.lookup_dn_search_password = 'secret'
-	c.LDAPAuthenticator.user_search_base = 'ou=people,dc=achowdhary,dc=com'
-	c.LDAPAuthenticator.user_attribute = 'sAMAccountName'
-	c.LDAPAuthenticator.lookup_dn_user_dn_attribute = 'cn'
-	c.LDAPAuthenticator.escape_userdn = False
-	c.LDAPAuthenticator.bind_dn_template = '{username}'
-
-	c.Authenticator.admin_users = {'anuradha', 'admin'}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Prod" /><summary type="html">If you are in Enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Jupyter Hub with you Enterprise Active Directory/SSO/LDAP will not only simplify user management in Jupyter Hub but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/easy.jpg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/easy.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow AD/LDAP Integration.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-AD-authentication/" rel="alternate" type="text/html" title="Airflow AD/LDAP Integration." /><published>2020-04-05T11:58:47+05:30</published><updated>2020-04-05T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-AD-authentication</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-AD-authentication/">&lt;p&gt;If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;door.jpg&quot; alt=&quot;confused&quot; /&gt;
-&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
-	Photo by &lt;a href=&quot;https://unsplash.com/@pechka&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Dima Pechurin
-&lt;/a&gt; 
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h3 id=&quot;pre-requisite&quot;&gt;Pre-requisite&lt;/h3&gt;
-&lt;p&gt;It is assumed that you have a working airflow setup with
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow version &amp;gt;= 1.10.2&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version &amp;gt;= 3.6&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You will also need &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python-ldap&lt;/code&gt;, which can be installed using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install python-ldap&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;conda install python-ldap&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python-ldap&lt;/code&gt; package is based on OpenLDAP, so you need to have the development files (headers) in order to compile the Python module.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Debian/Ubuntu:&lt;/em&gt;&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt-get install libsasl2-dev python-dev libldap2-dev libssl-dev&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;RedHat/CentOS:&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum install python-devel openldap-devel&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Airflow 1.10+ uses Flask-AppBuilder (FAB) for user interface. It is expected and obvious that the configuration follows FAB configuration. So if you run into issues, it would be worth  &lt;a href=&quot;https://www.google.com/search?q=Flask-AppBuilder%20LDAP&quot; target=&quot;_blank&quot;&gt; Searching Flask AppBuilder LDAP&lt;/a&gt; instead of Airflow LDAP.&lt;/p&gt;
-
-&lt;p&gt;Make sure you have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbac = true&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow.cfg&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Sdd &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webserver_config.py&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AIRFLOW_HOME&lt;/code&gt;, with following contents.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import os
-from airflow import configuration as conf
-from flask_appbuilder.security.manager import AUTH_LDAP
-
-# Do not delete this line, reqired by FAB for creating users in DB.
-SQLALCHEMY_DATABASE_URI = conf.get('core', 'SQL_ALCHEMY_CONN')
-
-CSRF_ENABLED = True
-
-AUTH_TYPE = AUTH_LDAP
-
-AUTH_ROLE_ADMIN = 'Admin'
-
-#Allows user to register on first login
-AUTH_USER_REGISTRATION = True
-
-# User will have, viewer role on first login
-# Options are Admin, Viewer, User, Op
-# If you have custom role, you can use that too.
-AUTH_USER_REGISTRATION_ROLE = &quot;Viewer&quot;
-
-# Replace with your LDAP Server
-AUTH_LDAP_SERVER = 'ldaps://myldapserver:636/' 
-
-# Replace with your LDAP Base DN
-AUTH_LDAP_SEARCH = 'DC=domain,DC=org,DC=com'
-
-# Replace with your LDAP entry for service user / LDAP Bind User
-AUTH_LDAP_BIND_USER = 'CN=ServiceUser,OU=serviceAccount,DC=domain,DC=org,DC=com'
-# Bind user Password
-AUTH_LDAP_BIND_PASSWORD = '**************'
-
-# LDAP field used for UID
-AUTH_LDAP_UID_FIELD = 'CN'
-
-#TLS Settings, configure as per your LDAP/AD setup
-AUTH_LDAP_USE_TLS = False
-AUTH_LDAP_ALLOW_SELF_SIGNED = False
-AUTH_LDAP_TLS_CACERTFILE = '/path/to/root_CA.crt' #You may not need this
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/dpgaspar/Flask-AppBuilder/pull/1374&quot; target=&quot;_blank&quot;&gt;Airflow pull-request for AUTH_LDAP implementation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://flask-appbuilder.readthedocs.io/en/latest/security.html&quot; target=&quot;_blank&quot;&gt;Flask-AppBuilder supported authentication types&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.python-ldap.org/en/latest/reference/index.html&quot; target=&quot;_blank&quot;&gt;python-ldap reference documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://flask-appbuilder.readthedocs.io/en/latest/config.html&quot; target=&quot;_blank&quot;&gt;Flask-AppBuilder configuration reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">If you are in enterprise environment, chances are you are already using Active Directory as standard authentication. Itegrating Airflow with your Enterprise Active Directory/SSO/LDAP will not only simplify user managementin Airflow but is also very convenient for users. They no longer need to remember yet another username/password.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Create a Virtual Mount on Linux.</title><link href="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/virtual-mount-centos/" rel="alternate" type="text/html" title="Create a Virtual Mount on Linux." /><published>2020-01-05T11:58:47+05:30</published><updated>2020-01-05T11:58:47+05:30</updated><id>http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/virtual-mount-centos</id><content type="html" xml:base="http://ec2-13-233-172-79.ap-south-1.compute.amazonaws.com:4000/virtual-mount-centos/">&lt;p&gt;Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux.&lt;/p&gt;
-
-&lt;p&gt;One common way of having size limit directories is creating a virual mount point. Here are the steps to create Vitual Mount Point. Here are the steps for the same:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Create a directory for filesystem image &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir /vdisk&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Create a filesystem on disk, my preferred way is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fallocate&lt;/code&gt; &lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fallocate -l 100G /vdisk/my_disk.img&lt;/code&gt;&lt;br /&gt;
-Alternatively you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dd&lt;/code&gt; &lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dd if=/dev/zero of=/vdisk/my_disk.img&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Create fileystem on the disk image, I use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xfs&lt;/code&gt; but you can use ex3 or ext4. &lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkfs.xfs /vdisk/my_disk.img&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Create the desired directory to mount the disk. &lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mkdir -p /opt/data/my_disk&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Mount the virtual disk. &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mount -t auto -o loop /vdisk/my_disk.img /opt/data/my_disk&lt;/code&gt; &lt;br /&gt;
-or &lt;br /&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mount -t auto -o loop,rw,usrquota,grpquota /vdisk/my_disk.img /opt/data/my_disk&lt;/code&gt; &lt;br /&gt;
-If you would like to set user or group quotas.&lt;/li&gt;
-  &lt;li&gt;Add the mount to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt; to make it permanent.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Linux" /><category term="HowTo" /><summary type="html">Sometime you want to create a directory with upper limit on size in linux, this could be to restrict usage of a applicaiton or a user or for any other reason. There is no direct way to set limit on quota/size limit on a direcotry in linux. But as the saying goes, you can do anything on linux.</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/jupyterhub-setup-simplified/hub-lab.jpg" /><media:content medium="image" url="https://www.achowdhary.com/jupyterhub-setup-simplified/hub-lab.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

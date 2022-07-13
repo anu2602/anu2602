@@ -3,7 +3,7 @@ title: Jupyter Hub setup with Jupyter Lab.
 date: 2020-07-07 11:58:47 +07:00
 tags: [Jupyter Hub, Jupyter Lab]
 description:  Setting up a working Jupyter Hub with Jupyter Lab on RedHat Enterprise Linux 7 (RHEL 7).  
-image: "hub-lab.jpg"
+image: "/jupyterhub-setup-simplified/hub-lab.jpg"
 comments: true
 
 ---
