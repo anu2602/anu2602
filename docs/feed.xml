@@ -1,4 +1,160 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2022-07-13T05:47:56+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Python 3 Site Configuration</title><link href="https://www.achowdhary.com/python-site-configuration/" rel="alternate" type="text/html" title="Python 3 Site Configuration" /><published>2022-05-09T10:59:07+05:30</published><updated>2022-05-09T10:59:07+05:30</updated><id>https://www.achowdhary.com/python-site-configuration</id><content type="html" xml:base="https://www.achowdhary.com/python-site-configuration/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2022-07-20T06:56:01+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Practical Lean Architecture</title><link href="https://www.achowdhary.com/practical-lean-architecture/" rel="alternate" type="text/html" title="Practical Lean Architecture" /><published>2022-06-11T09:33:15+05:30</published><updated>2022-06-11T09:33:15+05:30</updated><id>https://www.achowdhary.com/practical-lean-architecture</id><content type="html" xml:base="https://www.achowdhary.com/practical-lean-architecture/">&lt;figure&gt;
+	&lt;img src=&quot;pisa.jpg&quot; alt=&quot;Leaning Tower&quot; /&gt; 
+	&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+		Photo by &lt;a href=&quot;https://unsplash.com/@spantax&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Marco Ceschi&lt;/a&gt; 
+	&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Every software team now use Agile Software Development to some degree, Waterfall development is almost extinct. But the tension between software architecture and agile method remains. There is tensions between spending too little time designing an up-front architecture, increasing risk, and spending too much time, negatively impacting of the delivery of value to the customer. Despite various theoretical proposal confusion and tension exists in most of the teams with respect to Architecture. If you do &lt;a href=&quot;https://www.google.com/search?q=lean+architecture&quot; target=&quot;_blank&quot;&gt;Google Search for Lean Architecture&lt;/a&gt;, content in all the links is rather abstract and confusing.&lt;/p&gt;
+
+&lt;p&gt;Lean and Architecture seems contradictory. Developers sometime mistake agile for absense of architecture. Architecture is a conceptual model of a system and it can not be ignored. Altough the process and people and tools involved in Architecture process are different in Agile but the Software Architecure remains essential for good system. Having said that we can’t have Ivory Tower Architecture rather we need to have requirment based architecture and the process will differ from team to team, but underlying philosophy of “Value Creation, Waste Reduction and Rapid Feedback” must be followed in Architecture proces.&lt;/p&gt;
+
+&lt;p&gt;Let’s take a step back to understand  the word “Architecture”, when we understand the essesnce of Architecure, we may be able to define lean methods. Software architecutre has it’s roots in the physical Architecture. Roman Architecture was defined by three qualities:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Utilitas&lt;/strong&gt; (It must provide utility)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Firmitas:&lt;/strong&gt; (It must be durable)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Venustas:&lt;/strong&gt; (It must inspire human senses)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Lets’s also have a look at lean principals:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Eliminate waste&lt;/li&gt;
+  &lt;li&gt;Amplify learning&lt;/li&gt;
+  &lt;li&gt;Decide as late as possible&lt;/li&gt;
+  &lt;li&gt;Deliver as fast as possible&lt;/li&gt;
+  &lt;li&gt;Empower the team&lt;/li&gt;
+  &lt;li&gt;Build integrity in&lt;/li&gt;
+  &lt;li&gt;Optimize the whole&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We must also review the &lt;a href=&quot;https://agilemanifesto.org/principles.html&quot; target=&quot;_blank&quot;&gt;Agile Manifesto&lt;/a&gt; before going further. It is very clear that above three are not disjoing sets, they do have an intersection and a rather large one. Lean Architecture is hard, it requires balance and there is silver bullet to get to the answer.But this intersecion may be starting point for understanding lean architecutre. If your design is lean, it produces an architecuture that can help be more agile. Let’s try and understand Lean Architecture, through set of questions:&lt;/p&gt;
+
+&lt;h2 id=&quot;who-is-involved&quot;&gt;Who is involved?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In lean architecture, we lean towards people aspect of architecture a lot more than traditional software architecture.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We must realzie that Architecure is not just about system, it is about people and it is more about people than about system. One of the cornerstone of lean architecture is “All Hands on Deck”. The traditional architecutre was done in isolation by Architects in isolation, lean architecture involves all stakeholders from the word go. Here are the key stakeholdes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;End User of System&lt;/li&gt;
+  &lt;li&gt;Business &amp;amp; Domain Experts&lt;/li&gt;
+  &lt;li&gt;Developers &amp;amp; Testers&lt;/li&gt;
+  &lt;li&gt;IT and Support&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also the decisions are not taken by Architects but architect facilitates the decision therough her/his knowlege and influence. They build bridges between different teams and empower developers make technology choices, Empower users to unlock expectations etc. They also need to put constraint on each category of user to be able to express clearly and concisely.&lt;/p&gt;
+
+&lt;h2 id=&quot;who-is-responsible-for-architecture&quot;&gt;Who is Responsible for Architecture?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The best architectures, requirements, and designs emerge from self-organizing teams.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As mentioned in Agile Manifesto, decisions are made by the the team collectivly and it would be naive to assume that the team will always be in agreement. Someone needs to lead/facilitate the team with regards to the evolution of the architecture. There is a need for Architecture owners. Very often the person in the role of team lead is also the architecture owner. This isn’t always the case, particularly at scale, but it is very common for smaller agile teams. This person would need to have both the skills of an AO as well as a team lead to be successful doing so. More complex teams would have dedicated architecture owners. Here are responsibilities of Architure ownwers:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Facilitate creation of the architecture, not create and enforce it.&lt;/li&gt;
+  &lt;li&gt;Coach other team members in architecture skills and thinking.&lt;/li&gt;
+  &lt;li&gt;Advise the product owner in technical priorities.&lt;/li&gt;
+  &lt;li&gt;Build architectural spikes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-the-scope-of-architecture&quot;&gt;What is the scope of Architecture?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Just Barely Good Enough Is Actually The Most Effective Architecture.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Every system has an architecture and every reasonable system needs an architecure. The process may differ, people involved may be more and role of architect might be different but that does not change the need for a sound architecture. The architecture must be based on requirment. This may sound obvious, but it is first step in wasting architectural waste. Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change. Here are some guiding principle to define scope:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Architecture is about form, not structure&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Architecture is expression, not abstraction&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Architecture should define what system does and no more&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Architecture should provide a consistent system view, inconsistency increases waste. Scope of architecture is same as in traditional systems minus waste. Architecure is a continious process and some decisions are made just in time, this often requires fundamental change in mindset and team culture. Some high-level architectural modeling is doen early in the lifecycle to foster a common  technical strategy within the team and critical stakeholders. The goal at this point is to identify an architectural strategy, not write mounds of documentation.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-do-you-get-started&quot;&gt;Where do you get started?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Problem definition is a clearly written statement of the problem. This clearly must be first step towards solving it!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Before we lay our route to destination, we shold know our desination. We must start with a clear problem definition. There is no surprise here, like any other software development process you start by modelling the problem. This is the foundation of the architecture. If we don’t have a problem, why waste any resources? The problem modelling gives a sense of purpose and acts a guide to future decisions.&lt;/p&gt;
+
+&lt;p&gt;The problem modelling must incorporate continuous innovation to increase value to end user. We have to model the problem that it is clearly defined and has flexibility as well. The problem definition should also become foundation for consistency and hence reducing waste. A well written problem statement offers a consistent version of direction and vision that defins precise driection but not the path. The problem definition may evolve during the project duration, but we should still strive to build the best possible first version. This is an up front investment, team comes together and defines and discovers the direction. We must strive to get to the root of the problem, in order to define it clearly. A Good Problm Definition :&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;is written Clearly and Concisely&lt;/li&gt;
+  &lt;li&gt;is difference between current and future state&lt;/li&gt;
+  &lt;li&gt;has a measurable success criteria&lt;/li&gt;
+  &lt;li&gt;is internally consistent.&lt;/li&gt;
+  &lt;li&gt;is not defining a solution&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;how-much-documentation&quot;&gt;How much Documentation?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;If we aim to ship software every sprint, our documentation must be in sync.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To create a document, we must understand the purpose of document. Document without a purpose is a waste and must be avoided. For every document you can find someone, who will think it is valuable. The challenge is that value is invariably determined by the customer, not the producer. Dr. Dobb proposed formula to calcluate the &lt;a href=&quot;http://en.wikipedia.org/wiki/Cruft&quot; target=&quot;_blank&quot;&gt;Cruft&lt;/a&gt; of a docuemnt.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CRUFT = * C * R * U * F * T
+
+C = The percentage of the document that is currently &quot;correct&quot;.
+R = The chance that the document will be read by the intended audience.
+U = The percentage of the document that is actually understood by the intended audience.
+F = The chance that the material contained in document will be followed.
+T = The chance that the document will be trusted.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The CRUFT rating of the document, with 100% being a bad thing, is calculated with the following formula:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;100% - C * R * U * F * T
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;how-to-build-effective-documentation&quot;&gt;How to build effective documentation?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Create Views, Not Copies of documents. Reduce CRUFT in dcoumentation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We want to be as light as possible with documentation like other areas to minimize waste. Instead of describing same thing in three places, create the documentation in one place and reference it from others. This not only reduces tracability and maintainence burden but also increases consistency. Code is the best place to document, followed by Wiki based markdown, as opposed to traditional word and PDF documents. The documentation must also be barely good enough, but that does not imply low quality. The documenation is continiously changing in Agile/Lean and we should strive to keep it in sync with the system implementation. This is easy to say, hard to do; but builds with practice. Some tips for writing effective documentation:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Write stable, not speculative, concepts.&lt;/li&gt;
+  &lt;li&gt;Prefer executable work products over static ones.&lt;/li&gt;
+  &lt;li&gt;Document only what people need.&lt;/li&gt;
+  &lt;li&gt;Dont’ try to get first time right, iteration is good.&lt;/li&gt;
+  &lt;li&gt;Document late.&lt;/li&gt;
+  &lt;li&gt;Be concise!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-an-adr&quot;&gt;What is an ADR?&lt;/h2&gt;
+&lt;p&gt;An architecture decision record (ADR) is a document that captures an important architecture decision made along with its context and consequences. ADR Captures the decision at the time it is made. A good, ideally describes following:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Issue&lt;/li&gt;
+  &lt;li&gt;Decision&lt;/li&gt;
+  &lt;li&gt;Ontology - Category/Tagging etc.&lt;/li&gt;
+  &lt;li&gt;Assumptions&lt;/li&gt;
+  &lt;li&gt;Constraints&lt;/li&gt;
+  &lt;li&gt;Alternatives&lt;/li&gt;
+  &lt;li&gt;Reasoning/Argument for choice&lt;/li&gt;
+  &lt;li&gt;Implications&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;how-does-refactoring-affect-architecture&quot;&gt;How does refactoring affect architecture?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The structure of components, their interrelationships, and the principles and guidelines governing their design and evolution over time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Refacotring is the process of improving intrenal structure of code without altering the functionality. The refactoring is usually small changes, but sometime there are large scale changes. We decorate the term with the word “architectural” to make it obvious that we are describing larger-scale, system change. Refactoring is a key aspect of Agile Software delivery. We must be open to changing needs and facilitate refactoring, but at the same time define clear &lt;em&gt;Guardrails&lt;/em&gt; to protect system from going into dangerous territory.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dzone.com/articles/lean-architecture-1&quot; target=&quot;_blank&quot;&gt;Lean Architecture Article in dzone by Chris Shayan&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.scaledagileframework.com/agile-architecture/&quot; target=&quot;_blank&quot;&gt;Agile Architecture in SAFe Agile Framework&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://martinfowler.com/articles/ea-in-lean-enterprise.html&quot; target=&quot;_blank&quot;&gt;Role of EA in Lean Enterprise&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://agilemodeling.com/essays/agileArchitecture.htm&quot; target=&quot;_blank&quot;&gt;Agile Modelling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Agile_architecture&quot; target=&quot;_blank&quot;&gt;Agile Architecture&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.drdobbs.com/architecture-and-design/dr-dobbs-agile-modeling-newsletter/201001273&quot; target=&quot;_blank&quot;&gt;Calculating Documentation Cruft&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/joelparkerhenderson/architecture-decision-record&quot; target=&quot;_blank&quot;&gt;Architecture decision record (ADR)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://adr.github.io/&quot; target=&quot;_blank&quot;&gt;Github ADR Organization&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pubs.opengroup.org/architecture/o-aa-standard/index.html&quot; target=&quot;_blank&quot;&gt;Open Agile Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="architecture" /><summary type="html">Photo by Marco Ceschi</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/practical-lean-architecture/pisa.jpg" /><media:content medium="image" url="https://www.achowdhary.com/practical-lean-architecture/pisa.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python 3 Site Configuration</title><link href="https://www.achowdhary.com/python-site-configuration/" rel="alternate" type="text/html" title="Python 3 Site Configuration" /><published>2022-05-09T10:59:07+05:30</published><updated>2022-05-09T10:59:07+05:30</updated><id>https://www.achowdhary.com/python-site-configuration</id><content type="html" xml:base="https://www.achowdhary.com/python-site-configuration/">&lt;figure&gt;
 &lt;img src=&quot;site-config.jpg&quot; alt=&quot;Site Configuration&quot; /&gt;
 &lt;/figure&gt;
 
@@ -213,7 +369,104 @@ print(monkey2.get_value())
 ...     gorilla.apply(patch)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;You can find more in &lt;a href=&quot;https://gorilla.readthedocs.io/en/latest/&quot; target=&quot;_blank&quot;&gt;Gorilla Documentation&lt;/a&gt;
-```&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="HowTo" /><category term="Python" /><summary type="html">Photo by Andre Mouton</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" /><media:content medium="image" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Spark3 Cheat Sheet</title><link href="https://www.achowdhary.com/spark-cheat-sheet/" rel="alternate" type="text/html" title="Spark3 Cheat Sheet" /><published>2021-05-15T11:22:42+05:30</published><updated>2021-05-15T11:22:42+05:30</updated><id>https://www.achowdhary.com/spark-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/spark-cheat-sheet/">&lt;figure&gt;
+```&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="HowTo" /><category term="Python" /><summary type="html">Photo by Andre Mouton</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" /><media:content medium="image" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Big Data Architecture Patterns</title><link href="https://www.achowdhary.com/big-data-architecture/" rel="alternate" type="text/html" title="Big Data Architecture Patterns" /><published>2022-01-16T20:38:14+05:30</published><updated>2022-01-16T20:38:14+05:30</updated><id>https://www.achowdhary.com/big-data-architecture</id><content type="html" xml:base="https://www.achowdhary.com/big-data-architecture/">&lt;figure&gt;
+	&lt;img src=&quot;bda.jpg&quot; alt=&quot;Big data architecture&quot; /&gt; 
+	&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+		Photo by &lt;a href=&quot;https://unsplash.com/@fabioha&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Fabio&lt;/a&gt; 
+	&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Big data architecture is the foundation for big data analytics. The big data architecture framework serves as a reference blueprint for big data infrastructures and solutions, logically defining how big data solutions will work, the components that will be used, how information will flow, and security details. A goood big data system is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems.&lt;/p&gt;
+
+&lt;p&gt;The size of Big Data realm differs for organizations. For some, it can mean hundreds of gigabytes of data, while for others it means hundreds of terabytes. Size of data, need for advance analytics capabilities, users and the budget are some of the key factors that affect the big data architecture.&lt;/p&gt;
+
+&lt;h1 id=&quot;four-stages&quot;&gt;Four Stages&lt;/h1&gt;
+&lt;p&gt;Big data architecture process is not different from any other system design at high level. However each stage the process differs and attention should be paied to the details.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-analyze-the-problem&quot;&gt;1. Analyze the Problem:&lt;/h3&gt;
+&lt;p&gt;Understand data variety, velocity, and challenges with the current system. Common use cases include data archival, process offload, data lake implementation, unstructured data processing, and data warehouse modernization. Architecture team needs to work with many departments, stake-holders and vendor model the the problem, understand the budget. Of the three V’s of Big Data System (volume, variety and velocity), velocity is most tricky to asses and model. Speed matters in business and big data velocity underpins the speed of business decisions.&lt;/p&gt;
+
+&lt;h3 id=&quot;2-decide-deployment-strategy&quot;&gt;2. Decide Deployment Strategy:&lt;/h3&gt;
+&lt;p&gt;Deployment can be either on-premises, which tends to be more secure; cloud-based, which is cost effective and provides flexibility regarding scalability; or a mix deployment strategy. If cloud based bring an agreement on the the provider AWS, Azure or GCP. The choice has some technical merits, but largerly decided by data governance, organization policies and IT Strategy. Clould based solutions work best for Big Data Solutions. Since most of the Big data systems have volatile resource requirment, autoscaling on cloud can result in big savings.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-select-tooling&quot;&gt;3. Select Tooling:&lt;/h3&gt;
+&lt;p&gt;Hadoop is one of the most widely recognized big data architecture tools for managing big data end to end architecture. Select from variou various Hadoop distribution, Databricks, BigInsights, Cloudera. Next select various component, orchestration tools, visualization tools etc. The tooling is dependent on the Deployment strategy e.g tooling for GCP will be very different from tooling on AWS or Azure.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-architecure-design-and-devops-planning&quot;&gt;4. Architecure, Design and Devops planning:&lt;/h3&gt;
+&lt;p&gt;When above 3 stages have completed, we have enough information to start on actual architecture and design for our Big Data System  This includes planning, pipeline design, CICD, data security, monitoring, autoscaling, disaster recovery, data governance etc.&lt;/p&gt;
+
+&lt;h1 id=&quot;architectural-patterns&quot;&gt;Architectural Patterns&lt;/h1&gt;
+&lt;p&gt;Unstructured data is the fastest growing type of data, some example could be imagery, sensors, telemetry, video, documents, log files, and email data files. There are several techniques to address this problem space of unstructured analytics. The techniques share a common characteristics of scale-out, elasticity and high availability. MapReduce, in conjunction with the Hadoop Distributed File System (HDFS) and HBase database, as part of the Apache Hadoop project is a modern approach to analyze unstructured data. Hadoop clusters are an effective means of processing massive volumes of data, and can be improved with the right architectural approach. There are three main architural patterns:&lt;/p&gt;
+
+&lt;h3 id=&quot;lambda-architecture&quot;&gt;Lambda architecture&lt;/h3&gt;
+&lt;figure&gt;
+&lt;img src=&quot;lambda.png&quot; alt=&quot;DPP&quot; style=&quot;background-color:white;&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    Lambda Architecture
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;The name lambda architecture is derived from a functional processing paradime, data processing is funcation of all data. This architecture pattern provide balance between latency, throughput, and fault-tolerance by using batch processing and real-time stream processing simultaneously. Lambda architecture depends on a data model with an append-only, immutable data source that serves as a system of record. Three Layers of Lambda Architecture are&lt;/p&gt;
+
+&lt;h4 id=&quot;batch-layer&quot;&gt;Batch Layer&lt;/h4&gt;
+&lt;p&gt;New data comes continuously, as a feed to the data system. It gets fed to the batch layer and the speed layer simultaneously. It looks at all the data at once and eventually corrects the data in the stream layer.  Here we can find lots of ETL and a traditional data warehouse. This layer is built using a predefined schedule, usually once or twice a day. The batch layer has two very important functions:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;To manage the master dataset&lt;/li&gt;
+  &lt;li&gt;To pre-compute the batch views.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;serving-layer&quot;&gt;Serving Layer&lt;/h4&gt;
+&lt;p&gt;The outputs from the batch layer in the form of batch views and those coming from the speed layer in the form of near real-time views get forwarded to the serving.  This layer indexes the batch views so that they can be queried in low-latency on an ad-hoc basis.&lt;/p&gt;
+
+&lt;h4 id=&quot;speed-layer-stream-layer&quot;&gt;Speed Layer (Stream Layer)&lt;/h4&gt;
+&lt;p&gt;This layer handles the data that are not already delivered in the batch view due to the latency of the batch layer. In addition, it only deals with recent data in order to provide a complete view of the data to the user by creating real-time views.&lt;/p&gt;
+
+&lt;h4 id=&quot;benefits-of-lambda-architectures&quot;&gt;Benefits of lambda architectures&lt;/h4&gt;
+&lt;p&gt;Here are the main benefits of lambda architectures:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;No Server Management – you do not have to install, maintain, or administer any software.&lt;/li&gt;
+  &lt;li&gt;Flexible Scaling – your application can be either automatically scaled or scaled by the adjustment of its capacity&lt;/li&gt;
+  &lt;li&gt;Automated High Availability – refers to the fact that serverless applications have already built-in availability and faults tolerance. It represents a guarantee that all requests will get a response about whether they were successful or not.&lt;/li&gt;
+  &lt;li&gt;Business Agility – React in real-time to changing business/market scenarios&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;challenges-with-lambda-architectures&quot;&gt;Challenges with lambda architectures&lt;/h4&gt;
+&lt;p&gt;Lambda architectures can be highly complex.  The batch and streaming sides each require a different code base that must be maintained and kept in sync so that processed data produces the same result from both paths. Yet attempting to abstract the code bases into a single framework puts many of the specialized tools in the batch and real-time ecosystems out of reach.&lt;/p&gt;
+
+&lt;h3 id=&quot;kappa-architecture&quot;&gt;Kappa architecture&lt;/h3&gt;
+&lt;p&gt;Kappa Architecture is a simplification of Lambda Architecture; it is Lambda architecture without batch processing. To replace batch processing, data is simply fed through the streaming system quickly. The main premise behind the Kappa Architecture is that you can perform both real-time and batch processing, especially for analytics, with a single codebase and infrastructure. If you need to recompute the entire data set (equivalent to what the batch layer does in lambda), you simply replay the stream. The data is ingested as a stream of events into a distributed and fault tolerant unified log. These events are ordered, and the current state of an event is changed only by a new event being appended. Similar to a lambda architecture’s speed layer, all event processing is performed on the input stream and persisted as a real-time view.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;kappa.png&quot; alt=&quot;DPP&quot; style=&quot;background-color:white;&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    Kappa Architecture
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;One downside of Kappa is the need to re-process events in the case of errors; however access to affordable, elastic compute makes&lt;/p&gt;
+
+&lt;p&gt;Use Cases&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When the processing applied to the real-time data and the historical data are same.&lt;/li&gt;
+  &lt;li&gt;Data systems that are online learners and therefore don’t need the batch layer.&lt;/li&gt;
+  &lt;li&gt;The order of the events and queries is not predetermined. Stream processing platforms can interact with the database at any time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are few other newer Big Data Architectures:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Google Inspireed Zeta Architecture&lt;/li&gt;
+  &lt;li&gt;IOT Architecture (IoT-A)&lt;/li&gt;
+  &lt;li&gt;Mu Architecture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Lambda_architecture&quot;&gt;https://en.wikipedia.org/wiki/Lambda_architecture&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/&quot;&gt;https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://eng.uber.com/kappa-architecture-data-stream-processing/&quot;&gt;https://eng.uber.com/kappa-architecture-data-stream-processing/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.oreilly.com/radar/questioning-the-lambda-architecture/&quot;&gt;https://www.oreilly.com/radar/questioning-the-lambda-architecture/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://radar.oreilly.com/2015/04/zeta-architecture-hexagon-is-the-new-circle.html&quot;&gt;http://radar.oreilly.com/2015/04/zeta-architecture-hexagon-is-the-new-circle.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="bigdaga" /><category term="architecture" /><summary type="html">Photo by Fabio</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/big-data-architecture-101/bda.jpg" /><media:content medium="image" url="https://www.achowdhary.com/big-data-architecture-101/bda.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Spark3 Cheat Sheet</title><link href="https://www.achowdhary.com/spark-cheat-sheet/" rel="alternate" type="text/html" title="Spark3 Cheat Sheet" /><published>2021-07-15T11:22:42+05:30</published><updated>2021-07-15T11:22:42+05:30</updated><id>https://www.achowdhary.com/spark-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/spark-cheat-sheet/">&lt;figure&gt;
 &lt;img src=&quot;spark3-cheat-sheet.png&quot; alt=&quot;What's new in Spark3?&quot; /&gt;
 &lt;/figure&gt;
 
@@ -417,7 +670,107 @@ print(monkey2.get_value())
   &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/latest/sql-migration-guide.html&quot; target=&quot;_blank&quot;&gt; Spark3 SQL Migration Guide&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/d/1-kV0FS_LF2zvaRh_GhkV32Uqksm_Sq8SvnBBmRyxm30/edit&quot; target=&quot;_blank&quot;&gt; Revisiting Pandas UDF&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/3.0.0/sql-ref-ansi-compliance.html&quot; target=&quot;_blank&quot;&gt;Better ANSI SQL compatibality in Spark 3&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" /><media:content medium="image" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Disable Console Access for Jupyter Hub.</title><link href="https://www.achowdhary.com/juppyter-hub-disable-console-access/" rel="alternate" type="text/html" title="Disable Console Access for Jupyter Hub." /><published>2021-03-07T08:28:47+05:30</published><updated>2021-03-07T08:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-disable-console-access</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-disable-console-access/">&lt;figure&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" /><media:content medium="image" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bash scripting tips</title><link href="https://www.achowdhary.com/bash-script-tips/" rel="alternate" type="text/html" title="Bash scripting tips" /><published>2021-05-18T23:03:42+05:30</published><updated>2021-05-18T23:03:42+05:30</updated><id>https://www.achowdhary.com/bash-script-tips</id><content type="html" xml:base="https://www.achowdhary.com/bash-script-tips/">&lt;figure&gt;
+&lt;img src=&quot;shell.jpg&quot; alt=&quot;Bash Shell Script&quot; /&gt;
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+        Photo by &lt;a href=&quot;https://unsplash.com/@outsideclick&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Daniel Dan&lt;/a&gt; 
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;understanding---and-&quot;&gt;Understanding &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt;  and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Square brackets are a shorthand notation for performing a conditional test. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[&lt;/code&gt; are commands in Unix.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; is a builtin command, while &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[&lt;/code&gt; is a keyword&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    $ type -a [
+    [ is a shell builtin
+    [ is /usr/bin/[
+
+    $ type -a [[
+    [[ is a shell keyword
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&lt;/code&gt; is same as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt; command. Two statements below have same outcome:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    if [ &quot;$myvar&quot; = 'success' ]; then ...
+    if test &quot;$myvar&quot; = 'success'; then ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;[[ is bash’s improvement to the [ command. It has more syntactical features:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;handles string comparison without quotes&lt;/li&gt;
+  &lt;li&gt;has &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;=~&lt;/code&gt; operator for regex &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if [ $myvar =~ ^suc.*s$ ]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;||&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;use-log-function&quot;&gt;Use log function&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    err() {
+      echo &quot;[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*&quot; &amp;gt;&amp;amp;2
+    }
+
+    err() {
+      echo &quot;[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*&quot; 
+    }
+
+
+    log &quot;doing_something&quot;
+
+    if ! do_something; then
+      err &quot;Unable to do_something&quot;
+    fi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;redirect-all-logs-to-file&quot;&gt;Redirect all logs to file&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    readonly LOG_FILE=&quot;~/mylogs/script.log&quot;
+    touch $LOG_FILE
+
+    # Open standard out at `$LOG_FILE` for write.
+    exec 1&amp;gt;$LOG_FILE
+
+    # standard error ends up going to wherever standard out goes.
+    exec 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Above does not redirect output for subporocesses.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    (
+      my_function
+      my_script
+    ) &amp;amp;&amp;gt;$LOG_FILE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;concatenate-string&quot;&gt;Concatenate String&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#!/usr/bin/env bash
+
+# method 1
+foo=&quot;I like&quot;
+foo+=&quot; Bash Scripting.&quot;
+
+# method 2
+foo=&quot;I like&quot;
+bar=&quot;Bash Scripting.&quot;
+foobar=&quot;$foo $bar&quot;
+
+# method 3
+foo=&quot;Writ&quot;
+foo=&quot;${foo}ing Bash Scripting is fun.&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;default-value-for-variable&quot;&gt;Default value for variable&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    name=&quot;${name:-achowdhary}&quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;parentheses--vs-braces-&quot;&gt;Parentheses () vs. Braces {}&lt;/h2&gt;
+&lt;p&gt;Parentheses cause the commands to be run in a subshell, and braces cause the commands to be grouped together but not in a subshell.&lt;/p&gt;
+
+&lt;h2 id=&quot;user-input&quot;&gt;User Input&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#!/bin/bash
+
+read -p &quot;Enter your name [Anuradha]: &quot; name
+name=${name:-Anuradha}
+echo $name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://steve-parker.org/sh/tips/&quot;&gt;https://steve-parker.org/sh/tips/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.to/awwsmm/101-bash-commands-and-tips-for-beginners-to-experts-30je&quot;&gt;https://dev.to/awwsmm/101-bash-commands-and-tips-for-beginners-to-experts-30je&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="bash" /><category term="HowTo" /><category term="Unix" /><summary type="html">Photo by Daniel Dan</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/bash-script-tips/shell.jpg" /><media:content medium="image" url="https://www.achowdhary.com/bash-script-tips/shell.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Disable Console Access for Jupyter Hub.</title><link href="https://www.achowdhary.com/juppyter-hub-disable-console-access/" rel="alternate" type="text/html" title="Disable Console Access for Jupyter Hub." /><published>2021-03-07T08:28:47+05:30</published><updated>2021-03-07T08:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-disable-console-access</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-disable-console-access/">&lt;figure&gt;
 &lt;img src=&quot;no-access.jpg&quot; alt=&quot;You are not allowed!&quot; /&gt; 
 &lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
 	Photo by &lt;a href=&quot;https://unsplash.com/@fionakiwi&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Fiona Jackson
@@ -702,432 +1055,52 @@ You can find more details about API &lt;a href=&quot;http://airflow.apache.org/d
   &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/2.0.0/scheduler.html&quot; target=&quot;_blank&quot;&gt;Scheduler documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Concepts&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.astronomer.io/blog/airflow-2-scheduler&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Announcement on Astronomer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Yum Cheat Sheet</title><link href="https://www.achowdhary.com/yum-cheat-sheet/" rel="alternate" type="text/html" title="Yum Cheat Sheet" /><published>2020-09-15T21:22:42+05:30</published><updated>2020-09-15T21:22:42+05:30</updated><id>https://www.achowdhary.com/yum-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/yum-cheat-sheet/">&lt;figure&gt;
-&lt;img src=&quot;yum-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
-&lt;/figure&gt;
-&lt;h1 id=&quot;yum-cheat-sheet&quot;&gt;Yum Cheat Sheet&lt;/h1&gt;
-
-&lt;p&gt;Yum (Yellow Dog Updater, Modified), is the package manager used on RPM (RedHat Package Manager) based Linux systems such as CentOS, RHEL. It is an interactive, rpm based, package manager. It can automatically perform system updates, including dependency analysis and obsolete processing based on “repository” metadata.&lt;/p&gt;
-
-&lt;h4 id=&quot;getting-help&quot;&gt;Getting Help&lt;/h4&gt;
-
-&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum help [command]' to get help on yum commands and options, you can also use &lt;/code&gt;man yum’.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum help
-yum help install
-yum help erase
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;updating-packages&quot;&gt;Updating Packages&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Check the whole system for available updates:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum check-update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Update the whole packages to the latest version:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Apply only security related updates:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update --security
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Update an individual package:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update [package_name]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Update all packages in a group:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum groupupdate [group_name]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Update an individual package to an specific version:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum --showduplicates list [package_name]
-sudo yum update-to [package-version]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Update a package from a specific repository:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum repo-pkgs [repo] upgrade [package_name]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;managing-repositories&quot;&gt;Managing Repositories&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[repository]&lt;/code&gt; section to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.conf&lt;/code&gt; file, or to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.repo&lt;/code&gt; file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/&lt;/code&gt; directory.&lt;/li&gt;
-  &lt;li&gt;Remove a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[repository]&lt;/code&gt; section to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.conf&lt;/code&gt; file, or to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.repo&lt;/code&gt; file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/&lt;/code&gt; directory.&lt;/li&gt;
-  &lt;li&gt;Display enabled repositories: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum repolist&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Display all enabled/disabled repositories: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum repolist all&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Download yum repository data to cache: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum makecache&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Get information about repositories:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum repoinfo
-$ yum repoinfo &amp;lt;repo-id&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;List all packages in the specified repository:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; yum repo-pkgs &amp;lt;repo id&amp;gt; list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;viewing-package-info&quot;&gt;Viewing Package Info&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;List all installed packages:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list installed [package_name]
-yum list installed 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;List all available packages:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list available
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;List installed and available kernel packages
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list kernel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;List dependencies of a package:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum deplist [package_name]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Search packages by name:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum search [string]
-yum search [package_name]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Find packages that provide the queried file:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum provides &amp;lt;string&amp;gt;
-yum provides &amp;lt;foldername/filename&amp;gt;
-yum provides &amp;lt;filename&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Display information about a package: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum info [package_name]&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;install--remove-packages&quot;&gt;Install &amp;amp; Remove Packages&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Install a package from repository:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install [package_name]
-sudo yum install [p1] [p2]
-sudo yum --enablerepo=[repo] install [package_name]
-sudo yum repo-pkgs [repo] install [package_name]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Install a local rpm package:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum localinstall [package_name].rpm
-sudo yum localinstall [http://myrepo.org/packagename.rpm]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Remove an installed package:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum remove [package_name]
-sudo yum remove [p1] [p2]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Remove one package and install another:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum swap [package_to_rmove] [package_to_install]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Remove unwanted packages and dependencies: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum autoremove&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Remove all packages installed from a specific repository:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum repo-pkgs [repo] remove
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;history&quot;&gt;History&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;View all the past transactions of yum command:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history
-sudo yum history list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Show details of yum transaction ID:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history info &amp;lt;ID&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Undo the yum action from transaction ID:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history undo &amp;lt;ID&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Redo the undone yum action from transaction ID:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history redo &amp;lt;ID&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;clean&quot;&gt;Clean&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Clear out cached package data:
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum clean all&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Delete packages saved in cache:
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum clean packages&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;general-options&quot;&gt;General Options&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-y&lt;/code&gt; Assume that the answer to any question  which  would be asked is yes.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--assumeno&lt;/code&gt; Assume that the answer to any question which would be asked is no.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-q&lt;/code&gt; Run without output.  Note that you likely also want to use -y.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt; Run with a lot of debugging output.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--showduplicates&lt;/code&gt; Doesn’t limit packages to their latest versions in the info, list and search commands&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--enablerepo&lt;/code&gt; Enable currently disabled repo for a single command&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--disablerepo&lt;/code&gt; Disable currently enabled repo for a single command&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--downloadonly&lt;/code&gt; Don’t update, just download to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/cache/yum/arch/prod/repo/packages/&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--changelog&lt;/code&gt; Display changelog information of package&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;related-files&quot;&gt;Related Files&lt;/h4&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/yum.conf
-/etc/yum/version-groups.conf
-/etc/yum.repos.d/
-/etc/yum/pluginconf.d/
-/var/cache/yum/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html">Yum Cheat Sheet</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/yum-cheat-sheet/yum-cheat-sheet.jpg" /><media:content medium="image" url="https://www.achowdhary.com/yum-cheat-sheet/yum-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Git Cheat Sheet</title><link href="https://www.achowdhary.com/git-cheat-sheet/" rel="alternate" type="text/html" title="Git Cheat Sheet" /><published>2020-08-25T21:22:42+05:30</published><updated>2020-08-25T21:22:42+05:30</updated><id>https://www.achowdhary.com/git-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/git-cheat-sheet/">&lt;figure&gt;
-&lt;img src=&quot;git-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;h5 id=&quot;git-branching-basics&quot;&gt;Git Branching Basics&lt;/h5&gt;
-&lt;ul&gt;
-  &lt;li&gt;Show remote branches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -r&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Show all branches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Create a new branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout -b [branch_name]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Delete a local branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -d [branch_name]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Delete a local branch forcefully &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -D [branch_name]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Delete branch from remote (named origin)  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push origin :[branch_name]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Find common ancestor of two branches `git merge-base [branch_1] [branch_2]&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;git-merge&quot;&gt;Git Merge&lt;/h5&gt;
-&lt;ul&gt;
-  &lt;li&gt;Merge [branch_name] to current branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge [branch_name]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Merge [source_branch] to [target_branch] &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge [source_branch] [target_branch]&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sometimes, this doesn’t go smoothly merge conflicts will show up.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Auto-merging index.html
-CONFLICT (content): Merge conflict in index.html
-Automatic merge failed; fix conflicts and then commit the result
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Resolve conflicts and after resolving merge conflicts:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &amp;lt;conflicting_file_names&amp;gt;
-git commit -m &quot;Your merge comment&quot;
-git push
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;git-rebase&quot;&gt;Git Rebase&lt;/h5&gt;
-&lt;p&gt;Merge and Rebase solve same problems, but with a slightly different outcome in git hisotry; For more details recommed reading &lt;a href=&quot;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt; and &lt;a href=&quot;https://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase/16666418#16666418&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Rebase current branch against [source_branch] &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase [source_branch]&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Sometimes it is useful to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i&lt;/code&gt; to run rebase interactively and modify the commit history with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fixup&lt;/code&gt; command. I almost always prefer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; as it results in more readable history. But it is important to remember to never ever rebase your public branch such as main, master or develop against a private feature branch.&lt;/p&gt;
-
-&lt;p&gt;also after rebase &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt; fails, so use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push --force&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h5 id=&quot;git-reset&quot;&gt;Git Reset&lt;/h5&gt;
-&lt;ul&gt;
-  &lt;li&gt;Reset everything to specific commit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git reset --hard&lt;/code&gt; ; Use with care&lt;/li&gt;
-  &lt;li&gt;Reset a single file
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout @ -- [filename]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git revert&lt;/code&gt;, when you need to keep history of reverts&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Revert a commit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git revert [commit_ref]&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Remove tracked file from index &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rm [file_name]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Remove tracked directory from index &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rm -r  [dir_name]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Remove files no longer on filesystem:
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Remove untracked files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git cleani -f&lt;/code&gt;. Use with care, will delete all untracked files.&lt;/li&gt;
-  &lt;li&gt;Dry run git clean &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clean -n&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;git-config&quot;&gt;Git Config&lt;/h5&gt;
-
-&lt;p&gt;Configure git user name and email&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &quot;Your Name&quot;
-git config --global user.email &quot;you@example.com&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Always rebase on pull (default is merge)&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global pull.rebase true
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Colorful Git&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global color.ui true
-git config --global color.diff true
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add Alias ci for commit&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global alias.ci commit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&quot; target=&quot;_blank&quot;&gt; Merge Vs. Rebase on Bitbucket Tutorial&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gitolite.com/git-pull--rebase&quot; target=&quot;_blank&quot;&gt; Understanding git pull –rebase &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge-base&quot; target=&quot;_blank&quot;&gt; Find Common Ancestor for merge &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html&quot; target=&quot;_blank&quot;&gt; FIXUP &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/undoing-changes/git-reset&quot; target=&quot;_blank&quot;&gt; Reset on BitBucket &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/2530060/in-plain-english-what-does-git-reset-do&quot; target=&quot;_blank&quot;&gt; Reset on Stack Overflow &lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="git" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/git-cheat-sheet/git-cheat-sheet.jpg" /><media:content medium="image" url="https://www.achowdhary.com/git-cheat-sheet/git-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow Concurrency Configuration Simplified!</title><link href="https://www.achowdhary.com/airflow-concurrency-simplified/" rel="alternate" type="text/html" title="Airflow Concurrency Configuration Simplified!" /><published>2020-08-05T11:58:47+05:30</published><updated>2020-08-05T11:58:47+05:30</updated><id>https://www.achowdhary.com/airflow-concurrency-simplified</id><content type="html" xml:base="https://www.achowdhary.com/airflow-concurrency-simplified/">&lt;p&gt;Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very &lt;a href=&quot;https://issues.apache.org/jira/browse/AIRFLOW-57&quot; target=&quot;_blank&quot;&gt;unintuitive and confusing way&lt;/a&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;confused.jpg&quot; alt=&quot;confused&quot; /&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pyspark Kernel with Jupyter</title><link href="https://www.achowdhary.com/jupyterhub-pyspark-kernel/" rel="alternate" type="text/html" title="Pyspark Kernel with Jupyter" /><published>2020-11-14T13:03:33+05:30</published><updated>2020-11-14T13:03:33+05:30</updated><id>https://www.achowdhary.com/jupyterhub-pyspark-kernel</id><content type="html" xml:base="https://www.achowdhary.com/jupyterhub-pyspark-kernel/">&lt;figure&gt;
+&lt;img src=&quot;spacex.jpg&quot; alt=&quot;Vi Cheat Sheet&quot; /&gt;
 &lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
-	Photo by &lt;a href=&quot;https://unsplash.com/@benwhitephotography&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Ben White &lt;/a&gt; 
-&lt;/figcaption&gt;
+        Photo by &lt;a href=&quot;https://unsplash.com/@spacex&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;SpaceX&lt;/a&gt; 
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Though I can’t change the name of the properties, I have made an attempt to decode the names. Hoefully it helps some of you, so that you can focus on more pressing problems in your data pipeline.&lt;/p&gt;
-
-&lt;h5 id=&quot;core&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[core]&lt;/code&gt;&lt;/h5&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelism&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#parallelism&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: Maximum number of task instances that can run concurrently on Airflow installation, i.e. the maximum number of task instances that can run in the entire airflow cluster. This is the only setting that applies to entire cluster as opposed to the given node. If you have two host running Airflow worker, combined total of task running on both workers will not exceed this value. You can also think of this is as maximum number of taks that will have state=’running’ in airflow metadata db. This value should be configured same on all the worker nodes of a given Airflow Cluster. The default value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;32&lt;/code&gt;. If you are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CeleryExecutor&lt;/code&gt;, this should be sum of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_concurrency&lt;/code&gt; for all nodes.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag_concurrency&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#dag-concurrency&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This parameter determines how many task instances Airflow scheduler is able to schedule concurrently per DAG. This can be thought of as maximum tasks that can be scheduled concurrently, per DAG. Since schedular is global for cluster this property is also applicable to Airflow Cluster/installation as one entity. You should keep this value same on all the worker nodes of your Airflow Cluster. 
-This parameter can be overwritten at DAG level by: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag = DAG('example2', concurrency=10)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_active_runs_per_dag&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#max_active_runs_per_dag&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This paramenter is important but does not really controls the concurrency directly, instead it specifies how many total runs of a DAG are allowed to run for the Airflow cluster. This helps in controling the fair allocation of resources and making sure that one DAG is not taking up all the resource. This parameter can be overwritten at DAG level by: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag = DAG('my_dag_id', max_active_runs=1)&lt;/code&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;scheduler&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[scheduler]&lt;/code&gt;&lt;/h5&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_threads&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#max_threads&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]:The scheduler can run multiple threads in parallel to schedule dags. This parameter specifies how many threads will run scheduler run. Adjust this number based on CPU resources available - the higher the value, the more resources you’ll need. Update: setting &lt;a href=&quot;https://github.com/apache/airflow/pull/12605&quot; target=&quot;_blank&quot;&gt;has been renamed&lt;/a&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parsing_processes&lt;/code&gt; in airflow 2.0.&lt;/p&gt;
-
-&lt;h5 id=&quot;celery&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[celery]&lt;/code&gt;&lt;/h5&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_concurrency&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#worker-concurrency&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This is the number of  celery workers, per Airflow Worker. You would typically run one Airflow worker per Airflow node. So this can be considerd as per Airflow node version of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelism&lt;/code&gt; setting. This is maximum number of task instances that can on a given Airflow worker can execute. You can have different settings for different worker node depending on number of available CPU Cores. This parameter has default value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;16&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#pool&quot; target=&quot;_blank&quot;&gt;Ref &lt;/a&gt; ]:&lt;br /&gt;
- This is type of celery pool implementation to be used and shold not be confused with &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#pools&quot; target=&quot;_blank&quot;&gt;Airflow Pool&lt;/a&gt;, which I will cover briefly later in this article. For this settings options are: prefork (default), eventlet, gevent or solo. For usual data pipelines, prefork works fine. If you have many I/O blocking tasks in your data pipelines, it is worth exploring gevent or eventlet. Please refer to &lt;a href=&quot;https://www.distributedpython.com/2018/10/26/celery-execution-pool/&quot; target=&quot;_blank&quot;&gt;this post&lt;/a&gt; on distributed python for more details on various options.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sync_parallelism&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#parallelism&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This is number of processes CeleryExecutor uses to sync task state. Value 0 implies to use max(1, number of cores - 1) processes.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_autoscale&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#worker-autoscale&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: The maximum and minimum celery workers that will be per Airflow worker. Celery workers always keep minimum processes, but grow to maximum if necessary. Note the value should be max_concurrency,min_concurrency.You can have different settings for different worker node, based on resources on worker node and the nature of the task. If autoscale option is used, worker_concurrency will be ignored.&lt;/p&gt;
-
-&lt;h3 id=&quot;airflow-task-pools--ref-&quot;&gt;Airflow Task Pools [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#pools&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]&lt;/h3&gt;
-&lt;p&gt;Airflow Pools can be defined using Airflow UI (Menu -&amp;gt; Admin -&amp;gt; Pools) or CLI. Tasks can then be associated with one of the existing pools by using the pool parameter when creating tasks in the DAG code:
-     &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_task = PythonOperator(pool='my_custom_pool')&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Airflow pools are typically used to limit the concurrency on specific types of task.  Some systems can get overwhelmed when too many processes hit them at the same time, e.g. downloading data from a webservice that limits concurrent connection. You can place limit by putting all such tasks to same pool and assigning a limit to the pool.
-This is great if you have a lot of workers in parallel, but you don’t want to overwhelm a source or destination&lt;/p&gt;
-
-&lt;p&gt;The pool parameter can be used in conjunction with priority_weight to define priorities in the queue, and which tasks get executed first as slots open up in the pool. The default priority_weight is 1, and can be bumped to any number. When sorting the queue to evaluate which task should be executed next, we use the priority_weight, summed up with all of the priority_weight values from tasks downstream from this task. You can use this to bump a specific important task and the whole path to that task gets prioritized accordingly.&lt;/p&gt;
-
-&lt;p&gt;If tasks are not given a pool, they are assigned to a default pool default_pool which is initialized with 128 slots and can changed through the UI or CLI.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very unintuitive and confusing way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub setup with Jupyter Lab.</title><link href="https://www.achowdhary.com/juppyter-hub-setup-simplified/" rel="alternate" type="text/html" title="Jupyter Hub setup with Jupyter Lab." /><published>2020-07-07T10:28:47+05:30</published><updated>2020-07-07T10:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-setup-simplified</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-setup-simplified/">&lt;p&gt;Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;hub-lab.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
-&lt;/figure&gt;
-
-&lt;h4 id=&quot;pre-requisite&quot;&gt;Pre-requisite&lt;/h4&gt;
-&lt;p&gt;You have working python setup with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version &amp;gt;= 3.6&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;install-configurable-http-proxy&quot;&gt;Install configurable-http-proxy&lt;/h4&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	sudo yum install rh-nodejs10
-	sudo npm install -g configurable-http-proxy
+&lt;h2 id=&quot;install-java-and-scala&quot;&gt;Install Java and Scala&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        scala -version
+        java -version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;install-jupyter-hub-and-jupyter-lab&quot;&gt;Install Jupyter Hub and Jupyter Lab&lt;/h4&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pip install jupyterhub jupyterlab
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;or&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	conda install jupyterhub jupyterlab
+&lt;h2 id=&quot;install-java-and-export&quot;&gt;Install Java and export&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+        export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;configuration-and-setup&quot;&gt;Configuration and setup&lt;/h4&gt;
-&lt;p&gt;Create a directory for you jupyter hub. Let’s assume the dir is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/opt/jupyter&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	mkdir /opt/jupyter
-	cd /opt/jupyter
-	export JUPYTERLAB_DIR = /opt/jupyter
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;I would recommed adding above variable to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; (if you are using bash).
-	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;export JUPYTERLAB_DIR = /opt/jupyter&quot; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub --generate-config&lt;/code&gt; &lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter lab --generate-config&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;This will generate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter_notebook_config.py&lt;/code&gt;. I highly recommend deleteing all commented lines from the generated config file. Keeping only required lines, makes it much easier to maintain it. To delete all commented lines&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	sed -i '/^#/ d' jupyterhub_config.py
-	sed -i '/^\s*$/d' jupyterhub_config.py
-	sed -i '/^#/ d' jupyter_notebook_config.py
-	sed -i '/^\s*$/d' jupyter_notebook_config.py
+&lt;h2 id=&quot;install-py4j&quot;&gt;Install py4j&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        pip install py4j
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; in your favorite editor and make following changes.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.Spawner.default_url = '/lab'
-	c.JupyterHub.hub_ip = '0.0.0.0'
-	c.JupyterHub.spawner_class = 'jupyterhub.spawner.SimpleLocalProcessSpawner'
+&lt;h2 id=&quot;install-py4j-1&quot;&gt;Install py4j&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        pip install py4j
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter_notebook_config.py&lt;/code&gt; in your favorite editor and make following changes.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.NotebookApp.allow_remote_access = True
-	c.NotebookApp.ip = '0.0.0.0'
+
+&lt;h2 id=&quot;create-pyspark-kernel-json&quot;&gt;Create pyspark kernel JSON&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        {
+         &quot;display_name&quot;: &quot;PySpark&quot;,
+         &quot;language&quot;: &quot;python&quot;,
+         &quot;argv&quot;: [
+          &quot;&amp;lt;python_path&amp;gt;&quot;,
+          &quot;-m&quot;,
+          &quot;ipykernel&quot;,
+          &quot;-f&quot;,
+          &quot;{connection_file}&quot;
+         ],
+         &quot;env&quot;: {
+          &quot;SPARK_HOME&quot;: &quot;&amp;lt;spark_home&amp;gt;&quot;,
+          &quot;PYTHONPATH&quot;: &quot;&amp;lt;spark_home&amp;gt;/python/:&amp;lt;spark_home&amp;gt;/python/lib/py4j-0.9-src.zip&quot;,
+          &quot;PYTHONSTARTUP&quot;: &quot;&amp;lt;spark_home&amp;gt;/python/pyspark/shell.py&quot;,
+          &quot;PYSPARK_SUBMIT_ARGS&quot;: &quot;--master local[*] pyspark-shell&quot;
+         }
+        }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;adding-jupyter-kernels&quot;&gt;Adding Jupyter Kernels&lt;/h4&gt;
-&lt;p&gt;If you have existing jupyter kernels that you would like to use with your setup you need to copy them to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PYTHON_HOME/share/jupyter/kernels/&lt;/code&gt;. You can also optionally place kernal logos inside your kernal folders to make your jupyter setup look colorful. The logo files should be named  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo-32x32.png&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo.64x64.png&lt;/code&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;lab-logos.png&quot; alt=&quot;Kernel Logos in Jupyter Lab&quot; /&gt; 
-&lt;/figure&gt;
-
-&lt;h4 id=&quot;configuring-sslhttps&quot;&gt;Configuring SSL/https&lt;/h4&gt;
-&lt;p&gt;Generate a Private key and cert using your preferred method. e.g.&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl req -x509 -out my.crt -keyout my.key -newkey rsa:2048 -nodes -sha256&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Add following lines to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.JupyterHub.ssl_key = '/path/to/my.key'
-	c.JupyterHub.ssl_cert = '/path/to/my.cert'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;starting-jupyter-hub&quot;&gt;Starting Jupyter Hub&lt;/h4&gt;
-&lt;p&gt;You need to ensure that the nodejs that you installed in enabled. You can do this by doing 
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scl enable node rh-nodejs10 bash&lt;/code&gt;, but I prefer source &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source /opt/rh/rh-nodejs10/enable&lt;/code&gt; as it does not open a new shell inside your current one. You can also consider adding this to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; (if you are using bash).
-	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;source /opt/rh/rh-nodejs10/enable&quot; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;to start Jupyter Hub:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	cd $JUPYTERLAB_DIR
-	nohup jpyterhub &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;urls&quot;&gt;URLs:&lt;/h4&gt;
-&lt;p&gt;Jupyter Notebook Url: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000&lt;/code&gt; &lt;br /&gt;
-JupyterHub Admin Url: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000/hub/admin&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;stopping-jupyter-hub&quot;&gt;Stopping Jupyter Hub&lt;/h4&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;Open Hub admin in browser &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000/hub/admin&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Click &lt;strong&gt;Shutdown Hub&lt;/strong&gt; button&lt;/li&gt;
-  &lt;li&gt;Check both &lt;em&gt;Shutdown Proxy&lt;/em&gt; and &lt;em&gt;Shutdown single-user-servers&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;Click &lt;strong&gt;Shutdown&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--
-TODO add disable Terminal
-jupyter labextension list
-jupyter labextension uninstall terminal
-jupyter labextension disable terminal
-jupyter lab build
-vi setttings/page_config.json
-{
-	&quot;terminalAvailable&quot;: false,
-	&quot;disableExtensions&quot; : [
-	 ```
-	 yum install rh-nodejs10
-	 ```&quot;@jupyterlab/terminal&quot;,
-	 &quot;terminal&quot;
-	]
-}
-
-jupyter/lab/schemas/@jupyterlab/terminal-extension
-plugin.json
-consoloe-extension
-setttings/package_config.json
---&gt;
-
-&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Lab Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/getting-started/security-basics.html&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Security Configuration&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/jupyterhub-setup-simplified/hub-lab.jpg" /><media:content medium="image" url="https://www.achowdhary.com/jupyterhub-setup-simplified/hub-lab.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+  &lt;li&gt;&lt;a href=&quot;https://jupyter-client.readthedocs.io/en/stable/kernels.html&quot;&gt;https://jupyter-client.readthedocs.io/en/stable/kernels.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pypi.org/project/pyspark-kernel/&quot;&gt;https://pypi.org/project/pyspark-kernel/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jupyter" /><category term="HowTo" /><category term="spark" /><summary type="html">Photo by SpaceX</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/jupyterhub-pyspark-kernel/sparks.jpg" /><media:content medium="image" url="https://www.achowdhary.com/jupyterhub-pyspark-kernel/sparks.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

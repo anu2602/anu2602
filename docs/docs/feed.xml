@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2022-07-13T05:47:56+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Python 3 Site Configuration</title><link href="https://www.achowdhary.com/python-site-configuration/" rel="alternate" type="text/html" title="Python 3 Site Configuration" /><published>2022-05-09T10:59:07+05:30</published><updated>2022-05-09T10:59:07+05:30</updated><id>https://www.achowdhary.com/python-site-configuration</id><content type="html" xml:base="https://www.achowdhary.com/python-site-configuration/">&lt;figure&gt;
+&lt;img src=&quot;site-config.jpg&quot; alt=&quot;Site Configuration&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This blog exists because the &lt;a href=&quot;https://docs.python.org/3/library/site.html&quot; target=&quot;_blank&quot;&gt;official python site configuration documentation&lt;/a&gt; is not very clear.&lt;/p&gt;
+
+&lt;h1 id=&quot;site-packages&quot;&gt;site-packages&lt;/h1&gt;
+&lt;p&gt;Python installation has a site-packages directory inside the module directory. This directory is where user installed packages are dropped. In other words when a new package is installed, the content of package are dropped into site-packages directory. It is the target directory of manually built Python packages. When you build and install Python packages from source (using distutils, probably by executing python setup.py install), you will find the installed modules in site-packages by default.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site&lt;/code&gt; module handles site-specific configuration, especially the import path or module search path. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site&lt;/code&gt; is automatically imported each time the interpreter starts up. On import, it extends &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.path&lt;/code&gt; with site-specific names constructed by combining the prefix values &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.prefix&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.exec_prefix&lt;/code&gt; with several suffixes. The prefix values used are saved in the module-level variable PREFIXES for reference later. Under Windows, the suffixes are an empty string and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/site-packages&lt;/code&gt;. For Unix-like platforms, the values are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/python$version/site-packages&lt;/code&gt; (where $version is replaced by the major and minor version number of the interpreter, such as 3.5) and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/site-python&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;import-path&quot;&gt;Import Path&lt;/h1&gt;
+&lt;p&gt;The search path for modules is managed as a Python list saved in sys.path. The default contents of the path include the directory of the script used to start the application and the current working directory.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import sys
+for pdir in sys.path:
+    print pdir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;pythonpath&quot;&gt;PYTHONPATH&lt;/h1&gt;
+&lt;p&gt;This is the most non-intrusive way of modifying the default search path. The format for setting the environment variable is same as the shell’s PATH: one or more directory pathnames separated by os.pathsep (e.g. colons on Unix or semicolons on Windows). Non-existent directories are silently ignored. In addition to normal directories, individual PYTHONPATH entries may refer to zipfiles containing pure Python modules (in either source or compiled form). Extension modules cannot be imported from zipfiles.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;on Unix like system : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo $PYTHONPATH&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;on Windows : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo %PYTHONPATH%&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;from within Python
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import os
+os.environ['PYTHONPATH']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;user_site-and-pythonnousersite&quot;&gt;USER_SITE and PYTHONNOUSERSITE&lt;/h1&gt;
+
+&lt;h2 id=&quot;siteuser_site&quot;&gt;site.USER_SITE&lt;/h2&gt;
+&lt;p&gt;Path to the user site-packages for the running Python, defaults are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.local/lib/pythonX.Y/site-packages&lt;/code&gt; for UNIX and non-framework macOS builds&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Library/Python/X.Y/lib/python/site-packages&lt;/code&gt; for macOS framework builds&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; %APPDATA%\Python\PythonXY\site-packages&lt;/code&gt; on Windows. 
+This directory is a site directory, which means that .pth files in it will be processed (discussed below).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;pythonnousersite&quot;&gt;PYTHONNOUSERSITE&lt;/h2&gt;
+&lt;p&gt;The user site directory can be set through the PYTHONNOUSERSITE environment variable to override above platform-specific defaults.
+site.USER_BASE and PYTHONUSERBASE are related variable to configure python base directory e.g &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.local&lt;/code&gt; on Unix.&lt;/p&gt;
+
+&lt;h1 id=&quot;siteaddsitedir-and-syspathappend&quot;&gt;site.addsitedir and sys.path.append&lt;/h1&gt;
+&lt;p&gt;In the code following two mehtod could be used to modify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.path&lt;/code&gt;, or python import search path.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;sys.path.append(‘/path/to/search’)&lt;/li&gt;
+  &lt;li&gt;site.addsitedir(‘/path/to/site’)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The difference between 1 and 2 is just plain appending is that when you use site.addsitedir, it also looks for .pth files within that directory. This directory can possibly be used to add additional directories to sys.path using .pth files (see below for more details).&lt;/p&gt;
+
+&lt;h1 id=&quot;pth-files&quot;&gt;.pth files&lt;/h1&gt;
+&lt;p&gt;A path configuration file is a plain text file with the extension .pth. The paths in this file can be used to extend the import path to look for location that would not have been added automatically. It’s contents are added to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sys.path&lt;/code&gt;. Important points to note about .pth file.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;File must have extension of .pth e.g my-modules.pth&lt;/li&gt;
+  &lt;li&gt;File must be placed in site dir.&lt;/li&gt;
+  &lt;li&gt;Each line must contain a single path that will be appended to sys.path&lt;/li&gt;
+  &lt;li&gt;Non existant paths are ignored&lt;/li&gt;
+  &lt;li&gt;No check is made that the item refers to a directory rather than a file.&lt;/li&gt;
+  &lt;li&gt;Duplicates are ignored&lt;/li&gt;
+  &lt;li&gt;Blank lines and lines beginning with # are skipped&lt;/li&gt;
+  &lt;li&gt;Modules in the added directories will not override standard modules&lt;/li&gt;
+  &lt;li&gt;Paths can be absolute or relative&lt;/li&gt;
+  &lt;li&gt;Relative Paths are relative to the directory containing the .pth file&lt;/li&gt;
+  &lt;li&gt;Lines starting with import (followed by space or tab) are executed.&lt;/li&gt;
+  &lt;li&gt;An executable line in a .pth file is run at every Python startup.&lt;/li&gt;
+  &lt;li&gt;If a site directory contains multiple .pth files, they are processed in alphabetical order.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;site-packages
+├── mypath.pth
+└── my-site
+    └── mymodule.py
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;mypath.pth file contains:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;my-site
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;sitecustomizepy-and-usercustomizepy&quot;&gt;sitecustomize.py and usercustomize.py&lt;/h1&gt;
+
+&lt;p&gt;PTH files are only processed if they are in the site-packages directory ( to be precise in a “site directory”). Site directory itself is a  global setting for the Python installation and does not depend on the current/working directory. The site module is also responsible for loading site-wide customization defined by the local site owner in a sitecustomize module. Uses for sitecustomize include extending the import path and enabling coverage, profiling, or other development tools.&lt;/p&gt;
+
+&lt;p&gt;After these path manipulations, an attempt is made to import a module named sitecustomize, which can perform arbitrary site-specific customizations. sitecustomize.py is imported before Python starts running your own code. This can be used to add a new site dir:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import site
+site.addsitedir('/path/to/site')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Similar to sitecustomize, the usercustomize module can be used to set up user-specific settings each time the interpreter starts up. usercustomize is loaded after sitecustomize, so site-wide customizations can be overridden.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/library/site.html&quot; target=&quot;_blank&quot;&gt;https://docs.python.org/3/library/site.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pymotw.com/3/site/index.html&quot; target=&quot;_blank&quot;&gt;site — Site-wide Configuration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.python.org/3/using/cmdline.html&quot; target=&quot;_blank&quot;&gt;Python Command line and environment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Python" /><category term="Simplified" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/python-site-configuration/site-config.jpg" /><media:content medium="image" url="https://www.achowdhary.com/python-site-configuration/site-config.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python Monkey Patching</title><link href="https://www.achowdhary.com/monkey-patching/" rel="alternate" type="text/html" title="Python Monkey Patching" /><published>2022-02-18T21:22:42+05:30</published><updated>2022-02-18T21:22:42+05:30</updated><id>https://www.achowdhary.com/monkey-patching</id><content type="html" xml:base="https://www.achowdhary.com/monkey-patching/">&lt;figure&gt;
+&lt;img src=&quot;monkey.jpg&quot; alt=&quot;You are not allowed!&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@andremouton&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Andre Mouton
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Python is a characteristic dynamic scripting language. Not only it has dynamic type are but it’s object model is also dynamic. Python’s classes are mutable, and methods are just attributes of the class; This allows us to modify its behavior at run time. This is funnily called &lt;em&gt;Monkey Patching&lt;/em&gt;, with possible reference to &lt;em&gt;guerrilla patch&lt;/em&gt; which referred to changing code sneakily.&lt;/p&gt;
+
+&lt;p&gt;Monkey Patching is simply the dynamic replacement of attributes at runtime. In Python, the term monkey patch refers to dynamic (or run-time) modifications of a function, class or module. Let’s understand with an example, we use a python package wich has a class like this:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# monkey.py
+	class Me:
+	     def who_am_i(self):
+	         print (&quot;I am a Monkey&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Now since I am a human, I don’t like this so I Monkey Patch [pun intended].&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	import monkey
+	def i_am_human(self):
+	    print (&quot;I am human&quot;)
+	   
+	# replacing address of &quot;who_am_i&quot; with &quot;i_am_human&quot;
+	monkey.Me.who_am_i = i_am_human
+	obj = monkey.Me()
+	  
+	# calling function &quot;who_am_i&quot; whose address got replaced
+	# with function &quot;i_am_human()&quot;
+	obj.who_am_i()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This will print “I am a human”, which is corret; But it need a bit of &lt;em&gt;Monkey Patching&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;mutable-and-immutable-data-types&quot;&gt;Mutable and Immutable Data Types&lt;/h2&gt;
+&lt;p&gt;To understand monkey patching we need to understand the differences between mutable and immutable data types in Python. We can think about variables in Python as labels instead of boxes. In Python, a variable is a label that we assign to an object; it is the way we, as humans, have to identify it. However, what is important is the data underlying the label, its value, and its type. Custom objects are mutable, and therefore their attributes can be replaced without creating a new copy of the object. so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float, decimal, complex, bool, string, tuple, range, frozenset, bytes&lt;/code&gt; etc. are Mutable while &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;list&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dictionary&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bytearray&lt;/code&gt;, &lt;em&gt;user-defined classes&lt;/em&gt; are Immutable. Here we are interested in immutable object, becausethey can be changed in-place.&lt;/p&gt;
+
+&lt;h2 id=&quot;patching-an-instance&quot;&gt;Patching an Instance&lt;/h2&gt;
+&lt;p&gt;Above instance patched a class method and all instances of the class will have the patched method. We can also patch a specific instance.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import types
+import monkey
+
+monkey1 = monkey.Me()
+monkey2 = monkey.Me()
+
+def i_am_human(self):
+	print (&quot;I am human&quot;)
+
+monkey2.who_am_i = types.MethodType(i_am_human, monkey2)
+
+print(monkey1.who_am_i())
+# I am a Monkey
+print(monkey2.get_value())
+# I am a human
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So with the use of types, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;monkey2&lt;/code&gt; has has been patched to become a human.&lt;/p&gt;
+
+&lt;h2 id=&quot;patching-a-module&quot;&gt;Patching a Module&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# whoami.py
+
+	def who_am_i(monkey_type):
+	    print (f&quot;I am a {monkey_type}&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# human.py
+	import whoami
+
+	def who_am_i():
+	    whoami.who_am_i(&quot;Human&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	# monkey.py
+	import whoami
+	import human
+
+	def i_am_monkey(self):
+	    who_am_i(&quot;Monkey&quot;)
+
+	 whoami.who_am_i = i_am_monkey
+	 human.who_am_i()
+	 # I am a Monkey
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The monkey has hacked the human module by monkey patching.&lt;/p&gt;
+
+&lt;h2 id=&quot;word-of-caution&quot;&gt;Word of Caution&lt;/h2&gt;
+&lt;p&gt;Monkey patching is very powerful. It’s useful if we are dealing with legacy code or code from other people in which we do not want to modify it extensively but still want to make it run with different versions of libraries or environments.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As a general rule, the best is not to monkey patch.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The problem with monkey-patching is that the behavior of a program becomes much harder to understand. In above example soon enough it will be confusing “Who is Monkey” and “Who is Human”. Whereever possible extend the public interface of third party library.&lt;/p&gt;
+
+&lt;p&gt;Sometimes there Monkey Patching can be a great benefit. You could replace all instance of a method with another with just one line of code change. Monkey patching is also useful in testing, when you want to use a mock method to test.&lt;/p&gt;
+
+&lt;h2 id=&quot;using-gorrilla-package-&quot;&gt;Using Gorrilla Package &lt;a href=&quot;https://pypi.org/project/gorilla/&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I like gorrilla, while monkey patching, it makes the process both intuitive and convenient even when faced with large numbers of patches to create.  Here is an example:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import gorilla
+&amp;gt;&amp;gt;&amp;gt; import destination
+&amp;gt;&amp;gt;&amp;gt; @gorilla.patches(destination.Class)
+... class MyClass(object):
+...     def method(self):
+...         print(&quot;Hello&quot;)
+...     @classmethod
+...     def class_method(cls):
+...         print(&quot;world!&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The code above creates two patches, one for each member of the class MyClass, but does not apply them yet. In other words, they define the information required to carry on the operation but are not yet inserted into the specified destination class destination.Class.&lt;/p&gt;
+
+&lt;p&gt;Such patches created with the decorators can then be automatically retrieved by recursively scanning a package or a module, then applied:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import gorilla
+&amp;gt;&amp;gt;&amp;gt; import mypackage
+&amp;gt;&amp;gt;&amp;gt; patches = gorilla.find_patches([mypackage])
+&amp;gt;&amp;gt;&amp;gt; for patch in patches:
+...     gorilla.apply(patch)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You can find more in &lt;a href=&quot;https://gorilla.readthedocs.io/en/latest/&quot; target=&quot;_blank&quot;&gt;Gorilla Documentation&lt;/a&gt;
+```&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="HowTo" /><category term="Python" /><summary type="html">Photo by Andre Mouton</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" /><media:content medium="image" url="https://www.achowdhary.com/monkey-patching/monkey.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Spark3 Cheat Sheet</title><link href="https://www.achowdhary.com/spark-cheat-sheet/" rel="alternate" type="text/html" title="Spark3 Cheat Sheet" /><published>2021-05-15T11:22:42+05:30</published><updated>2021-05-15T11:22:42+05:30</updated><id>https://www.achowdhary.com/spark-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/spark-cheat-sheet/">&lt;figure&gt;
+&lt;img src=&quot;spark3-cheat-sheet.png&quot; alt=&quot;What's new in Spark3?&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Okie, this is not really a cheatsheet. It is more about “what’s new in Spark 3?”, so more appropriate title would be “What’s new in Spark3 Cheat Sheet”. So Let’s first look at what’s new in Spark3. As with cheet sheet, we will only discuss most useful featurs, improvements that were introduced in Spark3:&lt;/p&gt;
+
+&lt;h1 id=&quot;performance&quot;&gt;Performance&lt;/h1&gt;
+
+&lt;h4 id=&quot;1-adaptive-query-execution-aqe-&quot;&gt;1. Adaptive Query Execution (AQE) &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-31412&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;By far, this has to be the number one reason to upgrade to Spark3. Every spark developer was so looking forward to AQE improvement and they surely do not disappoint. Prior to 3.0, Spark optimized by creating an execution plan before the query execution, AQE applies a second level of optimization based on the metrics it sees with each stage.&lt;/p&gt;
+
+&lt;p&gt;In Spark 3.0, the AQE framework is result of 40+ Improvements, three main ones are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamically coalescing shuffle partitions&lt;/strong&gt; simplifies the number of shuffle partitions.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamically switching join strategies&lt;/strong&gt; partially avoids executing suboptimal plans due to missing statistics and/or size misestimation.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dynamically optimizing skew joins&lt;/strong&gt; can parallelize skew processing and achieve better overall performance.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Adaptive Query Execution is disabled by default. Adaptive Query Execution is used if query meets the following criteria:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;It is not a streaming query&lt;/li&gt;
+  &lt;li&gt;It contains at least one exchange (usually when there’s a join, aggregate or window operator) or one subquery&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In order to enable AQE, set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.adaptive.enabled&lt;/code&gt; configuration property to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After enabling Adaptive Query Execution, Spark performs 2x improvement on TPC-DS over Spark 2. There’s no need to “know” your data in advance any more. AQE will figure out the data and improve the query plan as the query runs, increasing query performance for faster analytics and system performance.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-dynamic-partition-pruning&quot;&gt;2. Dynamic Partition Pruning&lt;/h4&gt;
+&lt;p&gt;Basically, dynamic partition pruning is to avoid partition scanning based on the queried results of the other query fragments. It is important for star schema queries. Spark3 implements dynamic partition pruning by adding a dynamic-partition-pruning filter if there is a partitioned table and a filter on the dimension table. The filter is then planned using a heuristic approach:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;As a broadcast relation if it is a broadcast hash join. The broadcast relation will then be transformed into a reused broadcast exchange by the ReuseExchange rule; or&lt;/li&gt;
+  &lt;li&gt;As a subquery duplicate if the estimated benefit of partition table scan being saved is greater than the estimated cost of the extra scan of the duplicated subquery; otherwise&lt;/li&gt;
+  &lt;li&gt;As a bypassed condition (true).
+ Below shows a .&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;img src=&quot;dpp.png&quot; alt=&quot;DPP&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    A basic example of DPP
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;new-features&quot;&gt;New Features&lt;/h1&gt;
+
+&lt;h4 id=&quot;3-new-structured-streaming&quot;&gt;3. New Structured Streaming&lt;/h4&gt;
+&lt;p&gt;A new Structured Streaming tab to has been added to Spark UI to monitor Structured streaming applications. This tab provides the run ID, Status, Start Time, Duration for each micro-batch along with runtime statistics. This helps the developer to debug and understand what’s happening with the streaming queries. It has two sections.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Active Streaming Queries&lt;/li&gt;
+  &lt;li&gt;Completed Streaming Queries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;img src=&quot;streaming-ui.png&quot; alt=&quot;DPP&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    Structured Streaming UI
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;4-accelerator-aware-scheduler-project-hydrogen&quot;&gt;4. Accelerator-aware Scheduler (Project Hydrogen)&lt;/h4&gt;
+&lt;p&gt;GPUs and other accelerators have been widely used for accelerating special workloads, e.g., deep learning and signal processing. While users from the AI community use GPUs heavily, they often need Apache Spark to load and process large datasets and to handle complex data scenarios like streaming. Spark is not aware of GPUs and hence cannot properly request and schedule them for users. This leaves a critical gap to unify big data and AI workloads and make life simpler for end users.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;hydrogen.png&quot; alt=&quot;Project Hydrogen&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    Accelerating Apache Spark 3.0 with GPUs and RAPIDS
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;spark2gpu.png&quot; alt=&quot;Project Hydrogen&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    n Spark 2.x, separate clusters were needed for ETL on CPUs, and model training on GPUs.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;spark3gpu.png&quot; alt=&quot;Project Hydrogen&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+    In Apache Spark 3.0, you can now have a single pipeline, from data ingest to data preparation to model training on a GPU powered cluster.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;4-other-notable-features&quot;&gt;4. Other notable Features&lt;/h4&gt;
+
+&lt;h5 id=&quot;41-datasource-to-read-binary-files&quot;&gt;4.1 Datasource to Read Binary Files&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val df = spark.read.format(&quot;binaryFile&quot;).load(&quot;/tmp/binary/spark.png&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;42-feature-to-read-recursive-folders&quot;&gt;4.2 Feature to Read Recursive folders&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    spark.read.option(&quot;recursiveFileLookup&quot;, &quot;true&quot;).csv(&quot;/path/to/folder&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;43-multiple-character-delimiter-support&quot;&gt;4.3 Multiple Character Delimiter Support&lt;/h5&gt;
+&lt;p&gt;For example, to read a CSV file with the following content.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    col1||col2||col3||col4
+    val1||val2||val3||val4
+    val1||val2||val3||val4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;below code can be used.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val df  = spark.read
+      .option(&quot;delimiter&quot;,&quot;||&quot;)
+      .option(&quot;header&quot;,&quot;true&quot;)
+      .csv(&quot;/tmp/data/douplepipedata.csv&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;44-dataframetail-feature&quot;&gt;4.4 DataFrame.tail() feature&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val data=spark.range(1,100).toDF(&quot;num&quot;).tail(5)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;44-dataframetail-feature-1&quot;&gt;4.4 DataFrame.tail() feature&lt;/h5&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val data=spark.range(1,100).toDF(&quot;num&quot;).tail(5)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;45-new-built-in-functions&quot;&gt;4.5 New built-in functions&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;sinh, cosh, tanh, asinh, acosh, atanh &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28133&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;any, every, some &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-19851&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bit_and, bit_or &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27879&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bit_count &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29491&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bit_xor &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29545&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;bool_and, bool_or &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-30184&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;count_if &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27425&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;date_part &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28690&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;extract &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23903&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;forall &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27905&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;from_csv &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-25393&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;make_date &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28432&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;make_interval &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29393&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;make_timestamp &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-28495&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;map_entries &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23935&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;map_filter &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23937&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;map_zip_with &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23938&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;max_by, min_by &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27653&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;schema_of_csv &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-25672&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;to_csv &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-25683&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;transform_keys &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23939&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;transform_values &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-23940&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;typeof &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29961&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;version &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-29554&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;xxhash64 &lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-27099&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;5-catalog-plugin-api&quot;&gt;5. Catalog plugin API&lt;/h4&gt;
+&lt;p&gt;This will bring multi-catalog support to Spark and allow external catalog implementations. In Spark 3 multiple catalogs can be added:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    spark.sql.catalog.catalog1=...
+    spark.sql.catalog.catalog1.type=...
+    spark.sql.catalog.catalog1.warehouse=...
+    spark.sql.catalog.catalog2=...
+    spark.sql.catalog.catalog2.type=...
+    spark.sql.catalog.catalog2.warehouse=...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and can be used in query:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    spark.sql(&quot;SELECT * FROM catalog1.db1.table1&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;upgrades-and-enhancements&quot;&gt;Upgrades and Enhancements&lt;/h1&gt;
+
+&lt;h4 id=&quot;6-improvements-on-pandas-udf-api&quot;&gt;6. Improvements on pandas UDF API&lt;/h4&gt;
+&lt;p&gt;Pandas UDFs (User-Defined Functions) are probably one of the most significant Pandsa improvement added to Spark since version 2.3 as they allow users to leverage pandas API. The newest release of Apache Spark introduced a new interface of Pandas UDFs with Python type hints. Example:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    import pandas as pd
+    from pyspark.sql.functions import pandas_udf
+
+    @pandas_udf('long')
+    def pandas_subtract_unit(s: pd.Series) -&amp;gt; pd.Series:
+        return s - 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;7-switch-to-proleptic-gregorian-calendar&quot;&gt;7. Switch to Proleptic Gregorian calendar&lt;/h4&gt;
+&lt;p&gt;Earlier version of Spark supports Dates in Julian and Gregorian calendar: For dates before 1582, the Julian calendar was used, for dates, after 1582 the Gregorian calendar was used. This is similar to Dates in JDK 7 and before which uses java.sql.Date API. From JDK 8, a new Proleptic Gregorian calendar has been introduced with java.time.LocalDate API.&lt;/p&gt;
+
+&lt;h4 id=&quot;8-better-ansi-sql-compatible-&quot;&gt;8. Better ANSI SQL compatible &lt;a href=&quot;https://spark.apache.org/docs/3.0.0/sql-ref-ansi-compliance.html&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Since Spark 3.0, Spark SQL introduces two experimental options to comply with the SQL standard: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.ansi.enabled&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.storeAssignmentPolicy&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.ansi.enabled&lt;/code&gt; is set to true, Spark SQL follows the standard in basic behaviours (e.g., arithmetic operations, type conversion, SQL functions and SQL parsing). Moreover, Spark SQL has an independent option to control implicit casting behaviours when inserting rows in a table. The casting behaviours are defined as store assignment rules in the standard.&lt;/p&gt;
+
+&lt;p&gt;When &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spark.sql.storeAssignmentPolicy&lt;/code&gt; is set to ANSI, Spark SQL complies with the ANSI store assignment rules. This is a separate configuration because its default value is ANSI, while the configuration spark.sql.ansi.enabled is disabled by default.&lt;/p&gt;
+
+&lt;h4 id=&quot;9--upgrades&quot;&gt;9.  Upgrades&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hadoop 3 Upgrade&lt;/li&gt;
+  &lt;li&gt;JDK 11 Support&lt;/li&gt;
+  &lt;li&gt;Python3&lt;/li&gt;
+  &lt;li&gt;Scala 2.12&lt;/li&gt;
+  &lt;li&gt;Kfka 2.4.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you still think this is not a cheat sheet, here is one of &lt;a href=&quot;http://datacamp-community-prod.s3.amazonaws.com/acfa4325-1d43-4542-8ce4-bea2d287db10&quot; target=&quot;_blank&quot;&gt;my favorite Spark 3 Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/releases/spark-release-3-0-0.html&quot; target=&quot;_blank&quot;&gt; Spark 3.0.3 Release Changelog &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-31412&quot; target=&quot;_blank&quot;&gt; Adaptive Query Execution &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://databricks.com/blog/2020/06/18/introducing-apache-spark-3-0-now-available-in-databricks-runtime-7-0.html&quot; target=&quot;_blank&quot;&gt; Databricks Spark 3.0 blog &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-11150&quot; target=&quot;_blank&quot;&gt; Dynamic Partition Pruning &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/3.0.0/web-ui.html#structured-streaming-tab&quot; target=&quot;_blank&quot;&gt; Structured Streaming Tab &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://issues.apache.org/jira/browse/SPARK-24615&quot; target=&quot;_blank&quot;&gt; SPIP: Accelerator-aware task scheduling for Spark &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://databricks.com/session_na20/deep-dive-into-gpu-support-in-apache-spark-3-x&quot; target=&quot;_blank&quot;&gt; Deep Dive into GPU Support &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-apache-spark-3-0-with-gpus-and-rapids/&quot; target=&quot;_blank&quot;&gt; Accelerating Apache Spark 3.0 with GPUs and RAPIDS &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/d/1zLFiA1VuaWeVxeTDXNg8bL6GP3BVoOZBkewFtEnjEoo/edit#&quot; target=&quot;_blank&quot;&gt;Spark API for Table Metadata&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://books.japila.pl/spark-sql-internals/new-and-noteworthy/catalog-plugin-api-and-multi-catalog-support/&quot; target=&quot;_blank&quot;&gt; Catalog Plugin APi by example&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/latest/sql-migration-guide.html&quot; target=&quot;_blank&quot;&gt; Spark3 SQL Migration Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.google.com/document/d/1-kV0FS_LF2zvaRh_GhkV32Uqksm_Sq8SvnBBmRyxm30/edit&quot; target=&quot;_blank&quot;&gt; Revisiting Pandas UDF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spark.apache.org/docs/3.0.0/sql-ref-ansi-compliance.html&quot; target=&quot;_blank&quot;&gt;Better ANSI SQL compatibality in Spark 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" /><media:content medium="image" url="https://www.achowdhary.com/spark3-cheat-sheet/spark3-cheat-sheet.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Disable Console Access for Jupyter Hub.</title><link href="https://www.achowdhary.com/juppyter-hub-disable-console-access/" rel="alternate" type="text/html" title="Disable Console Access for Jupyter Hub." /><published>2021-03-07T08:28:47+05:30</published><updated>2021-03-07T08:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-disable-console-access</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-disable-console-access/">&lt;figure&gt;
+&lt;img src=&quot;no-access.jpg&quot; alt=&quot;You are not allowed!&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@fionakiwi&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Fiona Jackson
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;can-you-disable-terminal--access-in-jupyterhub&quot;&gt;Can you disable terminal  access in Jupyterhub?&lt;/h4&gt;
+&lt;p&gt;The answer is not a simple Yes or No. It’s is a bit compliated and hence this post.&lt;/p&gt;
+
+&lt;h4 id=&quot;can-you-stop-showing-terminal-from-jupyter-ui&quot;&gt;Can you stop showing Terminal from Jupyter UI?&lt;/h4&gt;
+
+&lt;p&gt;This has a simple answer ☺️ :relaxed:. However ther is no configuration, the configuration &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NotebookApp.terminals_enabled=False&lt;/code&gt; works in single user notebook but does not work in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub&lt;/code&gt; \ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterlab&lt;/code&gt; setup. Fortunately there is a simple way to achieve this. If you uninstall a package called ‘terminado’, terminals will disappear.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pip uninstall -y terminado
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;does-this-secure-my-jupyter-hub-setup&quot;&gt;Does this secure my Jupyter Hub Setup?&lt;/h4&gt;
+
+&lt;p&gt;No, because anything you can do from the terminal, you can do from a notebook anyway, so don’t rely on this as any kind of security measure. A user can:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;open a Python notebook and use the %%bash or ! shell magics.&lt;/li&gt;
+  &lt;li&gt;open a Python notebook, import subprocess, and execute arbitrary commands.&lt;/li&gt;
+  &lt;li&gt;open a notebook for pretty much any other language and execute a shell child process (e.g., s”ls -l” ! in Scala).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Even if you could turn off magic shell commands Python itself has the permissions to do the exact same things,so there’s very little point in even trying. There is no practical way to block the user from running system commands. Even JupyterHub, is designed with the use-case of semi-trusted users, and requires very careful set up to allow for untrusted users. From Jupyter Hub security Documentation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;JupyterHub is designed to be a simple multi-user server for modestly sized groups of semi-trusted users. While the design reflects serving semi-trusted users, JupyterHub is not necessarily unsuitable for serving untrusted users.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;what-is-my-best-options-for-securing-my-jupyterhub&quot;&gt;What is my best options for securing my JupyterHub?&lt;/h4&gt;
+&lt;p&gt;If you are letting untrusted users execute code on your system, the safest approach is to run inside container without access to the system outside the container. JupyterHub has support for containerisation of notebook servers, so each user will have their own (e.g. Docker) container and you can limit access to files. If they mess up their own container it would not mess up other users or the main server. It would  alsow be relatively easy to setup backup and restore data for users.&lt;/p&gt;
+
+&lt;p&gt;Since much of the point of IPython and Jupyter is arbitrary code execution, the security model for deploying Jupyter ought to be applying restrictions at the process/container level, rather than disabling  UI for running commands.&lt;/p&gt;
+
+&lt;p&gt;But setting up JupyterHub instance with docker is not trivial and if you are dealing with very small team of trusted users, you should try to train and guide users. They would most likely anyway have access to server with sudo access.&lt;/p&gt;
+
+&lt;h4 id=&quot;is-there-any-other-alternative&quot;&gt;Is there any other alternative?&lt;/h4&gt;
+&lt;p&gt;If you want to use Linux Containers for isolation and security benefits, but don’t want the headache and complexity of container image management, then you could use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt;. However please note that the Jupyterhub must be run as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You could also use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SudoSpawner&lt;/code&gt; for isolation but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt; provides more features, options and isolation support including memory, CPU and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/tmp&lt;/code&gt; isolation.&lt;/p&gt;
+
+&lt;h4 id=&quot;is-there-any-simple-hack&quot;&gt;Is there any simple hack?&lt;/h4&gt;
+
+&lt;p&gt;There is a hack to prevent users from launching a shell by setting setting the SHELL of the user or process to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/bin/false&lt;/code&gt;; This will prevent any shell from launching a shell. This can work well with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdSpawner&lt;/code&gt; by setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHELL=/usr/false&lt;/code&gt; in the systemd service file. But please remember this is a hack and resourceful developer will be able to find a workaround.&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/reference/websecurity.html&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Security Overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Lab Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub-dockerspawner.readthedocs.io/en/latest/&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Docker Spawner&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jupyterhub/zero-to-jupyterhub-k8s&quot; target=&quot;_blank&quot;&gt;Zero to Jupyter Hub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[]Jupyter Hub Systemd Spawner](https://github.com/jupyterhub/systemdspawner){:target=”_blank”}&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Photo by Fiona Jackson</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/jupyter-hub-disable-console-access/no-access.jpg" /><media:content medium="image" url="https://www.achowdhary.com/jupyter-hub-disable-console-access/no-access.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Personal website/blog with Jekyll + Github.</title><link href="https://www.achowdhary.com/jekyll-github-pages-simplified/" rel="alternate" type="text/html" title="Personal website/blog with Jekyll + Github." /><published>2021-02-14T08:58:14+05:30</published><updated>2021-02-14T08:58:14+05:30</updated><id>https://www.achowdhary.com/jekyll-github-pages-simplified</id><content type="html" xml:base="https://www.achowdhary.com/jekyll-github-pages-simplified/">&lt;p&gt;I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;github.jpg&quot; alt=&quot;Github Website&quot; /&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;There are loads of tutorials available online on this topic, so I am not going to get into detailed steps. However we will going  discuss kye concepts, options and tips that will help you in your decisions. I have also provided references to some useful articles on this topic in the end.&lt;/p&gt;
+
+&lt;h2 id=&quot;concepts&quot;&gt;Concepts&lt;/h2&gt;
+
+&lt;h5 id=&quot;types-of-github-pages&quot;&gt;Types of Github Pages&lt;/h5&gt;
+&lt;p&gt;There are three types of &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; sites: project, user, and organization. Project sites are connected to a specific project hosted on GitHub, User and organization sites are connected to a specific GitHub account. To publish a user site, you must create a repository owned by your user account that’s named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;. To publish an organization site, you must create a repository owned by an organization that’s named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;organization&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;-special--repositories&quot;&gt;✨ Special ✨ Repositories&lt;/h5&gt;
+&lt;p&gt;Repository that maches your username is a special repository in Github. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;README.md&lt;/code&gt; in root of default branch of this repository is shown on your gihub profile. If you configure Github pages for this repository, your website will be published at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;username&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Similarly repository that maches your orgname is a special repository. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;README.md&lt;/code&gt; is shown on Oranization’s gihub profile and github pages website will be published at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;organame&amp;gt;.github.io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Project sites are available at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;username&amp;gt;.github.io/&amp;lt;repository&amp;gt;&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;organization&amp;gt;.github.io/&amp;lt;repository&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you are using a custom domain, you can pubish any repository to desired domain, you do not need to worry about the repository name.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;jekyll-website-directory-structure&quot;&gt;Jekyll Website Directory Structure&lt;/h5&gt;
+&lt;p&gt;Before you start, please make sure you are familier with &lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot; target=&quot;_blank&quot;&gt;Jekyll direcotry structure&lt;/a&gt; and &lt;a href=&quot;https://www.markdownguide.org/tools/jekyll/&quot; target=&quot;_blank&quot;&gt;Markdown syntax&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;public-vs-private-repo&quot;&gt;Public vs Private Repo&lt;/h5&gt;
+&lt;p&gt;If you would like to publish pages from a private repo, you can not do it in a free plan. You need a pro account to publish pages from private repository.&lt;/p&gt;
+
+&lt;h2 id=&quot;create-simple-website-using-gihub-themes&quot;&gt;Create Simple website using Gihub themes&lt;/h2&gt;
+&lt;p&gt;You can publish a simple jekyll website in less than an hour just by using Github UI. You won’t even need to install Jekyll or Ruby. Here are steps to create a website and add posts on website with a Github provided theme.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Click on settings of your repository.&lt;/li&gt;
+  &lt;li&gt;Scroll down to Github Pages section of settings.&lt;/li&gt;
+  &lt;li&gt;Click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Select a Theme&lt;/code&gt; button.&lt;/li&gt;
+  &lt;li&gt;Select a Theme&lt;/li&gt;
+  &lt;li&gt;Write content in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.md&lt;/code&gt; file, when prompted.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Your website with gihub provided theme is now ready. The webiste is published from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch of your repository. If you look at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch, you will find two files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yaml&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.md&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To add a new post create a folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; and  create a new file called YYYY-MM-DD-NAME-OF-POST.md, replacing YYYY-MM-DD with the date of your post and NAME-OF-POST with the name of your post. Your post is now availabel on your website, the new post will be located at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://&amp;lt;username&amp;gt;.github.io/YYYY/MM/DD/NAME-OF-POST.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want to add a new page, create a new file for your page called &lt;PAGE-NAME&gt;.md. You need to add special header formatter to specify the url of the page. e.g If you want to create a page `https://&lt;username&gt;.github.io/about/contact-me/` create a page named contact-me.md and add following header config inside the file.&lt;/username&gt;&lt;/PAGE-NAME&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	layout: page
+	title: &quot;Contact me&quot;
+	permalink: /about/contact-me/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-custom-theme&quot;&gt;Using Custom Theme&lt;/h2&gt;
+&lt;p&gt;Building website using custom theme is more involved and takes some time, but is also a lot more rewarding. Github provided themes are very limited and you are not able to customize a selected theme currently.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--1-find-a-theme&quot;&gt;Step # 1: Find a Theme&lt;/h5&gt;
+&lt;p&gt;First and the most important part of building your website is finding a suitable theme and  it is also most time consuming task. You can choose to buy a theme or find a free theme, in anycase you will need to spend time finding right theme for you. If you are looking for free themes search inside Github rather than Google.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--2-install-jekyll-locally&quot;&gt;Step # 2: Install Jekyll Locally&lt;/h5&gt;
+&lt;p&gt;This might sound simple but a lot of people face problems, specially on Mac OS X. You will need to install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rvm&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;,  &lt;a href=&quot;https://jekyllrb.com/docs/installation/&quot; target=&quot;_blank&quot;&gt;Installation instructions&lt;/a&gt; on Jekyll website are accurate and concise. Make sure your versions are compatible with &lt;a href=&quot;https://pages.github.com/versions/&quot; target=&quot;_blank&quot;&gt;Github dependency versions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--3-fork-the-theme-repo&quot;&gt;Step # 3: Fork the theme Repo&lt;/h5&gt;
+&lt;p&gt;This step is only needed if you selected a free theme from Github, which is very likely. If you fall into this category, please create a fork of repo and rename the repository to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;username&lt;/code&gt; (or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;orgname&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;project&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h5 id=&quot;step--4-branches-for-your-repo&quot;&gt;Step # 4: Branches for your repo:&lt;/h5&gt;
+&lt;p&gt;If this is your  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;username&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;orgname&lt;/code&gt; repo, I recommend using following branches:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;main&lt;/strong&gt;: Make it default, and this is where I keep README.md for your Github profile.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;master&lt;/strong&gt;: This is where you keep the forked theme from oroginal repo.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;website&lt;/strong&gt;: This is where you add/updated your contents e.g pages, posts (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt;), images and configuration (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yaml&lt;/code&gt;). Note that this branch has entire jekyll directory structure but I make changes to only above mentioned items.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This structure helps me keep the theme in sync with the orignal repo and also make contributions. If you like to update your website to new version of theme, all you have to do is refresh your master and rebase website branch against master.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--5-add-new-posts--customize&quot;&gt;Step # 5: Add New Posts / Customize&lt;/h5&gt;
+&lt;p&gt;Clone tis new repo to you pc/laptop using your repository url e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone https://github.com/{username}/{username}.git&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Add new posts, pages, modify configuration, add disqus and what not. Test your changes locally and when ready push the changes to github.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--6-configure-github-pagess-in-settings&quot;&gt;Step # 6: Configure Github Pagess in Settings:&lt;/h5&gt;
+&lt;p&gt;Click on settings of your repository, Scroll Down to Github Pages section of settings and select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;website&lt;/code&gt; from the branches dropdown.&lt;/p&gt;
+
+&lt;h5 id=&quot;step--5a-and-6a-my-theme-is-not-compatible-with-github-ci&quot;&gt;Step # 5a and 6a: My Theme is not compatible with Github CI.&lt;/h5&gt;
+&lt;p&gt;Many great themes are not supported by Github CI due to the dependencies theme use. Don’t discard these themes, there is a very simple and easy work around.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;After you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll build&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll build&lt;/code&gt;, your static website is generated in a folder named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt;. Rename this folder to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docs&lt;/code&gt; and check it in (Yes! check in generated files).&lt;/li&gt;
+  &lt;li&gt;In the Github Pages sections of your Github Settings select docs from root folder drop down. You are no longer using using the Github CI, but this shouldn’t matter  as your website is exectly how you wanted it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please remember your final website is only HTML, CSS and Javascript. Every thing else you have in your repo is to help you create that static website. So you can take content in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; and host any anywhere you like, Github tends to be most convenient and familiar place.&lt;/p&gt;
+
+&lt;h2 id=&quot;connect-your-domain-and-enable-ssl&quot;&gt;Connect your domain and enable SSL&lt;/h2&gt;
+&lt;p&gt;In Github Pages section of your repository settings you can choose to publish your pages to your domain. If the domain name is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_domain.com&lt;/code&gt;, I prefer to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www.my_domain.com&lt;/code&gt; in this section. Github pages do not yet support subdomain linking. I think that is unlikely to change anytime soon.&lt;/p&gt;
+
+&lt;p&gt;You will need to update the DNS on your domain provider e.g. goddaddy.&lt;/p&gt;
+
+&lt;p&gt;Github also provides free SSL, I recommend enabling SSL on your website. It takes couple of hours to generate the certficate after you have added a domain name.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll&quot; target=&quot;_blank&quot;&gt;Github docs: Creating Github Site using Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll&quot; target=&quot;_blank&quot;&gt;Github docs: Add Content to Github Site using Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.markdownguide.org/tools/jekyll/&quot; target=&quot;_blank&quot;&gt;Jekyll Markdown Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot; target=&quot;_blank&quot;&gt;Jekyll Directory Structure&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ndench.github.io/jekyll/setup-jekyll-on-github-pages&quot; target=&quot;_blank&quot;&gt;A Neat and Concise blog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.aleksandrhovhannisyan.com/blog/getting-started-with-jekyll-and-github-pages/&quot; target=&quot;_blank&quot;&gt;A detailed Blog, TLDR;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s new in Airlow 2.0?</title><link href="https://www.achowdhary.com/what-is-new-in-airflow-2.0/" rel="alternate" type="text/html" title="What’s new in Airlow 2.0?" /><published>2021-01-20T11:18:44+05:30</published><updated>2021-01-20T11:18:44+05:30</updated><id>https://www.achowdhary.com/what-is-new-in-airflow-2.0</id><content type="html" xml:base="https://www.achowdhary.com/what-is-new-in-airflow-2.0/">&lt;figure&gt;
+&lt;img src=&quot;two.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@priscilladupreez&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Priscilla Du Preez
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So &lt;a href=&quot;https://airflow.apache.org/blog/airflow-two-point-oh-is-here/&quot; target=&quot;_blank&quot;&gt;Airflow 2.0&lt;/a&gt; is finally out, this was probably most anticipated release of Airflow mainly due to major refactoring around scheduler.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is a major release. Since Airflow follows strict Semantic Versioning approach to release process, this implies major release such as 2.0, 3.0 will have backwards-incompatible changes. So this relase won’t be simple upgrade, it  will require  some planning, changes to your DAGs and comprehensive testing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;should-i-care-to-update&quot;&gt;Should I care to update?&lt;/h3&gt;
+&lt;p&gt;As expected and planned Airflow 2.0 has many other big ticket changes many of them are major code refactoring. Moreover Airflow Team is encouraging users to upgrade by suggesting 1.x release will be supported only for a limited period of time and and only “Critical Fixes” will be backported to 1.10.x. But featurs not fear should be your guide to upgarde. Let’s have a quick look at new features in 2.0&lt;/p&gt;
+
+&lt;h5 id=&quot;scheduler-overhaul&quot;&gt;Scheduler Overhaul:&lt;/h5&gt;
+&lt;p&gt;Airflow Scheduler was bottleneck for scalability and worryingly the only ‘single point of failure’ in airflow architecture. It was neither horizontally scalable nor highly avilable. Scheduler hacks and bugs in my opinion were most hated and dreaded in airflow community. The refactoring of scheduler was &lt;a href=&quot;https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=103092651&quot; target=&quot;_blank&quot;&gt;long due&lt;/a&gt;.  With Airflow 2.0 not only many scheduler bugs have been fixed and it has been made highly available, but also the performance of single scheduler has been increased manifold. You can run multiple scheduler in active-active HA model, which is huge from performance and scalability perspective.&lt;/p&gt;
+
+&lt;h5 id=&quot;stateless-webserver&quot;&gt;Stateless Webserver:&lt;/h5&gt;
+&lt;p&gt;Airflow 2.0 mandates stateless webserver. In Airflow 1.x both Webservers and Scheduler parse and proces the DAGs. Webserver Gunicorn process each maintain it’s own DAG Bag, which can lead to inconsistant state. Webserver requiring to parse DAG files not only causes performance problems but also a deployment headaches as you are required to keep code in sync on multiple webserver nodes. With implementation of &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-24+DAG+Persistence+in+DB+using+JSON+for+Airflow+Webserver+and+%28optional%29+Scheduler&quot; target=&quot;_blank&quot;&gt;AIP-24&lt;/a&gt; DAG Serialization has been mandated, which mean Schedulers will parse the DAGs and searialize them in metadata database, webservers will load the DAG medatadata from the metadata DB.&lt;/p&gt;
+
+&lt;h5 id=&quot;task-groups&quot;&gt;Task Groups:&lt;/h5&gt;
+&lt;p&gt;Prior to Airflow 2.0 SubDAGs were commonly used for grouping tasks in the UI, using SubDagOperator. However  SubDagOperator launches a completely different DAG and then monitors it as a separate entity. This can lead to all sorts of edge case, bugs and maintenance nightmares. With implementation of &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-34+TaskGroup%3A+A+UI+task+grouping+concept+as+an+alternative+to+SubDagOperator&quot; target=&quot;_blank&quot;&gt;AIP-34&lt;/a&gt;, Airflow 2.0 introduces Task Groups as a method for organizing tasks which provides the same grouping behaviour as a subdag without any of the execution-time drawbacks. Here is an example of Task group&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;	&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TaskGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_group&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_task_group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;task1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;task2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;other_task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;other_task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;my_task_group&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other_task&lt;/span&gt;
+	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;smart-sensors&quot;&gt;Smart Sensors:&lt;/h5&gt;
+&lt;p&gt;Most of the data pipelines make heavy use of sensors; sensors execution takes up a significant proportion of Airflow cluster even with “reschedule” mode. To improve this &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-17%3A+Consolidate+and+de-duplicate+sensor+tasks+in+airflow+Smart+Sensor&quot; target=&quot;_blank&quot;&gt;AIP-17&lt;/a&gt; is implemented to add a new mode in Airflow called “Smart Sensors”. The smart sensor is a service (run by a builtin DAG) which greatly reduces airflow’s infrastructure cost by consolidating some of the airflow long running light weight tasks. Instead of using one process for each task, the main idea of the smart sensor service is to improve the efficiency of these long running tasks by using centralized processes to execute those tasks in batches. The smart sensor service is supported in a new mode called “smart sensor mode”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;smart_sensor.png&quot; alt=&quot;Smart Sensors&quot; title=&quot;Smart Sensors&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;task-flow-api&quot;&gt;Task Flow API:&lt;/h5&gt;
+&lt;p&gt;With implemenation of &lt;a href=&quot;https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=148638736&quot; target=&quot;_blank&quot;&gt;AIP-31&lt;/a&gt; DAGs are now much much nicer to code especially when using PythonOperator. This functional API will make DAGs writing significantly easier by abstracting the task and dependency management layer from users. Also to be noted &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xcom_backend&lt;/code&gt; parameter that will allow users to pass even various objects such as S3 and HDFS. Below is a quick sample, refer to &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#taskflow-api&quot; target=&quot;_blank&quot;&gt;airflow documentation&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; 
+	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;airflow.decorators&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;airflow.utils.dates&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days_ago&lt;/span&gt;
+
+	&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default_args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'owner'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'anuradha'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days_ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_etl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+	       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;frequency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;161&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;age&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;99&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transformed_value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.618&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ratio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	       &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Golden Ratio is {ratio:.2f}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	   &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	   &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	   &lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transformed_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;my_etl_dag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_etl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;simplified-kubernetes-executor&quot;&gt;Simplified Kubernetes Executor&lt;/h5&gt;
+&lt;p&gt;Airflow 2.0  includes re-architecture of the Kubernetes Executor and KubernetesPodOperator. You will now be able to access the full Kubernetes API to create a .yaml &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/executor/kubernetes.html?highlight=pod_override#pod-template-file&quot; target=&quot;_blank&quot;&gt;pod_template_file&lt;/a&gt; instead of specifying parameters in their airflow.cfg.&lt;/p&gt;
+
+&lt;h5 id=&quot;fully-specified-rest-api&quot;&gt;Fully specified REST API&lt;/h5&gt;
+&lt;p&gt;Airflow now has a fully supported (no-longer-experimental, YaY!) API with a comprehensive OpenAPI specification.
+You can find more details about API &lt;a href=&quot;http://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;uiux-improvements&quot;&gt;UI/UX Improvements&lt;/h5&gt;
+&lt;p&gt;Airflow release notes claimed that UI has been given a visual refresh and updated some of the styling. Only refreshing feature I find in this UI refresh is “Auto Refresh”, pun intended.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;refresh.gif&quot; alt=&quot;UI Refresh&quot; title=&quot;UI Refresh&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-breaking&quot;&gt;What is breaking?&lt;/h3&gt;
+
+&lt;p&gt;As mentioned ealier, this release has breaking changes, here is list (not comprehensive) of backwards-incompatible changes.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No support for Python 2, Airflow 2 works only with Python 3. Airflow 2.0.0 requires Python 3.6+ and has been tested with Python versions 3.6, 3.7 and 3.8, but does not yet support Python 3.9.&lt;/li&gt;
+  &lt;li&gt;FAB UI no longer supported, weather you like it or not you will have to use RBAC UI. If you are using custom Airflow Plugins and were passing admin_views &amp;amp; menu_links which were used in the non-RBAC UI (flask-admin based UI), you will have to update it to use flask_appbuilder_views and flask_appbuilder_menu_links.&lt;/li&gt;
+  &lt;li&gt;Airflow 2.0 is not a monolithic “one to rule them all” package. Airflow has been split into core and 61 (for now) provider packages. Each provider package is for either a particular external service e.g PostgreSQL, MySQL, HTTP, FTP etc. You will have to not only install the pacakges but also update your DAGs to refer to correct provider package.&lt;/li&gt;
+  &lt;li&gt;CLI options have been re-organized so that related commands are grouped together. If you have support team, processes and documentation, it will need updating.&lt;/li&gt;
+  &lt;li&gt;Connection type list in the Airflow UI is based on the providers you have installed with Airflow 2.0. So again make sure to install provider package, even if you were only using it to define a connection type.&lt;/li&gt;
+  &lt;li&gt;Jinja templete would break with use of ndefined variables instead of silently ignoring. You can override this behavior, but requires changes.&lt;/li&gt;
+  &lt;li&gt;Airflow metadata upgrade is not trivial to rollback, if you had to rollback.&lt;/li&gt;
+  &lt;li&gt;MariaDB and MySQL5 are not supported due to HA Scheduler requiring support for SKIP LOCKED or NOWAIT SQL clauses.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;how-difficult-is-it-to-upgrade&quot;&gt;How difficult is it to upgrade?&lt;/h3&gt;
+
+&lt;p&gt;I would say fairly complex, it would need planning if you are runnig a serious production data pipelines with Airflow. You get an idea of the complexity by lookig at &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/upgrading-to-2.html#frequently-asked-questions-on-upgrade&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Upgrade Guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The upgrade itself is a  mulit-step process, you first need to upgrade to bridge release (1.10.14), Modify all your DAGs to ensure compatibility, update configuration settings, migrate metadata DB and upgrade Airflow to 2.0.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Many users have reported issues on upgrade specially around metadata migration and providers. Many users have reported issues during upgrade and many have reported issues after upgrade. I would recommend doing a through planning and testing in non-production environment before upgrading production.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;should-i-upgrade&quot;&gt;Should I Upgrade?&lt;/h3&gt;
+&lt;p&gt;Short answer is &lt;strong&gt;Yes&lt;/strong&gt;, but it is more complex than that. If you have pressing priorities on your data delivery, you shold handle them first. Aifrlow 2.0 will not produce any new magical results for you.&lt;/p&gt;
+
+&lt;p&gt;If you are starting now or in initial stages of buidling your data pipelines with Airflow, I would highly recommend that you start using Airflow 2.0 now.&lt;/p&gt;
+
+&lt;p&gt;Airflow documentation clearly says:  &lt;em&gt;“Airflow 1.10.x release tree will be supported for a limited time after the GA release of Airflow 2.0 to give users time to upgrade from one of the Airflow 1.10.x releases. Specifically, only “critical fixes” defined as fixes to bugs that take down Production systems, will be backported to 1.10.x core for six months after Airflow 2.0.0 is released.”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;So you should start preparing/planning for upgrade as soon as possible. Plan for upgrade to take advantage of new features not just for sake of it. I would personally wait for release 2.1 for actual upgrade but start to plan for the upgrade today.&lt;/p&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/blog/airflow-two-point-oh-is-here/&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release Announcement&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/apache/airflow/releases/tag/2.0.0&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release tag on Github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/apache/airflow/issues/10152&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release Ticket&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/Airflow+2.0+-+Planning&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Planning Confluence Page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/tutorial_taskflow_api.html&quot; target=&quot;_blank&quot;&gt;TaskFlow API documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/2.0.0/scheduler.html&quot; target=&quot;_blank&quot;&gt;Scheduler documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Concepts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.astronomer.io/blog/airflow-2-scheduler&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Announcement on Astronomer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Yum Cheat Sheet</title><link href="https://www.achowdhary.com/yum-cheat-sheet/" rel="alternate" type="text/html" title="Yum Cheat Sheet" /><published>2020-09-15T21:22:42+05:30</published><updated>2020-09-15T21:22:42+05:30</updated><id>https://www.achowdhary.com/yum-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/yum-cheat-sheet/">&lt;figure&gt;
+&lt;img src=&quot;yum-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
+&lt;/figure&gt;
+&lt;h1 id=&quot;yum-cheat-sheet&quot;&gt;Yum Cheat Sheet&lt;/h1&gt;
+
+&lt;p&gt;Yum (Yellow Dog Updater, Modified), is the package manager used on RPM (RedHat Package Manager) based Linux systems such as CentOS, RHEL. It is an interactive, rpm based, package manager. It can automatically perform system updates, including dependency analysis and obsolete processing based on “repository” metadata.&lt;/p&gt;
+
+&lt;h4 id=&quot;getting-help&quot;&gt;Getting Help&lt;/h4&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum help [command]' to get help on yum commands and options, you can also use &lt;/code&gt;man yum’.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum help
+yum help install
+yum help erase
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;updating-packages&quot;&gt;Updating Packages&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Check the whole system for available updates:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum check-update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update the whole packages to the latest version:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Apply only security related updates:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update --security
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update an individual package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum update [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update all packages in a group:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum groupupdate [group_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update an individual package to an specific version:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum --showduplicates list [package_name]
+sudo yum update-to [package-version]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update a package from a specific repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum repo-pkgs [repo] upgrade [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;managing-repositories&quot;&gt;Managing Repositories&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[repository]&lt;/code&gt; section to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.conf&lt;/code&gt; file, or to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.repo&lt;/code&gt; file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/&lt;/code&gt; directory.&lt;/li&gt;
+  &lt;li&gt;Remove a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[repository]&lt;/code&gt; section to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.conf&lt;/code&gt; file, or to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.repo&lt;/code&gt; file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/yum.repos.d/&lt;/code&gt; directory.&lt;/li&gt;
+  &lt;li&gt;Display enabled repositories: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum repolist&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Display all enabled/disabled repositories: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum repolist all&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Download yum repository data to cache: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum makecache&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Get information about repositories:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ yum repoinfo
+$ yum repoinfo &amp;lt;repo-id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List all packages in the specified repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; yum repo-pkgs &amp;lt;repo id&amp;gt; list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;viewing-package-info&quot;&gt;Viewing Package Info&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;List all installed packages:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list installed [package_name]
+yum list installed 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List all available packages:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list available
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List installed and available kernel packages
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum list kernel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;List dependencies of a package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum deplist [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Search packages by name:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum search [string]
+yum search [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Find packages that provide the queried file:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum provides &amp;lt;string&amp;gt;
+yum provides &amp;lt;foldername/filename&amp;gt;
+yum provides &amp;lt;filename&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Display information about a package: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yum info [package_name]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;install--remove-packages&quot;&gt;Install &amp;amp; Remove Packages&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install a package from repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum install [package_name]
+sudo yum install [p1] [p2]
+sudo yum --enablerepo=[repo] install [package_name]
+sudo yum repo-pkgs [repo] install [package_name]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install a local rpm package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum localinstall [package_name].rpm
+sudo yum localinstall [http://myrepo.org/packagename.rpm]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove an installed package:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum remove [package_name]
+sudo yum remove [p1] [p2]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove one package and install another:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum swap [package_to_rmove] [package_to_install]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove unwanted packages and dependencies: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum autoremove&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Remove all packages installed from a specific repository:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum repo-pkgs [repo] remove
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;history&quot;&gt;History&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;View all the past transactions of yum command:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history
+sudo yum history list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Show details of yum transaction ID:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history info &amp;lt;ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Undo the yum action from transaction ID:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history undo &amp;lt;ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Redo the undone yum action from transaction ID:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo yum history redo &amp;lt;ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;clean&quot;&gt;Clean&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Clear out cached package data:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum clean all&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete packages saved in cache:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo yum clean packages&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;general-options&quot;&gt;General Options&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-y&lt;/code&gt; Assume that the answer to any question  which  would be asked is yes.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--assumeno&lt;/code&gt; Assume that the answer to any question which would be asked is no.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-q&lt;/code&gt; Run without output.  Note that you likely also want to use -y.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt; Run with a lot of debugging output.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--showduplicates&lt;/code&gt; Doesn’t limit packages to their latest versions in the info, list and search commands&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--enablerepo&lt;/code&gt; Enable currently disabled repo for a single command&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--disablerepo&lt;/code&gt; Disable currently enabled repo for a single command&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--downloadonly&lt;/code&gt; Don’t update, just download to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/cache/yum/arch/prod/repo/packages/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--changelog&lt;/code&gt; Display changelog information of package&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;related-files&quot;&gt;Related Files&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/yum.conf
+/etc/yum/version-groups.conf
+/etc/yum.repos.d/
+/etc/yum/pluginconf.d/
+/var/cache/yum/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="yum" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html">Yum Cheat Sheet</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/yum-cheat-sheet/yum-cheat-sheet.jpg" /><media:content medium="image" url="https://www.achowdhary.com/yum-cheat-sheet/yum-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Git Cheat Sheet</title><link href="https://www.achowdhary.com/git-cheat-sheet/" rel="alternate" type="text/html" title="Git Cheat Sheet" /><published>2020-08-25T21:22:42+05:30</published><updated>2020-08-25T21:22:42+05:30</updated><id>https://www.achowdhary.com/git-cheat-sheet</id><content type="html" xml:base="https://www.achowdhary.com/git-cheat-sheet/">&lt;figure&gt;
+&lt;img src=&quot;git-cheat-sheet.jpg&quot; alt=&quot;Git Cheat Sheet&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h5 id=&quot;git-branching-basics&quot;&gt;Git Branching Basics&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Show remote branches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -r&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Show all branches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -a&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create a new branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout -b [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete a local branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -d [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete a local branch forcefully &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git branch -D [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete branch from remote (named origin)  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push origin :[branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Find common ancestor of two branches `git merge-base [branch_1] [branch_2]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;git-merge&quot;&gt;Git Merge&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Merge [branch_name] to current branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge [branch_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Merge [source_branch] to [target_branch] &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge [source_branch] [target_branch]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sometimes, this doesn’t go smoothly merge conflicts will show up.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Resolve conflicts and after resolving merge conflicts:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &amp;lt;conflicting_file_names&amp;gt;
+git commit -m &quot;Your merge comment&quot;
+git push
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;git-rebase&quot;&gt;Git Rebase&lt;/h5&gt;
+&lt;p&gt;Merge and Rebase solve same problems, but with a slightly different outcome in git hisotry; For more details recommed reading &lt;a href=&quot;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt; and &lt;a href=&quot;https://stackoverflow.com/questions/16666089/whats-the-difference-between-git-merge-and-git-rebase/16666418#16666418&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Rebase current branch against [source_branch] &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase [source_branch]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Sometimes it is useful to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i&lt;/code&gt; to run rebase interactively and modify the commit history with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fixup&lt;/code&gt; command. I almost always prefer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; as it results in more readable history. But it is important to remember to never ever rebase your public branch such as main, master or develop against a private feature branch.&lt;/p&gt;
+
+&lt;p&gt;also after rebase &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt; fails, so use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push --force&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;git-reset&quot;&gt;Git Reset&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reset everything to specific commit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git reset --hard&lt;/code&gt; ; Use with care&lt;/li&gt;
+  &lt;li&gt;Reset a single file
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout @ -- [filename]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git revert&lt;/code&gt;, when you need to keep history of reverts&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Revert a commit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git revert [commit_ref]&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove tracked file from index &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rm [file_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Remove tracked directory from index &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rm -r  [dir_name]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Remove files no longer on filesystem:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git diff --name-only --diff-filter=D -z | xargs -0 git rm --cached
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove untracked files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git cleani -f&lt;/code&gt;. Use with care, will delete all untracked files.&lt;/li&gt;
+  &lt;li&gt;Dry run git clean &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clean -n&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;git-config&quot;&gt;Git Config&lt;/h5&gt;
+
+&lt;p&gt;Configure git user name and email&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;you@example.com&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Always rebase on pull (default is merge)&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global pull.rebase true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Colorful Git&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global color.ui true
+git config --global color.diff true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add Alias ci for commit&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global alias.ci commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/merging-vs-rebasing&quot; target=&quot;_blank&quot;&gt; Merge Vs. Rebase on Bitbucket Tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gitolite.com/git-pull--rebase&quot; target=&quot;_blank&quot;&gt; Understanding git pull –rebase &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs/git-merge-base&quot; target=&quot;_blank&quot;&gt; Find Common Ancestor for merge &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html&quot; target=&quot;_blank&quot;&gt; FIXUP &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/undoing-changes/git-reset&quot; target=&quot;_blank&quot;&gt; Reset on BitBucket &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/2530060/in-plain-english-what-does-git-reset-do&quot; target=&quot;_blank&quot;&gt; Reset on Stack Overflow &lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="git" /><category term="HowTo" /><category term="CheatSheet" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/git-cheat-sheet/git-cheat-sheet.jpg" /><media:content medium="image" url="https://www.achowdhary.com/git-cheat-sheet/git-cheat-sheet.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Airflow Concurrency Configuration Simplified!</title><link href="https://www.achowdhary.com/airflow-concurrency-simplified/" rel="alternate" type="text/html" title="Airflow Concurrency Configuration Simplified!" /><published>2020-08-05T11:58:47+05:30</published><updated>2020-08-05T11:58:47+05:30</updated><id>https://www.achowdhary.com/airflow-concurrency-simplified</id><content type="html" xml:base="https://www.achowdhary.com/airflow-concurrency-simplified/">&lt;p&gt;Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very &lt;a href=&quot;https://issues.apache.org/jira/browse/AIRFLOW-57&quot; target=&quot;_blank&quot;&gt;unintuitive and confusing way&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;confused.jpg&quot; alt=&quot;confused&quot; /&gt;
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@benwhitephotography&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Ben White &lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Though I can’t change the name of the properties, I have made an attempt to decode the names. Hoefully it helps some of you, so that you can focus on more pressing problems in your data pipeline.&lt;/p&gt;
+
+&lt;h5 id=&quot;core&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[core]&lt;/code&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelism&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#parallelism&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: Maximum number of task instances that can run concurrently on Airflow installation, i.e. the maximum number of task instances that can run in the entire airflow cluster. This is the only setting that applies to entire cluster as opposed to the given node. If you have two host running Airflow worker, combined total of task running on both workers will not exceed this value. You can also think of this is as maximum number of taks that will have state=’running’ in airflow metadata db. This value should be configured same on all the worker nodes of a given Airflow Cluster. The default value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;32&lt;/code&gt;. If you are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CeleryExecutor&lt;/code&gt;, this should be sum of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_concurrency&lt;/code&gt; for all nodes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag_concurrency&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#dag-concurrency&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This parameter determines how many task instances Airflow scheduler is able to schedule concurrently per DAG. This can be thought of as maximum tasks that can be scheduled concurrently, per DAG. Since schedular is global for cluster this property is also applicable to Airflow Cluster/installation as one entity. You should keep this value same on all the worker nodes of your Airflow Cluster. 
+This parameter can be overwritten at DAG level by: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag = DAG('example2', concurrency=10)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_active_runs_per_dag&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#max_active_runs_per_dag&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This paramenter is important but does not really controls the concurrency directly, instead it specifies how many total runs of a DAG are allowed to run for the Airflow cluster. This helps in controling the fair allocation of resources and making sure that one DAG is not taking up all the resource. This parameter can be overwritten at DAG level by: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dag = DAG('my_dag_id', max_active_runs=1)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;scheduler&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[scheduler]&lt;/code&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;max_threads&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#max_threads&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]:The scheduler can run multiple threads in parallel to schedule dags. This parameter specifies how many threads will run scheduler run. Adjust this number based on CPU resources available - the higher the value, the more resources you’ll need. Update: setting &lt;a href=&quot;https://github.com/apache/airflow/pull/12605&quot; target=&quot;_blank&quot;&gt;has been renamed&lt;/a&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parsing_processes&lt;/code&gt; in airflow 2.0.&lt;/p&gt;
+
+&lt;h5 id=&quot;celery&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[celery]&lt;/code&gt;&lt;/h5&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_concurrency&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#worker-concurrency&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This is the number of  celery workers, per Airflow Worker. You would typically run one Airflow worker per Airflow node. So this can be considerd as per Airflow node version of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parallelism&lt;/code&gt; setting. This is maximum number of task instances that can on a given Airflow worker can execute. You can have different settings for different worker node depending on number of available CPU Cores. This parameter has default value of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;16&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#pool&quot; target=&quot;_blank&quot;&gt;Ref &lt;/a&gt; ]:&lt;br /&gt;
+ This is type of celery pool implementation to be used and shold not be confused with &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#pools&quot; target=&quot;_blank&quot;&gt;Airflow Pool&lt;/a&gt;, which I will cover briefly later in this article. For this settings options are: prefork (default), eventlet, gevent or solo. For usual data pipelines, prefork works fine. If you have many I/O blocking tasks in your data pipelines, it is worth exploring gevent or eventlet. Please refer to &lt;a href=&quot;https://www.distributedpython.com/2018/10/26/celery-execution-pool/&quot; target=&quot;_blank&quot;&gt;this post&lt;/a&gt; on distributed python for more details on various options.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sync_parallelism&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#parallelism&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: This is number of processes CeleryExecutor uses to sync task state. Value 0 implies to use max(1, number of cores - 1) processes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;worker_autoscale&lt;/code&gt;&lt;/strong&gt; [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#worker-autoscale&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]: The maximum and minimum celery workers that will be per Airflow worker. Celery workers always keep minimum processes, but grow to maximum if necessary. Note the value should be max_concurrency,min_concurrency.You can have different settings for different worker node, based on resources on worker node and the nature of the task. If autoscale option is used, worker_concurrency will be ignored.&lt;/p&gt;
+
+&lt;h3 id=&quot;airflow-task-pools--ref-&quot;&gt;Airflow Task Pools [ &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#pools&quot; target=&quot;_blank&quot;&gt;Ref&lt;/a&gt; ]&lt;/h3&gt;
+&lt;p&gt;Airflow Pools can be defined using Airflow UI (Menu -&amp;gt; Admin -&amp;gt; Pools) or CLI. Tasks can then be associated with one of the existing pools by using the pool parameter when creating tasks in the DAG code:
+     &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;my_task = PythonOperator(pool='my_custom_pool')&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Airflow pools are typically used to limit the concurrency on specific types of task.  Some systems can get overwhelmed when too many processes hit them at the same time, e.g. downloading data from a webservice that limits concurrent connection. You can place limit by putting all such tasks to same pool and assigning a limit to the pool.
+This is great if you have a lot of workers in parallel, but you don’t want to overwhelm a source or destination&lt;/p&gt;
+
+&lt;p&gt;The pool parameter can be used in conjunction with priority_weight to define priorities in the queue, and which tasks get executed first as slots open up in the pool. The default priority_weight is 1, and can be bumped to any number. When sorting the queue to evaluate which task should be executed next, we use the priority_weight, summed up with all of the priority_weight values from tasks downstream from this task. You can use this to bump a specific important task and the whole path to that task gets prioritized accordingly.&lt;/p&gt;
+
+&lt;p&gt;If tasks are not given a pool, they are assigned to a default pool default_pool which is initialized with 128 slots and can changed through the UI or CLI.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Prod" /><summary type="html">Anyone who goes beyond Airflow PoC and starts to build production grade data pipelines with Airflow would rquire to configure concurrent task execution. Unfortunately the documentation around it is scarce and to complicate the matter the configuration parameters are named in a very unintuitive and confusing way.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jupyter Hub setup with Jupyter Lab.</title><link href="https://www.achowdhary.com/juppyter-hub-setup-simplified/" rel="alternate" type="text/html" title="Jupyter Hub setup with Jupyter Lab." /><published>2020-07-07T10:28:47+05:30</published><updated>2020-07-07T10:28:47+05:30</updated><id>https://www.achowdhary.com/juppyter-hub-setup-simplified</id><content type="html" xml:base="https://www.achowdhary.com/juppyter-hub-setup-simplified/">&lt;p&gt;Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;hub-lab.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;pre-requisite&quot;&gt;Pre-requisite&lt;/h4&gt;
+&lt;p&gt;You have working python setup with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python version &amp;gt;= 3.6&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;install-configurable-http-proxy&quot;&gt;Install configurable-http-proxy&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	sudo yum install rh-nodejs10
+	sudo npm install -g configurable-http-proxy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;install-jupyter-hub-and-jupyter-lab&quot;&gt;Install Jupyter Hub and Jupyter Lab&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	pip install jupyterhub jupyterlab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	conda install jupyterhub jupyterlab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;configuration-and-setup&quot;&gt;Configuration and setup&lt;/h4&gt;
+&lt;p&gt;Create a directory for you jupyter hub. Let’s assume the dir is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/opt/jupyter&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	mkdir /opt/jupyter
+	cd /opt/jupyter
+	export JUPYTERLAB_DIR = /opt/jupyter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I would recommed adding above variable to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; (if you are using bash).
+	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;export JUPYTERLAB_DIR = /opt/jupyter&quot; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub --generate-config&lt;/code&gt; &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter lab --generate-config&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;This will generate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter_notebook_config.py&lt;/code&gt;. I highly recommend deleteing all commented lines from the generated config file. Keeping only required lines, makes it much easier to maintain it. To delete all commented lines&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	sed -i '/^#/ d' jupyterhub_config.py
+	sed -i '/^\s*$/d' jupyterhub_config.py
+	sed -i '/^#/ d' jupyter_notebook_config.py
+	sed -i '/^\s*$/d' jupyter_notebook_config.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; in your favorite editor and make following changes.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.Spawner.default_url = '/lab'
+	c.JupyterHub.hub_ip = '0.0.0.0'
+	c.JupyterHub.spawner_class = 'jupyterhub.spawner.SimpleLocalProcessSpawner'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyter_notebook_config.py&lt;/code&gt; in your favorite editor and make following changes.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.NotebookApp.allow_remote_access = True
+	c.NotebookApp.ip = '0.0.0.0'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;adding-jupyter-kernels&quot;&gt;Adding Jupyter Kernels&lt;/h4&gt;
+&lt;p&gt;If you have existing jupyter kernels that you would like to use with your setup you need to copy them to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PYTHON_HOME/share/jupyter/kernels/&lt;/code&gt;. You can also optionally place kernal logos inside your kernal folders to make your jupyter setup look colorful. The logo files should be named  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo-32x32.png&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logo.64x64.png&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;lab-logos.png&quot; alt=&quot;Kernel Logos in Jupyter Lab&quot; /&gt; 
+&lt;/figure&gt;
+
+&lt;h4 id=&quot;configuring-sslhttps&quot;&gt;Configuring SSL/https&lt;/h4&gt;
+&lt;p&gt;Generate a Private key and cert using your preferred method. e.g.&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl req -x509 -out my.crt -keyout my.key -newkey rsa:2048 -nodes -sha256&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Add following lines to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jupyterhub_config.py&lt;/code&gt; &lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	c.JupyterHub.ssl_key = '/path/to/my.key'
+	c.JupyterHub.ssl_cert = '/path/to/my.cert'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;starting-jupyter-hub&quot;&gt;Starting Jupyter Hub&lt;/h4&gt;
+&lt;p&gt;You need to ensure that the nodejs that you installed in enabled. You can do this by doing 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scl enable node rh-nodejs10 bash&lt;/code&gt;, but I prefer source &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source /opt/rh/rh-nodejs10/enable&lt;/code&gt; as it does not open a new shell inside your current one. You can also consider adding this to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; (if you are using bash).
+	&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;source /opt/rh/rh-nodejs10/enable&quot; &amp;gt;&amp;gt; ~/.bashrc&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;to start Jupyter Hub:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	cd $JUPYTERLAB_DIR
+	nohup jpyterhub &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;urls&quot;&gt;URLs:&lt;/h4&gt;
+&lt;p&gt;Jupyter Notebook Url: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000&lt;/code&gt; &lt;br /&gt;
+JupyterHub Admin Url: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000/hub/admin&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;stopping-jupyter-hub&quot;&gt;Stopping Jupyter Hub&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open Hub admin in browser &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http(s)://&amp;lt;your_server&amp;gt;:8000/hub/admin&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Click &lt;strong&gt;Shutdown Hub&lt;/strong&gt; button&lt;/li&gt;
+  &lt;li&gt;Check both &lt;em&gt;Shutdown Proxy&lt;/em&gt; and &lt;em&gt;Shutdown single-user-servers&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Click &lt;strong&gt;Shutdown&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--
+TODO add disable Terminal
+jupyter labextension list
+jupyter labextension uninstall terminal
+jupyter labextension disable terminal
+jupyter lab build
+vi setttings/page_config.json
+{
+	&quot;terminalAvailable&quot;: false,
+	&quot;disableExtensions&quot; : [
+	 ```
+	 yum install rh-nodejs10
+	 ```&quot;@jupyterlab/terminal&quot;,
+	 &quot;terminal&quot;
+	]
+}
+
+jupyter/lab/schemas/@jupyterlab/terminal-extension
+plugin.json
+consoloe-extension
+setttings/package_config.json
+--&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterlab.readthedocs.io/en/stable/&quot; target=&quot;_blank&quot;&gt;Jupyter Lab Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jupyterhub.readthedocs.io/en/stable/getting-started/security-basics.html&quot; target=&quot;_blank&quot;&gt;Jupyter Hub Security Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Jupyter Hub" /><category term="Jupyter Lab" /><summary type="html">Jupyter Hub is the best way to serve Jupyter Notebook to multiple users and Jupyter Lab is the next generation web interface for project Jupyter. I have set it up for multiple groups, data engineers, students, kids learning python and they all love it because of simplicity and ability to easily share python code.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/jupyterhub-setup-simplified/hub-lab.jpg" /><media:content medium="image" url="https://www.achowdhary.com/jupyterhub-setup-simplified/hub-lab.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
