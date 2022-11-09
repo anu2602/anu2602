@@ -2,3 +2,5 @@ node_modules/
 .jekyll-cache/
 docs_old
 _site/
+.DS_Store
+

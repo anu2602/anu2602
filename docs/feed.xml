@@ -1,4 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2022-07-20T06:56:01+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Practical Lean Architecture</title><link href="https://www.achowdhary.com/practical-lean-architecture/" rel="alternate" type="text/html" title="Practical Lean Architecture" /><published>2022-06-11T09:33:15+05:30</published><updated>2022-06-11T09:33:15+05:30</updated><id>https://www.achowdhary.com/practical-lean-architecture</id><content type="html" xml:base="https://www.achowdhary.com/practical-lean-architecture/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://www.achowdhary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.achowdhary.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2022-11-10T04:34:06+05:30</updated><id>https://www.achowdhary.com/feed.xml</id><title type="html">Anuradha Chowdhary</title><subtitle>Anuradha Chowdhary is a Data Engineer, Computer Programmer, entreprenuer and promoter of Women in Tech and Open Source Software.  for her work see  &lt;a href=&quot;https://github.com/anu2602&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><entry><title type="html">Writing Airflow Plugin</title><link href="https://www.achowdhary.com/writing-airflow-plugin/" rel="alternate" type="text/html" title="Writing Airflow Plugin" /><published>2022-11-07T16:50:47+05:30</published><updated>2022-11-07T16:50:47+05:30</updated><id>https://www.achowdhary.com/writing-airflow-plugin</id><content type="html" xml:base="https://www.achowdhary.com/writing-airflow-plugin/">&lt;figure&gt;
+&lt;img src=&quot;plugin.jpg&quot; alt=&quot;plugin&quot; /&gt;
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Photo by &lt;a href=&quot;https://unsplash.com/@purzlbaum&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Claudio Schwarz
+&lt;/a&gt; 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I recently pulished &lt;a href=&quot;https://github.com/anu2602/aerofoil&quot;&gt;Aerofoil&lt;/a&gt;, an Airflow Plugin. In the process, I reallized there isn’t a good Guide on writing Airflow Pluins, so here is I am writing a simple, practical and hopefully useful guide.&lt;/p&gt;
+
+&lt;h3 id=&quot;airflow-plugins&quot;&gt;Airflow Plugins&lt;/h3&gt;
+&lt;p&gt;Airflow has a simple plugin manager built-in that can integrate external features to its core by either dropping files in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$AIRFLOW_HOME/plugins&lt;/code&gt; folder or installing python modulues that implement plugin’s interface. Pluings are useful for extending and customizing Airflow as per the needs. Plugin can be used for:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Creating new Operatos, Sensors, Hooks&lt;/li&gt;
+  &lt;li&gt;Creating macros&lt;/li&gt;
+  &lt;li&gt;Modifying Airflow UI&lt;/li&gt;
+  &lt;li&gt;Custom timetables&lt;/li&gt;
+  &lt;li&gt;Event Listeners&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;why-write-airflow-plugin&quot;&gt;Why Write Airflow Plugin?&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;To provide connectivity to your data product: You provide a data service and chances are your customers are using Airflow to connect to your system. They all are writing same code, instead if you could provide a pluin, that can make life easy for them.&lt;/li&gt;
+  &lt;li&gt;To customize your Airflow Installation: You may want to add Menu Links, change UI for your Airflow installation e.g you want to provide link to your documentation from Airflow or you want build add a simple data exploration capability.&lt;/li&gt;
+  &lt;li&gt;To add custom or customized Operator/Hooks/Sensors: Though there are provider packages for almost any meaningful system you want to connect via Airflow, you may sometime need to write your own operator or modify operator.&lt;/li&gt;
+  &lt;li&gt;and so on ..&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;plugin-packaging&quot;&gt;Plugin Packaging&lt;/h3&gt;
+&lt;p&gt;There are two simple way to package plugin. First is simply dropping files into Airflow  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt; folder. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt; Folder is defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow.cfg&lt;/code&gt;, airflow loads the code in this folder. This is simplest way of writing plugin, and if you are doing this you can probably skip this guide and user Airflow documentation. This guide is more suited to someone who intend to publish a reusable plugin.&lt;/p&gt;
+
+&lt;h3 id=&quot;plugin-src-structure&quot;&gt;Plugin src structure:&lt;/h3&gt;
+&lt;p&gt;I recommend following structure for your plugin:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;src/
+  &amp;lt;mymodule&amp;gt;/
+  operators (optional)
+  sensors (optional)
+  views (optional)
+  static (optional)
+  templates (optional)
+  __init__.py
+  &amp;lt;myplugin&amp;gt;.py  
+setup.py
+README.md
+MANIFEST.in
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;development-environment&quot;&gt;Development Environment&lt;/h3&gt;
+&lt;p&gt;First of all you need to have a running Airflow in your development environment in order for you to be able to test, which is fairly straight forward. After that you make want to find  your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt; folder in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow.cfg&lt;/code&gt;, this is usually &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$AIRFLOW_HOM/plugins&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To be able to test, I recommend you create a symlink to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;mymodule&amp;gt;&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt; folder.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd $AIRFLOW_HOME/plugins
+ln -s /path/to/plugin-code/src/&amp;lt;mymodule&amp;gt; . 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Also set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reload_on_plugin_change&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[webserver]&lt;/code&gt; section of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow.cfg&lt;/code&gt;. This is specially helpful if you are developing new UI features and you want to preview your changes without restarting webservers. Take it with a pinch of salt, as some of the changes in the template do not reflect and you need to restart your webserver.&lt;/p&gt;
+
+&lt;h3 id=&quot;entry-point&quot;&gt;Entry Point&lt;/h3&gt;
+&lt;p&gt;Entry point to the plugin is the plugin file. The file should define a class exending &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;airflow.plugins_manager.AirflowPlugin&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&quot;example&quot;&gt;Example&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from airflow.plugins_manager import AirflowPlugin
+
+from flask import Blueprint
+from flask_appbuilder import expose, BaseView as AppBuilderBaseView
+from airflow.hooks.base import BaseHook
+
+#Import your custome classes
+from &amp;lt;mymodule&amp;gt;.operators import MyHook
+rom &amp;lt;mymodule&amp;gt;.views import MyView
+
+def my_macro():
+    pass
+
+my_view = MyView()
+
+my_bp = Blueprint(
+	'my_plugin', __name__,
+	 template_folder='templates',
+	 static_folder='&amp;lt;mymodule&amp;gt;/static',
+	 static_url_path='/static/&amp;lt;myurlplath&amp;gt;'
+)
+
+my_pkg = {
+	'name' : 'My View',
+	'category' : 'My New Menu',
+	'view': my_view
+}
+
+my_mitem = {
+    &quot;name&quot;: &quot;Google&quot;,
+    &quot;href&quot;: &quot;https://www.google.com&quot;,
+    &quot;category&quot;: &quot;My New Menu'&quot;,
+}
+
+class MyAirflowPlugin(AirflowPlugin):
+    name = &quot;my_plugin&quot;
+    hooks = [MyHook]
+    macros = [my_macro]
+    flask_blueprints = [my_bp]
+    appbuilder_views = [my_pkg]
+    appbuilder_menu_items = [my_mitem]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;understanding-the-plugin-interface&quot;&gt;Understanding the Plugin Interface&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from airflow.plugins_manager import AirflowPlugin&lt;/code&gt;
+Airflow plugin needs to extend the AirflowPlugin class as displayed above and below items needs to be defined in your subclass as per your need.&lt;/p&gt;
+
+&lt;div class=&quot;datatable-begin&quot;&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Plugin Property&lt;/th&gt;
+      &lt;th&gt;Usage&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;This is the name of your Plugin&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hooks&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;List of your custom Hook classes go here&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;macro&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;A macro can be defined as a function, list of macros go here&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flask_blueprints&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;A list of &lt;a href=&quot;https://stackoverflow.com/questions/24420857/what-are-flask-blueprints-exactly&quot; target=&quot;_blank&quot;&gt;blueprints&lt;/a&gt; created for Flask, usually you will have only one.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appbuilder_views&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;These are Menu Items for your view (UI Screens). You can either add to existing Menu Group (Category) or create a new one.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;appbuilder_menu_items&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Additional external links to be added to Airflow Menu&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;datatable-end&quot;&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;entry-point-1&quot;&gt;Entry Point&lt;/h4&gt;
+&lt;p&gt;Class implementing plugin interface is the entrypoint for your plugin. If you drop your pluggin into the Airflow’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt; folder, creating a AirflowPlugin implmentation and keeping is sufficient. But if you are creating a python package and plugin is loaded via setuptools entrypoint mechanism. In your setup.py configure entrypoint as mentioned below:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;entry_points={
+        'apache_airflow_provider': [
+            'provider_info=&amp;lt;mymoduler&amp;gt;.__init__:get_provider_info'
+        ],
+        'airflow.plugins': [
+            'aerofoil=&amp;lt;mymodule&amp;gt;.my_plugin:MyPlugin'
+        ]
+    },
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Where MyPlugin is implemenation of AirflowPlugin as defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mymodule/my_plugin.py&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/plugins.html&quot; target=&quot;_blank&quot;&gt;Airflow Plugin Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/anu2602/aerofoil&quot; target=&quot;_blank&quot;&gt;Aerofoil code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/airflow-plugins&quot; target=&quot;_blank&quot;&gt;Airflow Plugins in Github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/24420857/what-are-flask-blueprints-exactly&quot; target=&quot;_blank&quot;&gt;What is Flask Blueprint&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://flask-appbuilder.readthedocs.io/en/latest/config.html&quot; target=&quot;_blank&quot;&gt;Flask-AppBuilder configuration reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Guide" /><category term="HowTo" /><summary type="html">Photo by Claudio Schwarz</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/wirting-airflow-plugin/plugin.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/wirting-airflow-plugin/plugin.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Annouuncing Aerofoil - An Airflow Plugin</title><link href="https://www.achowdhary.com/announcing-aerofoil/" rel="alternate" type="text/html" title="Annouuncing Aerofoil - An Airflow Plugin" /><published>2022-11-03T11:35:42+05:30</published><updated>2022-11-03T11:35:42+05:30</updated><id>https://www.achowdhary.com/announcing-aerofoil</id><content type="html" xml:base="https://www.achowdhary.com/announcing-aerofoil/">&lt;figure&gt;
+&lt;img src=&quot;aerofoil.svg&quot; alt=&quot;confused&quot; /&gt;
+&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
+	Aerofoil improving Airflow, to create a better airflift. 
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I have been working on Airflow for quite some time now and on feature there were few features that I found desperately wanting in my installation without paying. When I looked at Airflow Product Backlog or Airflow Improvment Proposals (AIP) &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/Airflow+Improvement+Proposals&quot;&gt;log&lt;/a&gt;, I didn’t see these feature in any proirity and understandably so. There is so much to do in core Airflow and it is all very exciting. So I decided to create  a pluging that will contain features, that are not core to Airflow, but supports it and help improve the efficiency.&lt;/p&gt;
+
+&lt;p&gt;Although  &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/plugins.html&quot;&gt;poorly documented&lt;/a&gt;, Airflow has a farily good plugin Architecture. So the what does is &lt;a href=&quot;https://github.com/anu2602/aerofoil&quot;&gt;Aerofoil&lt;/a&gt; do? Well the name is reflection of vision for plugin. I am hoping that over next couple of year, it will have many side feature that doesn’t make sense as part of Airflow Core but none the less provides multifild efficiency gains. The plugin is available with &lt;a href=&quot;https://github.com/anu2602/aerofoil/blob/master/LICENSE.md&quot;&gt;MIT license&lt;/a&gt;, the intention is to keep it simple and friendly.&lt;/p&gt;
+
+&lt;h4 id=&quot;features&quot;&gt;Features&lt;/h4&gt;
+
+&lt;h5 id=&quot;aerofoil-menu&quot;&gt;Aerofoil Menu&lt;/h5&gt;
+&lt;p&gt;The first thing you will notice, provbably will be a new Aerofoil menu  in your Airflow UI. 
+&lt;img src=&quot;screenshots/menu.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;backfill-ui&quot;&gt;Backfill UI:&lt;/h5&gt;
+&lt;p&gt;A convenient way to run Backfill DAG from UI. In most of the enterprise setup, DAG developers do not have access to Airflow servers to be able to run backfill jobs. This makes running backfill an expensive operation. With the Backfilll UI, Airflow users can submit backfill command from UI. The backfill itself runs as a Airflow DAG and is compatible with most production Airflow configurations. This is also the most used feature in Aerofoil.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;screenshots/backfill.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;reset-dag-history&quot;&gt;Reset DAG History&lt;/h5&gt;
+&lt;p&gt;Sometime complete DAG history needs to be reset. There is currently no way of clearing a DAGs history in Airflow. This functionality allows clearing/resetting DAGs history via a convenient UI.&lt;br /&gt;
+&lt;img src=&quot;screenshots/reset.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;fake-sucess&quot;&gt;Fake Sucess&lt;/h5&gt;
+&lt;p&gt;A shortcut to mark your DAG/Task runs successful. The Fake success is a powerful featurs, and to avoid misuse and Audit Trail is maintained. Adminstratos can always find out, who is trying to fake it. 
+&lt;img src=&quot;screenshots/fake_success.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;my-dags&quot;&gt;My DAGs&lt;/h5&gt;
+&lt;p&gt;Large Airflow installations can have hundreds of DAGs. This feature allows logged in user to view to see the DAG’s authored by her/him. The DAG Author must be set correctly in the DAG file and it must match with the Airflow user name.&lt;/p&gt;
+
+&lt;h5 id=&quot;aerofoilbashoperator&quot;&gt;AerofoilBashOperator:&lt;/h5&gt;
+&lt;p&gt;Context aware BashOperator, that can take a context and pass it to callback e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;on_success_callback&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;on_failure_callback&lt;/code&gt; etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;contribute&quot;&gt;Contribute:&lt;/h2&gt;
+&lt;p&gt;If you find something missing and would like to contrinute, feel free to raise a pull request. If you find a bug and would like me to fix it, please feel free to raise an issue. I look forward to work with some amazing contributors and learn from you.&lt;/p&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Aerofoil" /><summary type="html">Aerofoil improving Airflow, to create a better airflift.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/announcing-airflow/aerofoil.svg" /><media:content medium="image" url="https://www.achowdhary.com/announcing-airflow/aerofoil.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Practical Lean Architecture</title><link href="https://www.achowdhary.com/practical-lean-architecture/" rel="alternate" type="text/html" title="Practical Lean Architecture" /><published>2022-06-11T09:33:15+05:30</published><updated>2022-06-11T09:33:15+05:30</updated><id>https://www.achowdhary.com/practical-lean-architecture</id><content type="html" xml:base="https://www.achowdhary.com/practical-lean-architecture/">&lt;figure&gt;
 	&lt;img src=&quot;pisa.jpg&quot; alt=&quot;Leaning Tower&quot; /&gt; 
 	&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
 		Photo by &lt;a href=&quot;https://unsplash.com/@spantax&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Marco Ceschi&lt;/a&gt; 
@@ -931,176 +1133,4 @@ echo $name
   &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/structure/&quot; target=&quot;_blank&quot;&gt;Jekyll Directory Structure&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ndench.github.io/jekyll/setup-jekyll-on-github-pages&quot; target=&quot;_blank&quot;&gt;A Neat and Concise blog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.aleksandrhovhannisyan.com/blog/getting-started-with-jekyll-and-github-pages/&quot; target=&quot;_blank&quot;&gt;A detailed Blog, TLDR;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What’s new in Airlow 2.0?</title><link href="https://www.achowdhary.com/what-is-new-in-airflow-2.0/" rel="alternate" type="text/html" title="What’s new in Airlow 2.0?" /><published>2021-01-20T11:18:44+05:30</published><updated>2021-01-20T11:18:44+05:30</updated><id>https://www.achowdhary.com/what-is-new-in-airflow-2.0</id><content type="html" xml:base="https://www.achowdhary.com/what-is-new-in-airflow-2.0/">&lt;figure&gt;
-&lt;img src=&quot;two.jpg&quot; alt=&quot;JupyterLab and JupyterHub&quot; /&gt; 
-&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
-	Photo by &lt;a href=&quot;https://unsplash.com/@priscilladupreez&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;Priscilla Du Preez
-&lt;/a&gt; 
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So &lt;a href=&quot;https://airflow.apache.org/blog/airflow-two-point-oh-is-here/&quot; target=&quot;_blank&quot;&gt;Airflow 2.0&lt;/a&gt; is finally out, this was probably most anticipated release of Airflow mainly due to major refactoring around scheduler.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This is a major release. Since Airflow follows strict Semantic Versioning approach to release process, this implies major release such as 2.0, 3.0 will have backwards-incompatible changes. So this relase won’t be simple upgrade, it  will require  some planning, changes to your DAGs and comprehensive testing.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;should-i-care-to-update&quot;&gt;Should I care to update?&lt;/h3&gt;
-&lt;p&gt;As expected and planned Airflow 2.0 has many other big ticket changes many of them are major code refactoring. Moreover Airflow Team is encouraging users to upgrade by suggesting 1.x release will be supported only for a limited period of time and and only “Critical Fixes” will be backported to 1.10.x. But featurs not fear should be your guide to upgarde. Let’s have a quick look at new features in 2.0&lt;/p&gt;
-
-&lt;h5 id=&quot;scheduler-overhaul&quot;&gt;Scheduler Overhaul:&lt;/h5&gt;
-&lt;p&gt;Airflow Scheduler was bottleneck for scalability and worryingly the only ‘single point of failure’ in airflow architecture. It was neither horizontally scalable nor highly avilable. Scheduler hacks and bugs in my opinion were most hated and dreaded in airflow community. The refactoring of scheduler was &lt;a href=&quot;https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=103092651&quot; target=&quot;_blank&quot;&gt;long due&lt;/a&gt;.  With Airflow 2.0 not only many scheduler bugs have been fixed and it has been made highly available, but also the performance of single scheduler has been increased manifold. You can run multiple scheduler in active-active HA model, which is huge from performance and scalability perspective.&lt;/p&gt;
-
-&lt;h5 id=&quot;stateless-webserver&quot;&gt;Stateless Webserver:&lt;/h5&gt;
-&lt;p&gt;Airflow 2.0 mandates stateless webserver. In Airflow 1.x both Webservers and Scheduler parse and proces the DAGs. Webserver Gunicorn process each maintain it’s own DAG Bag, which can lead to inconsistant state. Webserver requiring to parse DAG files not only causes performance problems but also a deployment headaches as you are required to keep code in sync on multiple webserver nodes. With implementation of &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-24+DAG+Persistence+in+DB+using+JSON+for+Airflow+Webserver+and+%28optional%29+Scheduler&quot; target=&quot;_blank&quot;&gt;AIP-24&lt;/a&gt; DAG Serialization has been mandated, which mean Schedulers will parse the DAGs and searialize them in metadata database, webservers will load the DAG medatadata from the metadata DB.&lt;/p&gt;
-
-&lt;h5 id=&quot;task-groups&quot;&gt;Task Groups:&lt;/h5&gt;
-&lt;p&gt;Prior to Airflow 2.0 SubDAGs were commonly used for grouping tasks in the UI, using SubDagOperator. However  SubDagOperator launches a completely different DAG and then monitors it as a separate entity. This can lead to all sorts of edge case, bugs and maintenance nightmares. With implementation of &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-34+TaskGroup%3A+A+UI+task+grouping+concept+as+an+alternative+to+SubDagOperator&quot; target=&quot;_blank&quot;&gt;AIP-34&lt;/a&gt;, Airflow 2.0 introduces Task Groups as a method for organizing tasks which provides the same grouping behaviour as a subdag without any of the execution-time drawbacks. Here is an example of Task group&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;	&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TaskGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_group&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_task_group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;task1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;task2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;my_task_2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;other_task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyOperator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;other_task&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;my_task_group&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other_task&lt;/span&gt;
-	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h5 id=&quot;smart-sensors&quot;&gt;Smart Sensors:&lt;/h5&gt;
-&lt;p&gt;Most of the data pipelines make heavy use of sensors; sensors execution takes up a significant proportion of Airflow cluster even with “reschedule” mode. To improve this &lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-17%3A+Consolidate+and+de-duplicate+sensor+tasks+in+airflow+Smart+Sensor&quot; target=&quot;_blank&quot;&gt;AIP-17&lt;/a&gt; is implemented to add a new mode in Airflow called “Smart Sensors”. The smart sensor is a service (run by a builtin DAG) which greatly reduces airflow’s infrastructure cost by consolidating some of the airflow long running light weight tasks. Instead of using one process for each task, the main idea of the smart sensor service is to improve the efficiency of these long running tasks by using centralized processes to execute those tasks in batches. The smart sensor service is supported in a new mode called “smart sensor mode”.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;smart_sensor.png&quot; alt=&quot;Smart Sensors&quot; title=&quot;Smart Sensors&quot; /&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;task-flow-api&quot;&gt;Task Flow API:&lt;/h5&gt;
-&lt;p&gt;With implemenation of &lt;a href=&quot;https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=148638736&quot; target=&quot;_blank&quot;&gt;AIP-31&lt;/a&gt; DAGs are now much much nicer to code especially when using PythonOperator. This functional API will make DAGs writing significantly easier by abstracting the task and dependency management layer from users. Also to be noted &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xcom_backend&lt;/code&gt; parameter that will allow users to pass even various objects such as S3 and HDFS. Below is a quick sample, refer to &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#taskflow-api&quot; target=&quot;_blank&quot;&gt;airflow documentation&lt;/a&gt; for more details.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt; 
-	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;airflow.decorators&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
-	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;airflow.utils.dates&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days_ago&lt;/span&gt;
-
-	&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default_args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'owner'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'anuradha'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;schedule_interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days_ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_etl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
-	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-	       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;frequency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;161&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;age&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;99&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
-	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transformed_value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.618&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-	   &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ratio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	       &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Golden Ratio is {ratio:.2f}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-	   &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	   &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	   &lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transformed_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;my_etl_dag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_etl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h5 id=&quot;simplified-kubernetes-executor&quot;&gt;Simplified Kubernetes Executor&lt;/h5&gt;
-&lt;p&gt;Airflow 2.0  includes re-architecture of the Kubernetes Executor and KubernetesPodOperator. You will now be able to access the full Kubernetes API to create a .yaml &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/executor/kubernetes.html?highlight=pod_override#pod-template-file&quot; target=&quot;_blank&quot;&gt;pod_template_file&lt;/a&gt; instead of specifying parameters in their airflow.cfg.&lt;/p&gt;
-
-&lt;h5 id=&quot;fully-specified-rest-api&quot;&gt;Fully specified REST API&lt;/h5&gt;
-&lt;p&gt;Airflow now has a fully supported (no-longer-experimental, YaY!) API with a comprehensive OpenAPI specification.
-You can find more details about API &lt;a href=&quot;http://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h5 id=&quot;uiux-improvements&quot;&gt;UI/UX Improvements&lt;/h5&gt;
-&lt;p&gt;Airflow release notes claimed that UI has been given a visual refresh and updated some of the styling. Only refreshing feature I find in this UI refresh is “Auto Refresh”, pun intended.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;refresh.gif&quot; alt=&quot;UI Refresh&quot; title=&quot;UI Refresh&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;what-is-breaking&quot;&gt;What is breaking?&lt;/h3&gt;
-
-&lt;p&gt;As mentioned ealier, this release has breaking changes, here is list (not comprehensive) of backwards-incompatible changes.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;No support for Python 2, Airflow 2 works only with Python 3. Airflow 2.0.0 requires Python 3.6+ and has been tested with Python versions 3.6, 3.7 and 3.8, but does not yet support Python 3.9.&lt;/li&gt;
-  &lt;li&gt;FAB UI no longer supported, weather you like it or not you will have to use RBAC UI. If you are using custom Airflow Plugins and were passing admin_views &amp;amp; menu_links which were used in the non-RBAC UI (flask-admin based UI), you will have to update it to use flask_appbuilder_views and flask_appbuilder_menu_links.&lt;/li&gt;
-  &lt;li&gt;Airflow 2.0 is not a monolithic “one to rule them all” package. Airflow has been split into core and 61 (for now) provider packages. Each provider package is for either a particular external service e.g PostgreSQL, MySQL, HTTP, FTP etc. You will have to not only install the pacakges but also update your DAGs to refer to correct provider package.&lt;/li&gt;
-  &lt;li&gt;CLI options have been re-organized so that related commands are grouped together. If you have support team, processes and documentation, it will need updating.&lt;/li&gt;
-  &lt;li&gt;Connection type list in the Airflow UI is based on the providers you have installed with Airflow 2.0. So again make sure to install provider package, even if you were only using it to define a connection type.&lt;/li&gt;
-  &lt;li&gt;Jinja templete would break with use of ndefined variables instead of silently ignoring. You can override this behavior, but requires changes.&lt;/li&gt;
-  &lt;li&gt;Airflow metadata upgrade is not trivial to rollback, if you had to rollback.&lt;/li&gt;
-  &lt;li&gt;MariaDB and MySQL5 are not supported due to HA Scheduler requiring support for SKIP LOCKED or NOWAIT SQL clauses.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;how-difficult-is-it-to-upgrade&quot;&gt;How difficult is it to upgrade?&lt;/h3&gt;
-
-&lt;p&gt;I would say fairly complex, it would need planning if you are runnig a serious production data pipelines with Airflow. You get an idea of the complexity by lookig at &lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/upgrading-to-2.html#frequently-asked-questions-on-upgrade&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Upgrade Guide&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The upgrade itself is a  mulit-step process, you first need to upgrade to bridge release (1.10.14), Modify all your DAGs to ensure compatibility, update configuration settings, migrate metadata DB and upgrade Airflow to 2.0.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Many users have reported issues on upgrade specially around metadata migration and providers. Many users have reported issues during upgrade and many have reported issues after upgrade. I would recommend doing a through planning and testing in non-production environment before upgrading production.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;should-i-upgrade&quot;&gt;Should I Upgrade?&lt;/h3&gt;
-&lt;p&gt;Short answer is &lt;strong&gt;Yes&lt;/strong&gt;, but it is more complex than that. If you have pressing priorities on your data delivery, you shold handle them first. Aifrlow 2.0 will not produce any new magical results for you.&lt;/p&gt;
-
-&lt;p&gt;If you are starting now or in initial stages of buidling your data pipelines with Airflow, I would highly recommend that you start using Airflow 2.0 now.&lt;/p&gt;
-
-&lt;p&gt;Airflow documentation clearly says:  &lt;em&gt;“Airflow 1.10.x release tree will be supported for a limited time after the GA release of Airflow 2.0 to give users time to upgrade from one of the Airflow 1.10.x releases. Specifically, only “critical fixes” defined as fixes to bugs that take down Production systems, will be backported to 1.10.x core for six months after Airflow 2.0.0 is released.”&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;So you should start preparing/planning for upgrade as soon as possible. Plan for upgrade to take advantage of new features not just for sake of it. I would personally wait for release 2.1 for actual upgrade but start to plan for the upgrade today.&lt;/p&gt;
-
-&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/blog/airflow-two-point-oh-is-here/&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release Announcement&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/apache/airflow/releases/tag/2.0.0&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release tag on Github&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/apache/airflow/issues/10152&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Release Ticket&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cwiki.apache.org/confluence/display/AIRFLOW/Airflow+2.0+-+Planning&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Planning Confluence Page&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/tutorial_taskflow_api.html&quot; target=&quot;_blank&quot;&gt;TaskFlow API documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/2.0.0/scheduler.html&quot; target=&quot;_blank&quot;&gt;Scheduler documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://airflow.apache.org/docs/apache-airflow/stable/concepts.html&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Concepts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.astronomer.io/blog/airflow-2-scheduler&quot; target=&quot;_blank&quot;&gt;Airflow 2.0 Rlease Announcement on Astronomer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="Airflow" /><category term="Simplified" /><category term="Prod" /><summary type="html">Photo by Priscilla Du Preez</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Pyspark Kernel with Jupyter</title><link href="https://www.achowdhary.com/jupyterhub-pyspark-kernel/" rel="alternate" type="text/html" title="Pyspark Kernel with Jupyter" /><published>2020-11-14T13:03:33+05:30</published><updated>2020-11-14T13:03:33+05:30</updated><id>https://www.achowdhary.com/jupyterhub-pyspark-kernel</id><content type="html" xml:base="https://www.achowdhary.com/jupyterhub-pyspark-kernel/">&lt;figure&gt;
-&lt;img src=&quot;spacex.jpg&quot; alt=&quot;Vi Cheat Sheet&quot; /&gt;
-&lt;figcaption style=&quot;color: grey !important;&quot;&gt; 
-        Photo by &lt;a href=&quot;https://unsplash.com/@spacex&quot; style=&quot;color: grey !important;&quot; target=&quot;_blank&quot;&gt;SpaceX&lt;/a&gt; 
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;install-java-and-scala&quot;&gt;Install Java and Scala&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        scala -version
-        java -version
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;install-java-and-export&quot;&gt;Install Java and export&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-        export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;install-py4j&quot;&gt;Install py4j&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        pip install py4j
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;install-py4j-1&quot;&gt;Install py4j&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        pip install py4j
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;create-pyspark-kernel-json&quot;&gt;Create pyspark kernel JSON&lt;/h2&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        {
-         &quot;display_name&quot;: &quot;PySpark&quot;,
-         &quot;language&quot;: &quot;python&quot;,
-         &quot;argv&quot;: [
-          &quot;&amp;lt;python_path&amp;gt;&quot;,
-          &quot;-m&quot;,
-          &quot;ipykernel&quot;,
-          &quot;-f&quot;,
-          &quot;{connection_file}&quot;
-         ],
-         &quot;env&quot;: {
-          &quot;SPARK_HOME&quot;: &quot;&amp;lt;spark_home&amp;gt;&quot;,
-          &quot;PYTHONPATH&quot;: &quot;&amp;lt;spark_home&amp;gt;/python/:&amp;lt;spark_home&amp;gt;/python/lib/py4j-0.9-src.zip&quot;,
-          &quot;PYTHONSTARTUP&quot;: &quot;&amp;lt;spark_home&amp;gt;/python/pyspark/shell.py&quot;,
-          &quot;PYSPARK_SUBMIT_ARGS&quot;: &quot;--master local[*] pyspark-shell&quot;
-         }
-        }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jupyter-client.readthedocs.io/en/stable/kernels.html&quot;&gt;https://jupyter-client.readthedocs.io/en/stable/kernels.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pypi.org/project/pyspark-kernel/&quot;&gt;https://pypi.org/project/pyspark-kernel/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jupyter" /><category term="HowTo" /><category term="spark" /><summary type="html">Photo by SpaceX</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/jupyterhub-pyspark-kernel/sparks.jpg" /><media:content medium="image" url="https://www.achowdhary.com/jupyterhub-pyspark-kernel/sparks.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name>Anuradha Chowdhary</name><email>anuradha@shoonye.com</email></author><category term="jekyll" /><category term="github" /><category term="website" /><summary type="html">I recently moved my website/blog from wordpress to Jekyll + Github Pages (I am still migrating). I love simplicity of both Jekyll and Gihub, that is the precise reson for the move. Wordpress is still awesome and best CMS, but for a simple website like mine, Jekyll and Github Pages are most efficient and cost effective. Making beautiful static website couldn’t be any cheaper and easier.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" /><media:content medium="image" url="https://www.achowdhary.com/airflow-concurrency-simplified/airflow.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

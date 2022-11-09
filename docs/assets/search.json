@@ -1,6 +1,20 @@
 [
   
     {
+      "title"    : "Writing Airflow Plugin",
+      "tags"     : "Airflow, Guide, HowTo",
+      "url"      : "/writing-airflow-plugin/",
+      "date"     : "2022-11-07 16:50:47 +0530"
+    } ,
+  
+    {
+      "title"    : "Annouuncing Aerofoil - An Airflow Plugin",
+      "tags"     : "Airflow, Aerofoil",
+      "url"      : "/announcing-aerofoil/",
+      "date"     : "2022-11-03 11:35:42 +0530"
+    } ,
+  
+    {
       "title"    : "Practical Lean Architecture",
       "tags"     : "architecture",
       "url"      : "/practical-lean-architecture/",
